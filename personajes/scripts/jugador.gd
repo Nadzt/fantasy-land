@@ -3,6 +3,7 @@ extends Personaje
 
 @export var speed: float = 300.0
 @export var jump_velocity: float = -400.0
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var _saltos_hechos: int = 0
 
@@ -17,6 +18,7 @@ func _init():
 func recibir_dmg(dmg: int) -> void:
 	var dmg_final := maxi(dmg - _defensa, 0)
 	_vida -= dmg_final
+	sprite.play("recibir_ataque")
 	if _vida <= 0:
 		_vida = 0
 		_morir()
@@ -51,6 +53,8 @@ func agarrar_item() -> void:
 
 func _physics_process(delta):
 	super._physics_process(delta)
+	if is_on_floor():
+		sprite.play("idle")
 	correr(delta)
 	saltar(delta)
 	
@@ -59,22 +63,31 @@ func _physics_process(delta):
 
 func trepar() -> void:
 	velocity.y = -speed
+	sprite.play("trepar")
 
 func saltar(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		_saltos_hechos = 1
 		velocity.y = jump_velocity
+		sprite.play("salto")
 		
 func correr(delta):	
 	var dire := Input.get_axis("ui_left", "ui_right")
 	
-	# para verificar si mantiene el espacio para correr
-	if Input.is_action_pressed("ui_accept"):
-		velocity.x = dire * speed * 2  # corre
+	if dire != 0:
+		sprite.flip_h = dire < 0 
+		
+		if Input.is_action_pressed("ui_accept"):
+			velocity.x = dire * speed * 2 # corre
+			sprite.play("correr")
+		else:
+			velocity.x = dire * speed     # camina
+			sprite.play("caminar")
 	else:
-		velocity.x = dire * speed      # camina
+		velocity.x = 0
 
 func doble_salto() -> void:
 	if not is_on_floor() and _saltos_hechos < 2:
 		_saltos_hechos += 1
 		velocity.y = jump_velocity
+		sprite.play("salto")
