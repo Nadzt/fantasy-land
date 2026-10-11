@@ -51,7 +51,6 @@ func agarrar_item() -> void:
 
 func _physics_process(delta):
 	super._physics_process(delta)
-
 	correr(delta)
 	saltar(delta)
 	
@@ -65,10 +64,15 @@ func saltar(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		_saltos_hechos = 1
 		velocity.y = jump_velocity
-
-func correr(delta):
+		
+func correr(delta):	
 	var dire := Input.get_axis("ui_left", "ui_right")
-	velocity.x = dire * speed
+	
+	# para verificar si mantiene el espacio para correr
+	if Input.is_action_pressed("ui_accept"):
+		velocity.x = dire * speed * 2  # corre
+	else:
+		velocity.x = dire * speed      # camina
 
 func doble_salto() -> void:
 	if not is_on_floor() and _saltos_hechos < 2:
