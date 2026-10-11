@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmr0tsm7s037b"
-path="res://.godot/imported/Chara_BlueWalk00015.png-40ab8b3d6df67e99f0e4f86bdcd70c4c.ctex"
+path="res://.godot/imported/Chara_BlueWalk00015.png-0a259dca936e85bfaad04653bbf233f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/mago/caminando/Chara_BlueWalk00015.png"
-dest_files=["res://.godot/imported/Chara_BlueWalk00015.png-40ab8b3d6df67e99f0e4f86bdcd70c4c.ctex"]
+source_file="res://Personajes/enemigos/mago/caminando/Chara_BlueWalk00015.png"
+dest_files=["res://.godot/imported/Chara_BlueWalk00015.png-0a259dca936e85bfaad04653bbf233f5.ctex"]
 
 [params]
 

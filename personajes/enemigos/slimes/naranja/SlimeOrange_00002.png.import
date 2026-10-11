@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dk6lqsjo751mt"
-path="res://.godot/imported/SlimeOrange_00002.png-ed4cb6b8ef69427ce932a8050647b5a7.ctex"
+path="res://.godot/imported/SlimeOrange_00002.png-891d488520da975f6b50b8fe3921dd52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/slimes/naranja/SlimeOrange_00002.png"
-dest_files=["res://.godot/imported/SlimeOrange_00002.png-ed4cb6b8ef69427ce932a8050647b5a7.ctex"]
+source_file="res://Personajes/enemigos/slimes/naranja/SlimeOrange_00002.png"
+dest_files=["res://.godot/imported/SlimeOrange_00002.png-891d488520da975f6b50b8fe3921dd52.ctex"]
 
 [params]
 

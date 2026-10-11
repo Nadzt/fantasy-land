@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://64vwa4vrgctm"
-path="res://.godot/imported/SlimeBasic_00007.png-988b068f6116f205a5a3ef11ff6c6ff7.ctex"
+path="res://.godot/imported/SlimeBasic_00007.png-2e806fd944d56886246a29c6b8f7124b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/slimes/verde/SlimeBasic_00007.png"
-dest_files=["res://.godot/imported/SlimeBasic_00007.png-988b068f6116f205a5a3ef11ff6c6ff7.ctex"]
+source_file="res://Personajes/enemigos/slimes/verde/SlimeBasic_00007.png"
+dest_files=["res://.godot/imported/SlimeBasic_00007.png-2e806fd944d56886246a29c6b8f7124b.ctex"]
 
 [params]
 

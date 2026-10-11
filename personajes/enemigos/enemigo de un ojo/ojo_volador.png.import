@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bq3e1ehkvav2s"
-path="res://.godot/imported/ojo_volador.png-eddaa5ee7a7610f404bfc7d380f1d4aa.ctex"
+path="res://.godot/imported/ojo_volador.png-9056e8b30fef7d5de2b8729e0aa9cf59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/enemigo de un ojo/ojo_volador.png"
-dest_files=["res://.godot/imported/ojo_volador.png-eddaa5ee7a7610f404bfc7d380f1d4aa.ctex"]
+source_file="res://Personajes/enemigos/enemigo de un ojo/ojo_volador.png"
+dest_files=["res://.godot/imported/ojo_volador.png-9056e8b30fef7d5de2b8729e0aa9cf59.ctex"]
 
 [params]
 

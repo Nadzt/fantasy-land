@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4otjdk7751sy"
-path="res://.godot/imported/BlueWizardDash_00004.png-c5210afa572ff6823d54987baa4f4204.ctex"
+path="res://.godot/imported/BlueWizardDash_00004.png-90429a810227448c45f2e07d56e27384.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/mago/salto/BlueWizardDash_00004.png"
-dest_files=["res://.godot/imported/BlueWizardDash_00004.png-c5210afa572ff6823d54987baa4f4204.ctex"]
+source_file="res://Personajes/enemigos/mago/salto/BlueWizardDash_00004.png"
+dest_files=["res://.godot/imported/BlueWizardDash_00004.png-90429a810227448c45f2e07d56e27384.ctex"]
 
 [params]
 

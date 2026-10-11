@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ch1qvccybh64e"]
+
+[ext_resource type="PackedScene" uid="uid://dy1y8qqrxvc51" path="res://scenes/arma_melee.tscn" id="1_37kl0"]
+
+[node name="Node2D" type="Node2D" unique_id=198373447]
+
+[node name="Arma" parent="." unique_id=417194038 instance=ExtResource("1_37kl0")]
+position = Vector2(269, 266)
