@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Fantasy Land"
+run/main_scene="uid://cfnsd2y8p0dkf"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*uid://bn2wbgktfc7x8"
 
 [physics]
 
