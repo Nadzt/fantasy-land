@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvt0jn4ym14yj"
-path="res://.godot/imported/Death-Sheet.png-c29007fa33b0b67762c6140b52e317ec.ctex"
+path="res://.godot/imported/Death-Sheet.png-0398ab08a41489e7fbfc7396c971242f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/orcos/shaman/Death-Sheet.png"
-dest_files=["res://.godot/imported/Death-Sheet.png-c29007fa33b0b67762c6140b52e317ec.ctex"]
+source_file="res://Personajes/enemigos/orcos/shaman/Death-Sheet.png"
+dest_files=["res://.godot/imported/Death-Sheet.png-0398ab08a41489e7fbfc7396c971242f.ctex"]
 
 [params]
 

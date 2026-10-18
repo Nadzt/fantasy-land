@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://oincqgewxcgn"
-path="res://.godot/imported/Run-Sheet.png-77bc47b3bd26bc184b608dea227fea1c.ctex"
+path="res://.godot/imported/Run-Sheet.png-a953c2b746f407aa0981b8a5c731061e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/esqueletos/tunica/Run-Sheet.png"
-dest_files=["res://.godot/imported/Run-Sheet.png-77bc47b3bd26bc184b608dea227fea1c.ctex"]
+source_file="res://Personajes/enemigos/esqueletos/tunica/Run-Sheet.png"
+dest_files=["res://.godot/imported/Run-Sheet.png-a953c2b746f407aa0981b8a5c731061e.ctex"]
 
 [params]
 

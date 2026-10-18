@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cis7l1nwf871g"
-path="res://.godot/imported/Run-Sheet.png-383aa86553ff31f3919abc0d77e34476.ctex"
+path="res://.godot/imported/Run-Sheet.png-59003bff5ebc61d867f3903f9eac4410.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/orcos/comun/Run-Sheet.png"
-dest_files=["res://.godot/imported/Run-Sheet.png-383aa86553ff31f3919abc0d77e34476.ctex"]
+source_file="res://Personajes/enemigos/orcos/comun/Run-Sheet.png"
+dest_files=["res://.godot/imported/Run-Sheet.png-59003bff5ebc61d867f3903f9eac4410.ctex"]
 
 [params]
 

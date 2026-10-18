@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpixeb3leksb4"
-path="res://.godot/imported/Death-Sheet.png-c6d46988a9c38193274c5f563e926bf0.ctex"
+path="res://.godot/imported/Death-Sheet.png-4666534f75e950d978b8661d82112b44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/orcos/armado/Death-Sheet.png"
-dest_files=["res://.godot/imported/Death-Sheet.png-c6d46988a9c38193274c5f563e926bf0.ctex"]
+source_file="res://Personajes/enemigos/orcos/armado/Death-Sheet.png"
+dest_files=["res://.godot/imported/Death-Sheet.png-4666534f75e950d978b8661d82112b44.ctex"]
 
 [params]
 

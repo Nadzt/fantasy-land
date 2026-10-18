@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4kl0cpnxinbd"
-path="res://.godot/imported/spirit-small.png-8b8dc65b5e41ca654a7761bb886ee976.ctex"
+path="res://.godot/imported/spirit-small.png-3e2e96b5c7db041b406aba1d120c3ce9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/spirit-small.png"
-dest_files=["res://.godot/imported/spirit-small.png-8b8dc65b5e41ca654a7761bb886ee976.ctex"]
+source_file="res://Personajes/spirit-small.png"
+dest_files=["res://.godot/imported/spirit-small.png-3e2e96b5c7db041b406aba1d120c3ce9.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2ce3iwx5p4hg"
-path="res://.godot/imported/Death-Sheet.png-2a1dcd0303133e67a608799a33c4d703.ctex"
+path="res://.godot/imported/Death-Sheet.png-d8afc863aa6c5cfd8bdfa09b6482b345.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/esqueletos/encapuchado/Death-Sheet.png"
-dest_files=["res://.godot/imported/Death-Sheet.png-2a1dcd0303133e67a608799a33c4d703.ctex"]
+source_file="res://Personajes/enemigos/esqueletos/encapuchado/Death-Sheet.png"
+dest_files=["res://.godot/imported/Death-Sheet.png-d8afc863aa6c5cfd8bdfa09b6482b345.ctex"]
 
 [params]
 

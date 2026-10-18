@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7aaxdd4p8syg"
-path="res://.godot/imported/larva.png-c5332f82380a3a9e8a92000e85c278eb.ctex"
+path="res://.godot/imported/larva.png-16260086faa72109da5f465251d6baa6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/larva.png"
-dest_files=["res://.godot/imported/larva.png-c5332f82380a3a9e8a92000e85c278eb.ctex"]
+source_file="res://Personajes/enemigos/larva.png"
+dest_files=["res://.godot/imported/larva.png-16260086faa72109da5f465251d6baa6.ctex"]
 
 [params]
 

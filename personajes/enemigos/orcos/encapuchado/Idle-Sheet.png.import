@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b06wgpiuld4ko"
-path="res://.godot/imported/Idle-Sheet.png-28e30fbea5400e26c8f42759d78b99a0.ctex"
+path="res://.godot/imported/Idle-Sheet.png-9d0f83530a935b964cf09e443c979946.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/orcos/encapuchado/Idle-Sheet.png"
-dest_files=["res://.godot/imported/Idle-Sheet.png-28e30fbea5400e26c8f42759d78b99a0.ctex"]
+source_file="res://Personajes/enemigos/orcos/encapuchado/Idle-Sheet.png"
+dest_files=["res://.godot/imported/Idle-Sheet.png-9d0f83530a935b964cf09e443c979946.ctex"]
 
 [params]
 

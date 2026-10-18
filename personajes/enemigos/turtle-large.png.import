@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsguranys4npt"
-path="res://.godot/imported/turtle-large.png-eb0f301b99a9f85d641c346b4d24bcd5.ctex"
+path="res://.godot/imported/turtle-large.png-3183c013be7e7fe42427228046915486.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/turtle-large.png"
-dest_files=["res://.godot/imported/turtle-large.png-eb0f301b99a9f85d641c346b4d24bcd5.ctex"]
+source_file="res://Personajes/enemigos/turtle-large.png"
+dest_files=["res://.godot/imported/turtle-large.png-3183c013be7e7fe42427228046915486.ctex"]
 
 [params]
 

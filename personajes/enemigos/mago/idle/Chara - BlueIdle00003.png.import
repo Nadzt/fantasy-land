@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5hyprkufi453"
-path="res://.godot/imported/Chara - BlueIdle00003.png-0798460afe2c5fbc8d05da7948bddabd.ctex"
+path="res://.godot/imported/Chara - BlueIdle00003.png-08c654476eac81fb6a07915c48b09f25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/mago/idle/Chara - BlueIdle00003.png"
-dest_files=["res://.godot/imported/Chara - BlueIdle00003.png-0798460afe2c5fbc8d05da7948bddabd.ctex"]
+source_file="res://Personajes/enemigos/mago/idle/Chara - BlueIdle00003.png"
+dest_files=["res://.godot/imported/Chara - BlueIdle00003.png-08c654476eac81fb6a07915c48b09f25.ctex"]
 
 [params]
 

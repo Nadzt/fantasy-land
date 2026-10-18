@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bj8am86h8jidc"
-path="res://.godot/imported/Run-Sheet.png-4ae495177fd34293552c56e2d69cd7c7.ctex"
+path="res://.godot/imported/Run-Sheet.png-b5077ad25af2ada1146af3c7874f8bc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/orcos/shaman/Run-Sheet.png"
-dest_files=["res://.godot/imported/Run-Sheet.png-4ae495177fd34293552c56e2d69cd7c7.ctex"]
+source_file="res://Personajes/enemigos/orcos/shaman/Run-Sheet.png"
+dest_files=["res://.godot/imported/Run-Sheet.png-b5077ad25af2ada1146af3c7874f8bc8.ctex"]
 
 [params]
 

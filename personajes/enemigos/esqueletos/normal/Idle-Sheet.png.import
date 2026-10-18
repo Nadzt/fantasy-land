@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmhysblbckhj6"
-path="res://.godot/imported/Idle-Sheet.png-e81efa11cd356771492c03d55de7c46e.ctex"
+path="res://.godot/imported/Idle-Sheet.png-5f7f1bc465a4fc6a7fee4d595f7a69a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/enemigos/esqueletos/normal/Idle-Sheet.png"
-dest_files=["res://.godot/imported/Idle-Sheet.png-e81efa11cd356771492c03d55de7c46e.ctex"]
+source_file="res://Personajes/enemigos/esqueletos/normal/Idle-Sheet.png"
+dest_files=["res://.godot/imported/Idle-Sheet.png-5f7f1bc465a4fc6a7fee4d595f7a69a0.ctex"]
 
 [params]
 
