@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cxx00mk654lf8"]
+
+[ext_resource type="Script" uid="uid://x258tbn5k1ni" path="res://pruebita.gd" id="1_l5pg0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5pg0"]
+size = Vector2(330, 20)
+
+[node name="Node2D" type="Node2D" unique_id=613286823]
+script = ExtResource("1_l5pg0")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=759102489]
+position = Vector2(161, 90)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1561735127]
+position = Vector2(167, 170)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=768523821]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_l5pg0")
