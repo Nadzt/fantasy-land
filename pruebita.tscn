@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxx00mk654lf8"]
 
-[ext_resource type="Script" uid="uid://x258tbn5k1ni" path="res://pruebita.gd" id="1_l5pg0"]
+[ext_resource type="Script" uid="uid://x258tbn5k1ni" path="res://Personajes/scripts/pruebita.gd" id="1_l5pg0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5pg0"]
 size = Vector2(330, 20)

@@ -21,11 +21,8 @@ func recibir_dmg(dmg: int) -> void:
 	sprite.play("recibir_ataque")
 	if _vida <= 0:
 		_vida = 0
-		_morir()
- 
-func _morir() -> void:
-	queue_free()
-	
+		super._morir()
+
 #func usar_mano_derecha() -> void:
 	#if mano_derecha:
 		#mano_derecha.usar()

@@ -21,3 +21,6 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta/2
 
 	move_and_slide()
+
+func _morir() -> void:
+	queue_free()
