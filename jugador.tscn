@@ -367,7 +367,7 @@ position = Vector2(0, 3.5)
 shape = SubResource("CapsuleShape2D_1fil1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2035435485]
+texture_filter = 1
 position = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_o4ec4")
-animation = &"agarrarse"
-frame_progress = 0.31987834
+animation = &"trepar"
