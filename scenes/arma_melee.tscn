@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://dy1y8qqrxvc51"]
 
 [ext_resource type="Script" uid="uid://dc4wnsrivotgr" path="res://arma_melee.gd" id="1_0fmgw"]
-[ext_resource type="Resource" uid="uid://cjrobra56l458" path="res://resources/armas/hacha.tres" id="2_krxa6"]
-[ext_resource type="Texture2D" uid="uid://b0ttk3n1kqsvc" path="res://resources/sprites/armas/espada_madera_sprite.tres" id="3_krxa6"]
+[ext_resource type="Texture2D" uid="uid://dq6qndxijyrbs" path="res://resources/sprites/armas/lanza_madera_sprite.tres" id="3_krxa6"]
 
 [node name="ArmaMelee" type="Node2D" unique_id=417194038 node_paths=PackedStringArray("sprite", "pivote", "container", "hitbox", "cooldown_timer", "esperando_timer")]
 script = ExtResource("1_0fmgw")
-res = ExtResource("2_krxa6")
 sprite = NodePath("Pivote/Container/Sprite2D")
 pivote = NodePath("Pivote")
 container = NodePath("Pivote/Container")
@@ -17,7 +15,7 @@ esperando_timer = NodePath("EsperandoTimer")
 [node name="Pivote" type="Node2D" parent="." unique_id=622450963]
 
 [node name="Container" type="Node2D" parent="Pivote" unique_id=1412399964]
-position = Vector2(0, -12.5)
+position = Vector2(0, -17.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivote/Container" unique_id=1448188816]
 texture = ExtResource("3_krxa6")
@@ -25,7 +23,7 @@ texture = ExtResource("3_krxa6")
 [node name="Area2D" type="Area2D" parent="Pivote/Container" unique_id=227140475]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivote/Container/Area2D" unique_id=403927143]
-polygon = PackedVector2Array(-8, -14, 8, -14, 8, -4, -8, -4)
+polygon = PackedVector2Array(2, -24.5, 4, -10.5, -4, -10.5)
 
 [node name="CooldownTimer" type="Timer" parent="." unique_id=878450249]
 one_shot = true

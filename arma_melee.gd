@@ -40,8 +40,14 @@ enum estado {
 	volviendo,
 	en_cooldown
 }
+
 var estado_actual: estado = estado.lista
 var angulo_acumulado: float = 0.0
+#
+var traslado_acumulado: float = 0.0
+var progreso: float = 0.0
+var tiempo_de_ataque: float = .3
+var curva_ease: float = 4.0
 
 ## ejecuta una funcion si esta modo debug activado
 func print_dev(callback: Callable) -> void:
@@ -67,11 +73,11 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 #
 func _ready() -> void:
+	print_dev(print_coords_hitbox)
+		
 	_cargar_sprite_y_alinear()
 	_cargar_info_general()
 	_cargar_stats_de_animacion()
-	
-	print_dev(print_coords_hitbox)
 
 #
 func _physics_process(delta: float) -> void:
@@ -79,6 +85,9 @@ func _physics_process(delta: float) -> void:
 	match tipo_ataque:
 		ArmaResource.tipo_ataque.arco:
 			ataque_en_arco(delta)
+		
+		ArmaResource.tipo_ataque.estocada:
+			ataque_en_estocada(delta)
 
 #region inicializacion
 ## carga el sprite, posiciona el origen en el mango y carga el hitbox
@@ -125,6 +134,16 @@ func ataque_en_arco(delta: float) -> void:
 	# animo la vuelta si tiene que volver
 	if estado_actual == estado.volviendo:
 		animar_en_arco_vuelta(delta)
+
+func ataque_en_estocada(delta: float) -> void:
+	# animo la ida si tiene esta atacando
+	if estado_actual == estado.atacando:
+		animar_estocada_ida(delta)
+	
+	# animo la vuelta si tiene que volver
+	#if estado_actual == estado.volviendo:
+		#animar_en_arco_vuelta(delta)
+
 
 ## empieza el timer entre que cae el arma y empieza a volver
 func _start_wait_time(time: float) -> void:
@@ -190,3 +209,30 @@ func _on_cooldown_timer_timeout() -> void:
 ## Hitbox
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("%s le pego a un body: %s" % [nombre, body.name])
+
+
+#region animaciones de estocada
+
+## anima la ida del ataque tipo estocada, termina el ataque al llegar al "rango estocada"
+func animar_estocada_ida(delta: float) -> void:
+	print(res._largo_estocada / speed)
+	# calculo el total del progreso en tiempo
+	progreso += delta / tiempo_de_ataque
+	progreso = min(progreso, 1.0)
+	
+	# calculo el porcentaje sobre el total que debe recorrer con la funcion ease(,)
+	# si el 2do parametro es mayor a 1 es ease-in https://byteatatime.dev/posts/easings/
+	var t_suave = ease(progreso, curva_ease)
+	
+	# calculo la nueva posicion
+	var nueva_pos_x = t_suave * res._largo_estocada
+	
+	# si es el final termino el ataque
+	if progreso >= 1.0:
+		# termina el ataque y empieza el timer de espera
+		terminar_ataque()
+		_start_wait_time(wait_time)
+	
+	pivote.position.x = nueva_pos_x
+
+#endregion

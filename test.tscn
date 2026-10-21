@@ -2,8 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dy1y8qqrxvc51" path="res://scenes/arma_melee.tscn" id="1_37kl0"]
 [ext_resource type="Resource" uid="uid://bykekbj1ujhre" path="res://resources/armas/espada.tres" id="2_8uh7m"]
+[ext_resource type="Resource" uid="uid://cjrobra56l458" path="res://resources/armas/hacha.tres" id="3_g14j6"]
 [ext_resource type="Resource" uid="uid://bwbvgriaivsdo" path="res://resources/armas/martillo.tres" id="3_ppyta"]
 [ext_resource type="Resource" uid="uid://xo8sog7w3ju0" path="res://resources/armas/scythe.tres" id="4_ykrsh"]
+[ext_resource type="Resource" uid="uid://b32k2j5eplkg" path="res://resources/armas/lanza.tres" id="5_ykrsh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_37kl0"]
 radius = 11.401754
@@ -18,6 +20,7 @@ res = ExtResource("2_8uh7m")
 [node name="Hacha" parent="." unique_id=1745940660 instance=ExtResource("1_37kl0")]
 position = Vector2(343, 275)
 debug = false
+res = ExtResource("3_g14j6")
 
 [node name="Martillo" parent="." unique_id=2121621521 instance=ExtResource("1_37kl0")]
 position = Vector2(411, 274)
@@ -28,6 +31,11 @@ res = ExtResource("3_ppyta")
 position = Vector2(475, 273)
 debug = false
 res = ExtResource("4_ykrsh")
+
+[node name="Lanza" parent="." unique_id=1138211403 instance=ExtResource("1_37kl0")]
+position = Vector2(230, 354)
+debug = false
+res = ExtResource("5_ykrsh")
 
 [node name="Test pj" type="CharacterBody2D" parent="." unique_id=255035406]
 position = Vector2(303, 311)

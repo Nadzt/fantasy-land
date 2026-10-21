@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ArmaResource" format=3 uid="uid://b32k2j5eplkg"]
+
+[ext_resource type="Texture2D" uid="uid://dq6qndxijyrbs" path="res://resources/sprites/armas/lanza_madera_sprite.tres" id="1_64n4j"]
+[ext_resource type="Script" uid="uid://b8i8ll3s3la6h" path="res://scripts/resources/ArmaResource.gd" id="1_fuuif"]
+
+[resource]
+script = ExtResource("1_fuuif")
+_sprite = ExtResource("1_64n4j")
+_pos_mano = Vector2(0, -17.5)
+_area_polygon_array = PackedVector2Array(2, -24.5, 4, -10.5, -4, -10.5)
+_nombre = "Lanza de madera"
+_dmg = 4
+_tipo_ataque = 1
+_arco_de_ataque = 100.0
+_speed_return = 20.0
+_wait_time = 0.2
+_cooldown = 0.5
+_largo_estocada = 250.0
+metadata/_custom_type_script = "uid://b8i8ll3s3la6h"

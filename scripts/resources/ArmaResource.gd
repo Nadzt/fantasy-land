@@ -1,7 +1,9 @@
 class_name ArmaResource extends Resource
 
 enum tipo_ataque {
+	## un arma que ataca en un arco, tipo slash
 	arco,
+	## un arma que ataca con una estocada
 	estocada
 }
 
@@ -16,12 +18,21 @@ enum tipo_ataque {
 @export var _es_de_dos_manos: bool
 
 @export_group("animacion")
+## tipo de ataque, puede ser en arco (slash) o estocada (stabby stab)
 @export var _tipo_ataque: tipo_ataque
+## arco de ataque para un ataque de tipo slash (en radianes)
 @export var _arco_de_ataque: float
+## la velocidad en la que se mueve el arma cuando ataca
 @export var _speed: float
+## el tiempo de espera que esta en la posicion final del ataque antes de volver
 @export var _speed_return: float
+## la velocidad en la que vuelve despues de atacar
 @export var _wait_time: float
+## el tiempo que tarda en habilitarse el proximo ataque
 @export var _cooldown: float
+
+@export var _preparacion: float = 20
+@export var _largo_estocada: float = 100
 
 ## retorna el sprite del arma
 func get_sprite() -> AtlasTexture:
@@ -64,5 +75,6 @@ func get_wait_t() -> float:
 func get_atk_arc() -> float:
 	return _arco_de_ataque
 
+## devuelve el tipo de ataque de esa arma
 func get_tipo_de_ataque() -> tipo_ataque:
 	return _tipo_ataque
