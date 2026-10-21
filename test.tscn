@@ -12,22 +12,26 @@ radius = 11.401754
 
 [node name="Espada" parent="." unique_id=417194038 instance=ExtResource("1_37kl0")]
 position = Vector2(233, 274)
+debug = false
 res = ExtResource("2_8uh7m")
 
 [node name="Hacha" parent="." unique_id=1745940660 instance=ExtResource("1_37kl0")]
 position = Vector2(343, 275)
+debug = false
 
 [node name="Martillo" parent="." unique_id=2121621521 instance=ExtResource("1_37kl0")]
 position = Vector2(411, 274)
+debug = false
 res = ExtResource("3_ppyta")
 
 [node name="Scythe" parent="." unique_id=188380445 instance=ExtResource("1_37kl0")]
 position = Vector2(475, 273)
+debug = false
 res = ExtResource("4_ykrsh")
 
 [node name="Test pj" type="CharacterBody2D" parent="." unique_id=255035406]
 position = Vector2(303, 311)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Test pj" unique_id=991047539]
-position = Vector2(-16, -45)
+position = Vector2(-45, -47)
 shape = SubResource("CircleShape2D_37kl0")

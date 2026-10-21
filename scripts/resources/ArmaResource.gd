@@ -10,7 +10,7 @@ enum tipo_ataque {
 @export var _pos_mano: Vector2
 @export var _area_polygon_array: PackedVector2Array
 
-@export_group("stats")
+@export_group("data")
 @export var _nombre: String
 @export var _dmg: int
 @export var _es_de_dos_manos: bool
@@ -34,6 +34,15 @@ func get_pos_mano() -> Vector2:
 ## retorna las coordenadas del hitbox del area2d
 func get_hitbox_area() -> PackedVector2Array:
 	return _area_polygon_array
+
+func get_nombre() -> String:
+	return _nombre
+	
+func get_dmg() -> int:
+	return _dmg
+	
+func es_de_dos_manos() -> bool:
+	return _es_de_dos_manos
 
 ## la velocidad en la que el arma ataca o la velocidad del proyectil
 func get_speed() -> float:
