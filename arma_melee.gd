@@ -2,6 +2,7 @@ class_name ArmaMelee extends Node2D
 
 @export var debug: bool = true
 @export var res: ArmaResource
+@export_group("info general")
 @export var nombre: String
 @export var dmg: int
 @export var es_de_dos_manos: bool
@@ -13,7 +14,6 @@ class_name ArmaMelee extends Node2D
 ## el container que se mueve para que el pivote se alinie con la mano del arma
 @export var container: Node2D
 @export var hitbox: CollisionPolygon2D
-@export_subgroup("timers")
 @export var cooldown_timer: Timer
 @export var esperando_timer: Timer
 
@@ -35,6 +35,7 @@ class_name ArmaMelee extends Node2D
 ## estados en los que se puede encontrar un ataque
 enum estado {
 	lista,
+	anticipacion,
 	atacando,
 	esperando,
 	volviendo,
@@ -43,12 +44,18 @@ enum estado {
 
 @export var estado_actual: estado = estado.lista
 var angulo_acumulado: float = 0.0
-#
+
 @export_group("estocada - temp")
 @export var traslado_acumulado: float = 0.0
 @export var progreso: float = 0.0
 @export var tiempo_de_ataque: float = .1
 @export var curva_ease: float = 2.0
+
+@export_group("anticipacion - temp")
+## el tiempo que toma la aniticipacion
+@export var tiempo_de_anticipacion: float = 1
+@export var curva_ease_anticipacion: float = 2.0
+
 
 ## ejecuta una funcion si esta modo debug activado
 func print_dev(callback: Callable) -> void:
@@ -140,6 +147,10 @@ func ataque_en_arco(delta: float) -> void:
 		animar_en_arco_vuelta(delta)
 
 func ataque_en_estocada(delta: float) -> void:
+	# animo la aniticipacion del ataque
+	if estado_actual == estado.anticipacion:
+		animar_estocada_aniticipacion(delta)
+	
 	# animo la ida si tiene esta atacando
 	if estado_actual == estado.atacando:
 		animar_estocada_ida(delta)
@@ -221,9 +232,22 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 #region animaciones de estocada
 
+## anima la anticipacion de los ataques tipo estocada
+func animar_estocada_aniticipacion(delta: float) -> void:
+	# calculo en que porcentaje de la anticipacion estamos
+	progreso += delta / tiempo_de_anticipacion
+	progreso = min(progreso, 1.0)
+	
+	# el porcentaje de progreso por el total me devuelve la posicion actual en ese frame
+	# ease(,) si el 2do parametro es mayor a 1 es ease-in
+	# https://byteatatime.dev/posts/easings/
+	var pos_actual = ease(progreso, curva_ease)
+	
+	# calculo la nueva posicion
+	var nueva_pos_x = pos_actual * res._largo_estocada
+
 ## anima la ida del ataque tipo estocada, termina el ataque al llegar al "rango estocada"
 func animar_estocada_ida(delta: float) -> void:
-	print(res._largo_estocada / speed)
 	# calculo el total del progreso en tiempo
 	progreso += delta / tiempo_de_ataque
 	progreso = min(progreso, 1.0)
