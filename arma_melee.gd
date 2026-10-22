@@ -41,13 +41,14 @@ enum estado {
 	en_cooldown
 }
 
-var estado_actual: estado = estado.lista
+@export var estado_actual: estado = estado.lista
 var angulo_acumulado: float = 0.0
 #
-var traslado_acumulado: float = 0.0
-var progreso: float = 0.0
-var tiempo_de_ataque: float = .3
-var curva_ease: float = 4.0
+@export_group("estocada - temp")
+@export var traslado_acumulado: float = 0.0
+@export var progreso: float = 0.0
+@export var tiempo_de_ataque: float = .1
+@export var curva_ease: float = 2.0
 
 ## ejecuta una funcion si esta modo debug activado
 func print_dev(callback: Callable) -> void:
@@ -75,9 +76,9 @@ func _unhandled_input(_event: InputEvent) -> void:
 func _ready() -> void:
 	print_dev(print_coords_hitbox)
 		
-	_cargar_sprite_y_alinear()
 	_cargar_info_general()
 	_cargar_stats_de_animacion()
+	_cargar_sprite_y_alinear()
 
 #
 func _physics_process(delta: float) -> void:
@@ -95,6 +96,8 @@ func _cargar_sprite_y_alinear() -> void:
 	sprite.texture = res.get_sprite()
 	container.position = res.get_pos_mano()
 	hitbox.polygon = res.get_hitbox_area()
+	if tipo_ataque == res.tipo_ataque.estocada:
+		pivote.rotate(PI/2)
 
 ## carga la info general del arma
 func _cargar_info_general() -> void:
@@ -122,6 +125,7 @@ func usar() -> void:
 ## empieza el ciclo de vida de un ataque
 func empezar_ataque() -> void:
 	angulo_acumulado = 0.0
+	progreso = 0.0
 	hitbox.disabled = false
 	estado_actual = estado.atacando
 
@@ -141,12 +145,16 @@ func ataque_en_estocada(delta: float) -> void:
 		animar_estocada_ida(delta)
 	
 	# animo la vuelta si tiene que volver
-	#if estado_actual == estado.volviendo:
-		#animar_en_arco_vuelta(delta)
+	if estado_actual == estado.volviendo:
+		animar_estocada_vuelta(delta)
 
 
 ## empieza el timer entre que cae el arma y empieza a volver
 func _start_wait_time(time: float) -> void:
+	if (time == 0.0):
+		estado_actual = estado.volviendo
+		return
+	
 	esperando_timer.wait_time = time
 	esperando_timer.start()
 
@@ -234,5 +242,16 @@ func animar_estocada_ida(delta: float) -> void:
 		_start_wait_time(wait_time)
 	
 	pivote.position.x = nueva_pos_x
+
+func animar_estocada_vuelta(delta: float) -> void:
+	var traslado_x = - speed_return * delta
+	
+	# 
+	if pivote.position.x + traslado_x <= 0.0:
+		pivote.position.x = 0.0
+		traslado_x = 0.0
+		_start_cd(cooldown)
+	
+	pivote.position += Vector2(traslado_x, 0.0)
 
 #endregion

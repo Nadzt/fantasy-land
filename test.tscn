@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://bwbvgriaivsdo" path="res://resources/armas/martillo.tres" id="3_ppyta"]
 [ext_resource type="Resource" uid="uid://xo8sog7w3ju0" path="res://resources/armas/scythe.tres" id="4_ykrsh"]
 [ext_resource type="Resource" uid="uid://b32k2j5eplkg" path="res://resources/armas/lanza.tres" id="5_ykrsh"]
+[ext_resource type="Resource" uid="uid://cafclyswnu3cq" path="res://resources/armas/cuchillo.tres" id="7_vbegm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_37kl0"]
 radius = 11.401754
@@ -34,6 +35,21 @@ res = ExtResource("4_ykrsh")
 
 [node name="Lanza" parent="." unique_id=1138211403 instance=ExtResource("1_37kl0")]
 position = Vector2(230, 354)
+debug = false
+res = ExtResource("5_ykrsh")
+
+[node name="Cuchillo" parent="." unique_id=2048230624 instance=ExtResource("1_37kl0")]
+position = Vector2(341, 354)
+debug = false
+res = ExtResource("7_vbegm")
+
+[node name="Lanza3" parent="." unique_id=1975477802 instance=ExtResource("1_37kl0")]
+position = Vector2(410, 354)
+debug = false
+res = ExtResource("5_ykrsh")
+
+[node name="Lanza4" parent="." unique_id=386493069 instance=ExtResource("1_37kl0")]
+position = Vector2(477, 354)
 debug = false
 res = ExtResource("5_ykrsh")
 
