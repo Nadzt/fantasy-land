@@ -1,66 +1,102 @@
 class_name ArmaMelee extends Node2D
 
-@export var debug: bool = true
-@export var res: ArmaResource
-@export_group("info general")
-@export var nombre: String
-@export var dmg: int
-@export var es_de_dos_manos: bool
-
-@export_group("componentes")
-@export var sprite: Sprite2D
-## el pivote que se rota para las animaciones
-@export var pivote: Node2D
-## el container que se mueve para que el pivote se alinie con la mano del arma
-@export var container: Node2D
-@export var hitbox: CollisionPolygon2D
-@export var cooldown_timer: Timer
-@export var esperando_timer: Timer
-
-@export_group("stats de animacion")
-## tipo de ataque, puede ser en arco (slash) o estocada (stabby stab)
-@export var tipo_ataque: ArmaResource.tipo_ataque
-## arco de ataque para un ataque de tipo slash (en radianes)
-@export var arco_de_ataque: float
-## la velocidad en la que se mueve el arma cuando ataca
-@export var speed: float
-## el tiempo de espera que esta en la posicion final del ataque antes de volver
-@export var wait_time: float
-## la velocidad en la que vuelve despues de atacar
-@export var speed_return: float
-## el tiempo que tarda en habilitarse el proximo ataque
-@export var cooldown: float
-
-@export_group("estado de ataque")
-## estados en los que se puede encontrar un ataque
+## estados en los que se puede encontrar un arma
 enum estado {
 	lista,
 	anticipacion,
 	atacando,
-	esperando,
 	volviendo,
 	en_cooldown
 }
 
+## si esta on, imprime en consola informacion extra
+@export var debug: bool = true
+
+## el recurso del arma
+@export var res: ArmaResource
+
+@export_group("Info general")
+## nombre del arma
+@export var nombre: String
+## daño del arma
+@export var dmg: int
+## si es de 2 manos
+@export var es_de_dos_manos: bool
+
+@export_group("Componentes")
+## Sprite del arma
+@export var sprite: Sprite2D
+## la hubicacion de la mano, es el pivote que se rota para las animaciones
+@export var pivote: Node2D
+## el container que se mueve para que el pivote se alinie con la mano del arma
+@export var container: Node2D
+## hitbox del arma
+@export var hitbox: CollisionPolygon2D
+## Timer que se usa para esperar las transiciones
+@export var timer_de_espera: Timer
+
+@export_group("stats de animacion")
+## arco de ataque para un ataque de tipo slash (en radianes)
+@export var animaciones_de_ataque: Array[AnimacionAtaqueResource]
+
+@export_group("Ataque Actual")
+## index de la animacion actual
+@export var idx_ataque_actual: int = 0
+## animacion actual
+@export var animacion_actual: AnimacionAtaqueResource
+
+@export_group("Estado del ataque actual")
+## indica si se termino de trasladar
 @export var estado_actual: estado = estado.lista
-var angulo_acumulado: float = 0.0
 
-@export_group("estocada - temp")
-@export var traslado_acumulado: float = 0.0
-@export var progreso: float = 0.0
-@export var tiempo_de_ataque: float = .1
-@export var curva_ease: float = 2.0
+## indica si se termino la rotacion
+@export var rotacion_terminada: bool
+## indica si se termino de trasladar
+@export var traslacion_terminada: bool
 
-@export_group("anticipacion - temp")
-## el tiempo que toma la aniticipacion
-@export var tiempo_de_anticipacion: float = 1
-@export var curva_ease_anticipacion: float = 2.0
+## el progreso de tiempo en el que se encuentra la animacion de rotacion
+@export var rotacion_progreso: float
+## el progreso de tiempo en el que se encuentra la animacion de traslacion
+@export var traslacion_progreso: float
 
+@export_group("Variables de la animacion actual")
+## determina si la animacion hace una rotacion o no
+@export var aplicar_rotacion: bool
+## determina si la animacion hace una traslacion o no
+@export var aplicar_traslacion: bool
+## tiempo de espera para que se ejecute la siguiente animacion o cooldown del arma
+@export var tiempo_espera_siguiente_animacion: float
+
+## el tiempo total que dura la rotacion
+@export var rotacion_duracion: float
+## la curva de animacion de esa rotacion
+@export var rotacion_curva_ease: float
+## la distanacia objetivo que se quiere trasladare, en radianes
+@export var rotacion_distancia: float
+## Si la animacion tiene un offeset o no
+@export var rotacion_offset: float
+
+## el tiempo total que dura la traslacion
+@export var traslacion_duracion: float
+## la curva de animacion de esa traslacion
+@export var traslacion_curva_ease: float
+## la distanacia objetivo que se quiere trasladar
+@export var traslacion_distancia: float
+## Si la animacion tiene un offeset o no
+@export var traslacion_offset: float
+
+
+#region funciones dev para debug
 
 ## ejecuta una funcion si esta modo debug activado
-func print_dev(callback: Callable) -> void:
+func print_coords_dev(callback: Callable) -> void:
 	if debug:
 		callback.call()
+
+## imprime en pantalla solo si esta modo debug
+func print_dev(string: String) -> void:
+	if debug:
+		print(string)
 
 ## me muestra las coordenadas de hitbox que cree para crear recursos mas rapido
 func print_coords_hitbox() -> void:
@@ -69,213 +105,337 @@ func print_coords_hitbox() -> void:
 	for x in collision_polygon_2d.polygon:
 		print(x)
 
+#endregion
+
+
 ## TODO: Pasar al jugador:
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("usar_mano_izq") and estado_actual == estado.lista:
-		print("usando mano izquierda")
+		print_dev("usando mano izquierda")
 		usar()
 	
 	if Input.is_action_just_pressed("usar_mano_der") and estado_actual == estado.lista:
-		print("usando mano derecha")
+		print_dev("usando mano derecha")
 		usar()
 
 #
 func _ready() -> void:
-	print_dev(print_coords_hitbox)
-		
+	print_coords_dev(print_coords_hitbox)
+	
+	# cargado de datos
 	_cargar_info_general()
-	_cargar_stats_de_animacion()
+	_cargar_animaciones()
 	_cargar_sprite_y_alinear()
+	
+	# setup de la animacion
+	animacion_actual = animaciones_de_ataque.get(0)
 
 #
 func _physics_process(delta: float) -> void:
 	# animaciones de ataque
-	match tipo_ataque:
-		ArmaResource.tipo_ataque.arco:
-			ataque_en_arco(delta)
-		
-		ArmaResource.tipo_ataque.estocada:
-			ataque_en_estocada(delta)
+	#ataque_en_arco(delta)
+
+	ataque_en_estocada(delta)
 
 #region inicializacion
+
 ## carga el sprite, posiciona el origen en el mango y carga el hitbox
 func _cargar_sprite_y_alinear() -> void:
+	print_dev("sprite cargados")
 	sprite.texture = res.get_sprite()
 	container.position = res.get_pos_mano()
 	hitbox.polygon = res.get_hitbox_area()
-	if tipo_ataque == res.tipo_ataque.estocada:
-		pivote.rotate(PI/2)
 
 ## carga la info general del arma
 func _cargar_info_general() -> void:
+	print_dev("stats de arma cargados")
 	nombre = res.get_nombre()
 	dmg = res.get_dmg()
 	es_de_dos_manos = res.es_de_dos_manos()
 
 ## carga los stats que uso para las animaciones
-func _cargar_stats_de_animacion() -> void:
-	tipo_ataque = res.get_tipo_de_ataque()
-	arco_de_ataque = res.get_atk_arc()
-	speed = res.get_speed()
-	speed_return = res._speed_return
-	wait_time = res.get_wait_t()
-	cooldown = res.get_cd()
+func _cargar_animaciones() -> void:
+	print_dev("stats de animacion cargados")
+	animaciones_de_ataque = res.get_animaciones()
 
 #endregion
 
 ## empieza un ataque
 func usar() -> void:
-	print("%s: usando arma" % nombre)
-	empezar_ataque()
+	print_dev("%s: usando arma" % nombre)
+	iniciar_ataque()
 
-#region ciclo de vida de un ataque
+#region cambio de estados de ciclo de vida de un ataque
+
+## reinicia las variables para la proxima animacion
+func reiniciar_variables() -> void:
+	# variables de las rotaciones
+	rotacion_terminada = false
+	rotacion_progreso = 0.0
+	rotacion_offset = 0.0
+	
+	# variabels de la traslacion
+	traslacion_terminada = false
+	traslacion_progreso = 0.0
+	traslacion_offset = 0.0
+
 ## empieza el ciclo de vida de un ataque
-func empezar_ataque() -> void:
-	angulo_acumulado = 0.0
-	progreso = 0.0
-	hitbox.disabled = false
+func iniciar_ataque() -> void:
+	cambiar_a_siguiente_estado()
+
+## cambia al estado anticipacion y establece las variables
+func iniciar_estado_anticipacion() -> void:
+	# estado actual
+	print_dev("iniciar_estado_anticipacion")
+	estado_actual = estado.anticipacion
+	
+	# variables generales
+	reiniciar_variables()
+	tiempo_espera_siguiente_animacion = animacion_actual.get_ant_tiempo_espera()
+	
+	# variables de rotacion
+	aplicar_rotacion = animacion_actual.get_ant_tiene_rotacion()
+	rotacion_duracion = animacion_actual.get_ant_r_duracion()
+	rotacion_curva_ease = animacion_actual.get_ant_r_curva_ease()
+	rotacion_distancia = animacion_actual.get_ant_r_distancia()
+	
+	# variables de traslacion
+	aplicar_traslacion = animacion_actual.get_ant_tiene_traslacion()
+	traslacion_duracion = animacion_actual.get_ant_t_duracion()
+	traslacion_curva_ease = animacion_actual.get_ant_t_curva_ease()
+	traslacion_distancia = animacion_actual.get_ant_t_distancia()
+
+## cambia al estado atacando y establece las variables
+func inicia_estado_atacando() -> void:
+	# estado actual
+	print_dev("inicia_estado_atacando")
 	estado_actual = estado.atacando
-
-## animacion de ataque de un arma tipo arco, ida y vuelta
-func ataque_en_arco(delta: float) -> void:
-	# animo la ida si tiene esta atacando
-	if estado_actual == estado.atacando:
-		animar_en_arco_ida(delta)
 	
-	# animo la vuelta si tiene que volver
-	if estado_actual == estado.volviendo:
-		animar_en_arco_vuelta(delta)
-
-func ataque_en_estocada(delta: float) -> void:
-	# animo la aniticipacion del ataque
-	if estado_actual == estado.anticipacion:
-		animar_estocada_aniticipacion(delta)
+	# activar hitbox
+	hitbox.disabled = false
 	
-	# animo la ida si tiene esta atacando
-	if estado_actual == estado.atacando:
-		animar_estocada_ida(delta)
+	# variables generales
+	reiniciar_variables()
+	tiempo_espera_siguiente_animacion = animacion_actual.get_atk_tiempo_espera()
 	
-	# animo la vuelta si tiene que volver
-	if estado_actual == estado.volviendo:
-		animar_estocada_vuelta(delta)
+	# variables de rotacion
+	aplicar_rotacion = animacion_actual.get_atk_tiene_rotacion()
+	rotacion_duracion = animacion_actual.get_atk_r_duracion()
+	rotacion_curva_ease = animacion_actual.get_atk_r_curva_ease()
+	var distancia_r_atk = animacion_actual.get_atk_r_distancia()
+	var distancia_r_ant = animacion_actual.get_ant_r_distancia()
+	rotacion_distancia = distancia_r_atk
+	rotacion_offset = distancia_r_ant
+	
+	# variables de traslacion
+	aplicar_traslacion = animacion_actual.get_atk_tiene_traslacion()
+	traslacion_duracion = animacion_actual.get_atk_t_duracion()
+	traslacion_curva_ease = animacion_actual.get_atk_t_curva_ease()
+	var distancia_t_atk = animacion_actual.get_atk_t_distancia()
+	var distancia_t_ant = animacion_actual.get_ant_t_distancia()
+	traslacion_distancia = distancia_t_atk + abs(distancia_t_ant)
+	traslacion_offset = distancia_t_ant
 
+## cambia al estado volviendo y establece las variables
+func iniciar_estado_volviendo() -> void:
+	#estado actual
+	print_dev("iniciar_estado_volviendo")
+	estado_actual = estado.volviendo
+	
+	# variables generales
+	reiniciar_variables()
+	aplicar_traslacion = pivote.position.x != 0
+	aplicar_rotacion = pivote.rotation != 0
+	
+	# variables de rotacion
+	rotacion_duracion = animacion_actual.get_vol_r_duracion()
+	rotacion_curva_ease = animacion_actual.get_vol_r_curva_ease()
+	rotacion_offset = pivote.rotation
+	rotacion_distancia = -pivote.rotation
+	
+	# variables de traslacion
+	traslacion_duracion = animacion_actual.get_vol_t_duracion()
+	traslacion_curva_ease = animacion_actual.get_vol_t_curva_ease()
+	traslacion_offset = pivote.position.x
+	var distancia_t = abs(pivote.position.x) + animacion_actual.get_vol_t_distancia()
+	traslacion_distancia = -distancia_t
 
-## empieza el timer entre que cae el arma y empieza a volver
-func _start_wait_time(time: float) -> void:
-	if (time == 0.0):
-		estado_actual = estado.volviendo
+## cambia al estado en cooldown y inicia el timer
+func iniciar_estado_en_cooldown() -> void:
+	# estado actual
+	print_dev("iniciar_estado_en_cooldown")
+	estado_actual = estado.en_cooldown
+	
+	# cooldown
+	var cooldown = animacion_actual.get_cooldown()
+	if cooldown == 0.0:
+		iniciar_estado_listo()
 		return
 	
-	esperando_timer.wait_time = time
-	esperando_timer.start()
+	tiempo_espera_siguiente_animacion = cooldown
+	_iniciar_tiempo_de_espera(tiempo_espera_siguiente_animacion)
 
-## empieza el timer entre que termino una animacion de ataque y puede volver a atacar
-func _start_cd(time: float) -> void:
-	estado_actual = estado.en_cooldown
-	cooldown_timer.wait_time = time
-	cooldown_timer.start()
-
-## cambia el estado de ataque y deshabilita el hitbox
-func terminar_ataque() -> void:
-	estado_actual = estado.esperando
-	hitbox.disabled = true
-
-#endregion
-
-#region animaciones de arco
-
-## anima la ida del ataque tipo arco, termina el ataque si se cumple con el "arco de ataque"
-func animar_en_arco_ida(delta: float) -> void:
-	# calculo el paso de la rotacion que tiene que hacer sobre el pivote
-	var rotacion = speed * delta
-	
-	# agrego la rotacion al angulo acumulado
-	angulo_acumulado += rotacion
-	if angulo_acumulado >= arco_de_ataque:
-		# si el arco acumulado es mayor a lo que tiene que ser recorto lo que sobra
-		# termina el ataque y empieza el timer de espera en esa posicion
-		rotacion -= angulo_acumulado - arco_de_ataque
-		terminar_ataque()
-		_start_wait_time(wait_time)
-	
-	# aplico la rotacion
-	pivote.rotate(rotacion)
-
-## anima la vuelta del ataque tipo arco
-func animar_en_arco_vuelta(delta: float) -> void:
-	var rotacion = - speed_return * delta
-	
-	# casi lo mismo que la animacion de ida, pero empieza el cd entre ataques al volver
-	if pivote.rotation + rotacion <= 0.0:
-		pivote.rotation = 0.0
-		rotacion = 0.0
-		_start_cd(cooldown)
-	
-	pivote.rotate(rotacion)
-
-#endregion
-
-## cambia el estado del arma para que empiece a volver
-func _on_esperando_timer_timeout() -> void:
-	print("%s: termino espera" % nombre)
-	estado_actual = estado.volviendo
-
-## cambia el estado del arma para que este lista para un nuevo ataque
-func _on_cooldown_timer_timeout() -> void:
-	print("%s: termino cd" % nombre)
+## cambia al estado listo
+func iniciar_estado_listo() -> void:
+	# estado actual
+	print_dev("iniciar_estado_listo")
 	estado_actual = estado.lista
+	
+	# variables generales
+	reiniciar_variables()
+
+#endregion
+
+#region funciones de manejo de ataques
+
+func ataque_en_estocada(delta: float) -> void:
+	# #TODO: animacion idle
+	# animo la aniticipacion del ataque
+	if estado_actual == estado.anticipacion:
+		traslacion_terminada = animar_movimiento_traslacion(delta)
+		rotacion_terminada = animar_rotacion(delta)
+	
+	# animo la ida si tiene esta atacando
+	if estado_actual == estado.atacando:
+		traslacion_terminada = animar_movimiento_traslacion(delta)
+		rotacion_terminada = animar_rotacion(delta)
+	
+	## animo la vuelta si tiene que volver
+	if estado_actual == estado.volviendo:
+		traslacion_terminada = animar_movimiento_traslacion(delta)
+		rotacion_terminada = animar_rotacion(delta)
+	
+	#TODO: && rotacion_terminada
+	if traslacion_terminada && rotacion_terminada && timer_de_espera.is_stopped():
+		cambiar_a_siguiente_estado()
+
+## empieza el timer entre que cae el arma y empieza a volver
+func _iniciar_tiempo_de_espera(time: float) -> void:
+	timer_de_espera.wait_time = time
+	timer_de_espera.start()
+
+## cambia el estado del ataque al siguiente estado del ciclo de vida
+func cambiar_a_siguiente_estado() -> void:
+	print_dev("cambiando al siguiente estado, estado actual: %s" % estado.find_key(estado_actual) )
+	
+	# listo -> anticipacion
+	if estado_actual == estado.lista:
+		iniciar_estado_anticipacion()
+		return
+	
+	# anticipacion -> atacando
+	if estado_actual == estado.anticipacion:
+		# si hay un tiempo de espera, primero espera, y despues cambia
+		if tiempo_espera_siguiente_animacion != 0.0:
+			print_dev("inicio timer entre anticipacion-atacando")
+			_iniciar_tiempo_de_espera(tiempo_espera_siguiente_animacion)
+			return
+		
+		# una vez terminado el tiempo de espera cambia al estado "atacando"
+		inicia_estado_atacando()
+		return
+	
+	# atacando -> volviendo
+	if estado_actual == estado.atacando:
+		# desactivar hitbox
+		hitbox.disabled = true
+		
+		# lo mismo que arriba
+		if tiempo_espera_siguiente_animacion != 0.0:
+			print_dev("inicio timer entre atacando-volviendo")
+			_iniciar_tiempo_de_espera(tiempo_espera_siguiente_animacion)
+			return
+		
+		iniciar_estado_volviendo()
+		return
+	
+	# volviendo -> en_cooldown
+	if estado_actual == estado.volviendo:
+		print_dev("inicio timer de cooldown")
+		iniciar_estado_en_cooldown()
+		return
+	
+	# en_cooldown -> listo
+	if estado_actual == estado.en_cooldown:
+		iniciar_estado_listo()
+		return
+
+
+#endregion
+
+
+#region callbacks de señales
+## cambia el estado del arma para que empiece a volver
+func _on_timer_de_espera_timeout() -> void:
+	tiempo_espera_siguiente_animacion = 0.0
+	print_dev("termino timer")
+	cambiar_a_siguiente_estado()
 
 ## Hitbox
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("%s le pego a un body: %s" % [nombre, body.name])
 
+#endregion
 
-#region animaciones de estocada
+#region animaciones de rotacion
 
-## anima la anticipacion de los ataques tipo estocada
-func animar_estocada_aniticipacion(delta: float) -> void:
-	# calculo en que porcentaje de la anticipacion estamos
-	progreso += delta / tiempo_de_anticipacion
-	progreso = min(progreso, 1.0)
+## anima la rotacion de un ataque
+func animar_rotacion(delta: float) -> bool:
+	# failsafe
+	if (!aplicar_rotacion || rotacion_terminada || rotacion_duracion == 0.0 ):
+		return true
 	
-	# el porcentaje de progreso por el total me devuelve la posicion actual en ese frame
+	var animacion_terminada: bool = false
+	
+	# progreso de tiempo sobre el total de tiempo que tarda la animacion, va de 0 a 1
+	rotacion_progreso += delta / rotacion_duracion
+	rotacion_progreso = min(rotacion_progreso, 1.0)
+
+	# progreso de movimiento sobre el total del movimiento de traslacion, tambien de 0 a 1
 	# ease(,) si el 2do parametro es mayor a 1 es ease-in
 	# https://byteatatime.dev/posts/easings/
-	var pos_actual = ease(progreso, curva_ease)
+	var proporcion_actual = ease(rotacion_progreso, rotacion_curva_ease)
 	
 	# calculo la nueva posicion
-	var nueva_pos_x = pos_actual * res._largo_estocada
-
-## anima la ida del ataque tipo estocada, termina el ataque al llegar al "rango estocada"
-func animar_estocada_ida(delta: float) -> void:
-	# calculo el total del progreso en tiempo
-	progreso += delta / tiempo_de_ataque
-	progreso = min(progreso, 1.0)
-	
-	# calculo el porcentaje sobre el total que debe recorrer con la funcion ease(,)
-	# si el 2do parametro es mayor a 1 es ease-in https://byteatatime.dev/posts/easings/
-	var t_suave = ease(progreso, curva_ease)
-	
-	# calculo la nueva posicion
-	var nueva_pos_x = t_suave * res._largo_estocada
+	var nuevo_valor_rotacion = (proporcion_actual * rotacion_distancia) + rotacion_offset
 	
 	# si es el final termino el ataque
-	if progreso >= 1.0:
-		# termina el ataque y empieza el timer de espera
-		terminar_ataque()
-		_start_wait_time(wait_time)
+	if rotacion_progreso >= 1.0:
+		animacion_terminada = true
+	
+	
+	pivote.rotation = nuevo_valor_rotacion
+	return animacion_terminada
+
+#endregion
+
+#region animaciones de traslacion
+
+## Anima la traslacion de un ataque
+func animar_movimiento_traslacion(delta: float) -> bool:
+	# failsafe
+	if (!aplicar_traslacion || traslacion_terminada || traslacion_duracion == 0.0 ):
+		return true
+	
+	var animacion_terminada: bool = false
+	
+	# progreso de tiempo sobre el total de tiempo que tarda la animacion, va de 0 a 1
+	traslacion_progreso += delta / traslacion_duracion
+	traslacion_progreso = min(traslacion_progreso, 1.0)
+	
+	# progreso de movimiento sobre el total del movimiento de traslacion, tambien de 0 a 1
+	# ease(,) si el 2do parametro es mayor a 1 es ease-in
+	# https://byteatatime.dev/posts/easings/
+	var proporcion_actual = ease(traslacion_progreso, traslacion_curva_ease)
+	
+	# calculo la nueva posicion
+	var nueva_pos_x = (proporcion_actual * traslacion_distancia) + traslacion_offset
+	
+	# si es el final termino el ataque
+	if traslacion_progreso >= 1.0:
+		animacion_terminada = true
 	
 	pivote.position.x = nueva_pos_x
-
-func animar_estocada_vuelta(delta: float) -> void:
-	var traslado_x = - speed_return * delta
-	
-	# 
-	if pivote.position.x + traslado_x <= 0.0:
-		pivote.position.x = 0.0
-		traslado_x = 0.0
-		_start_cd(cooldown)
-	
-	pivote.position += Vector2(traslado_x, 0.0)
+	return animacion_terminada
 
 #endregion

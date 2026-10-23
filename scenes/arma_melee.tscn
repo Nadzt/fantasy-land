@@ -1,16 +1,17 @@
 [gd_scene format=3 uid="uid://dy1y8qqrxvc51"]
 
 [ext_resource type="Script" uid="uid://dc4wnsrivotgr" path="res://arma_melee.gd" id="1_0fmgw"]
+[ext_resource type="Resource" uid="uid://b32k2j5eplkg" path="res://resources/armas/lanza.tres" id="2_krxa6"]
 [ext_resource type="Texture2D" uid="uid://bi30bkqn7v27t" path="res://resources/sprites/armas/cuchillo_martillo_sprite.tres" id="2_tj3td"]
 
-[node name="ArmaMelee" type="Node2D" unique_id=417194038 node_paths=PackedStringArray("sprite", "pivote", "container", "hitbox", "cooldown_timer", "esperando_timer")]
+[node name="ArmaMelee" type="Node2D" unique_id=417194038 node_paths=PackedStringArray("sprite", "pivote", "container", "hitbox", "timer_de_espera")]
 script = ExtResource("1_0fmgw")
+res = ExtResource("2_krxa6")
 sprite = NodePath("Pivote/Container/Sprite2D")
 pivote = NodePath("Pivote")
 container = NodePath("Pivote/Container")
 hitbox = NodePath("Pivote/Container/Area2D/CollisionPolygon2D")
-cooldown_timer = NodePath("CooldownTimer")
-esperando_timer = NodePath("EsperandoTimer")
+timer_de_espera = NodePath("TimerDeEspera")
 
 [node name="Pivote" type="Node2D" parent="." unique_id=622450963]
 
@@ -25,12 +26,8 @@ texture = ExtResource("2_tj3td")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivote/Container/Area2D" unique_id=403927143]
 polygon = PackedVector2Array(6, -15, 6, 5, -6, 5, -6, -15)
 
-[node name="CooldownTimer" type="Timer" parent="." unique_id=878450249]
-one_shot = true
-
-[node name="EsperandoTimer" type="Timer" parent="." unique_id=728459303]
+[node name="TimerDeEspera" type="Timer" parent="." unique_id=728459303]
 one_shot = true
 
 [connection signal="body_entered" from="Pivote/Container/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
-[connection signal="timeout" from="EsperandoTimer" to="." method="_on_esperando_timer_timeout"]
+[connection signal="timeout" from="TimerDeEspera" to="." method="_on_timer_de_espera_timeout"]

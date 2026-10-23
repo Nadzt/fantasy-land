@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://de8gy7ht428pp"]
+
+[ext_resource type="PackedScene" uid="uid://dy1y8qqrxvc51" path="res://scenes/arma_melee.tscn" id="1_ow83g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_37kl0"]
+radius = 11.401754
+
+[node name="Node2D" type="Node2D" unique_id=198373447]
+
+[node name="Lanza" parent="." unique_id=1138211403 instance=ExtResource("1_ow83g")]
+position = Vector2(230, 354)
+debug = false
+
+[node name="Test pj" type="CharacterBody2D" parent="." unique_id=255035406]
+position = Vector2(303, 311)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test pj" unique_id=991047539]
+position = Vector2(-45, -47)
+shape = SubResource("CircleShape2D_37kl0")

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AnimacionAtaqueResource" format=3 uid="uid://cahpnbs4gvm2k"]
+
+[ext_resource type="Script" uid="uid://3888la0xt88m" path="res://scripts/resources/AnimacionAtaqueResource.gd" id="1_bd7l2"]
+
+[resource]
+script = ExtResource("1_bd7l2")
+metadata/_custom_type_script = "uid://3888la0xt88m"

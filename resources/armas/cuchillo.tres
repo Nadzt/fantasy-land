@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8i8ll3s3la6h" path="res://scripts/resources/ArmaResource.gd" id="1_2d2oi"]
 [ext_resource type="Texture2D" uid="uid://bi30bkqn7v27t" path="res://resources/sprites/armas/cuchillo_martillo_sprite.tres" id="1_8mxqc"]
+[ext_resource type="Script" uid="uid://3888la0xt88m" path="res://scripts/resources/AnimacionAtaqueResource.gd" id="1_pcf4o"]
 
 [resource]
 script = ExtResource("1_2d2oi")
@@ -10,7 +11,6 @@ _pos_mano = Vector2(0, -7)
 _area_polygon_array = PackedVector2Array(6, -15, 6, 5, -6, 5, -6, -15)
 _nombre = "cuchillo de madera"
 _dmg = 4
-_tipo_ataque = 1
 _speed = 100.0
 _speed_return = 100.0
 _cooldown = 0.05
