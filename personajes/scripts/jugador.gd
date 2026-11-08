@@ -19,6 +19,23 @@ func recibir_dmg(dmg: int) -> void:
 	var dmg_final := maxi(dmg - _defensa, 0)
 	_vida -= dmg_final
 	sprite.play("recibir_ataque")
+	
+	var tween := create_tween()
+	tween.set_loops(2)
+
+	tween.tween_property(
+		sprite,
+		"modulate",
+		Color.RED,
+		0.08
+	)
+	tween.tween_property(
+		sprite,
+		"modulate",
+		Color.WHITE,
+		0.08
+	)
+	
 	if _vida <= 0:
 		_vida = 0
 		super._morir()
