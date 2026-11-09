@@ -1,8 +1,8 @@
 class_name OjoVolador
 extends Enemigo
 
-@export var velocidad: float = 120.0
-@export var rango_deteccion: float = 300.0
+@export var velocidad: float = 70.0
+@export var rango_deteccion: float = 200.0
 
 var jugador: Jugador = null
 
@@ -51,7 +51,7 @@ func soltar_item() -> void:
 	print("El ojo soltó una moneda")
 
 func _morir() -> void:
-	#if GameManager:
+	#if algo así? GameManager:
 		#GameManager.sumar_puntos(_puntaje)
 	soltar_item()
 	super._morir()
