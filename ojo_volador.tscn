@@ -1,32 +1,32 @@
 [gd_scene format=3 uid="uid://botndi28ex1kj"]
 
-[ext_resource type="Script" uid="uid://btufa4l83r2pp" path="res://escenasP/ojo_volador.gd" id="1_4bx5l"]
-[ext_resource type="Texture2D" uid="uid://bq3e1ehkvav2s" path="res://personajes/enemigos/enemigo de un ojo/ojo_volador.png" id="2_3h5hx"]
+[ext_resource type="Script" uid="uid://btufa4l83r2pp" path="res://Personajes/scripts/ojo_volador.gd" id="1_l02on"]
+[ext_resource type="Texture2D" uid="uid://bq3e1ehkvav2s" path="res://Personajes/enemigos/enemigo de un ojo/ojo_volador.png" id="2_woyr8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g83iv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4bx5l"]
-atlas = ExtResource("2_3h5hx")
+atlas = ExtResource("2_woyr8")
 region = Rect2(0, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3h5hx"]
-atlas = ExtResource("2_3h5hx")
+atlas = ExtResource("2_woyr8")
 region = Rect2(150, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rc6kt"]
-atlas = ExtResource("2_3h5hx")
+atlas = ExtResource("2_woyr8")
 region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r2hc1"]
-atlas = ExtResource("2_3h5hx")
+atlas = ExtResource("2_woyr8")
 region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mynt0"]
-atlas = ExtResource("2_3h5hx")
+atlas = ExtResource("2_woyr8")
 region = Rect2(600, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2klxh"]
-atlas = ExtResource("2_3h5hx")
+atlas = ExtResource("2_woyr8")
 region = Rect2(750, 0, 150, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mxehp"]
@@ -56,7 +56,7 @@ animations = [{
 }]
 
 [node name="OjoVolador" type="CharacterBody2D" unique_id=1102138749]
-script = ExtResource("1_4bx5l")
+script = ExtResource("1_l02on")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1324861004]
 scale = Vector2(1.8, 1.8)
