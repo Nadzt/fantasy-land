@@ -11,21 +11,11 @@ func _init() -> void:
 	_vida = 30
 	_fuerza = 10
 	_defensa = 2
-
 	
 func _ready() -> void:
-	jugador = buscar_jugador(get_tree().root)
-
-
-func buscar_jugador(nodo: Node) -> Node:
-	if nodo is Jugador:
-		return nodo
-	for hijo in nodo.get_children():
-		var encontrado = buscar_jugador(hijo)
-		if encontrado:
-			return encontrado
-	return null
-
+	jugador = get_tree().get_first_node_in_group("Jugador")
+	sprite.play("volar")
+	
 func _physics_process(_delta: float) -> void:
 	
 	if jugador:
@@ -41,11 +31,17 @@ func _physics_process(_delta: float) -> void:
 		else:
 			velocity = lerp(velocity, Vector2.ZERO, 0.1)
 			
-	sprite.play("volar")
+
 	move_and_slide()
 
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Jugador:
+		atacar()
+
 func atacar() -> void:
-	pass
+	if jugador and is_instance_valid(jugador):
+		jugador.recibir_dmg(_fuerza)
+		print("¡El ojo atacó al jugador e hizo ", _fuerza, " de daño!")
 
 func soltar_item() -> void:
 	print("El ojo soltó una moneda")
