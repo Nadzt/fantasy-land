@@ -1,9 +1,59 @@
 [gd_scene format=3 uid="uid://botndi28ex1kj"]
 
 [ext_resource type="Script" uid="uid://btufa4l83r2pp" path="res://escenasP/ojo_volador.gd" id="1_4bx5l"]
-[ext_resource type="SpriteFrames" path="res://personajes/enemigos/enemigo de un ojo/ojo_volador.pngo" id="1_el4ad"]
+[ext_resource type="Texture2D" uid="uid://bq3e1ehkvav2s" path="res://personajes/enemigos/enemigo de un ojo/ojo_volador.png" id="2_3h5hx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g83iv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bx5l"]
+atlas = ExtResource("2_3h5hx")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h5hx"]
+atlas = ExtResource("2_3h5hx")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc6kt"]
+atlas = ExtResource("2_3h5hx")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2hc1"]
+atlas = ExtResource("2_3h5hx")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mynt0"]
+atlas = ExtResource("2_3h5hx")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2klxh"]
+atlas = ExtResource("2_3h5hx")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxehp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bx5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h5hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rc6kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2hc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mynt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2klxh")
+}],
+"loop": true,
+"name": &"volar",
+"speed": 5.0
+}]
 
 [node name="OjoVolador" type="CharacterBody2D" unique_id=1102138749]
 script = ExtResource("1_4bx5l")
@@ -12,9 +62,7 @@ script = ExtResource("1_4bx5l")
 scale = Vector2(1.8, 1.8)
 shape = SubResource("CircleShape2D_g83iv")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1868374242]
-texture_filter = 1
-position = Vector2(-1, -1)
-sprite_frames = ExtResource("1_el4ad")
-animation = &"vuelo"
-frame_progress = 0.7028198
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1873968067]
+sprite_frames = SubResource("SpriteFrames_mxehp")
+animation = &"volar"
+frame_progress = 0.5042253

@@ -40,7 +40,8 @@ func _physics_process(_delta: float) -> void:
 				sprite.flip_h = direccion.x < 0
 		else:
 			velocity = lerp(velocity, Vector2.ZERO, 0.1)
-	
+			
+	sprite.play("volar")
 	move_and_slide()
 
 func atacar() -> void:
