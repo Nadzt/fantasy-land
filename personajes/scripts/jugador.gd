@@ -3,10 +3,11 @@ extends Personaje
 
 @export var speed: float = 300.0
 @export var jump_velocity: float = -400.0
+@export var velocidad_trepado: float = 50.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var _saltos_hechos: int = 0
-
+var puede_trepar := false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #var mano_derecha:Arma
@@ -66,18 +67,27 @@ func agarrar_item() -> void:
 	pass #después definir la clase Item"
 
 func _physics_process(delta):
+	
+	if puede_trepar and Input.is_action_pressed("ui_up"):
+		trepar()
+		return
+		
 	super._physics_process(delta)
+
 	if is_on_floor():
 		sprite.play("idle")
+
 	correr(delta)
 	saltar(delta)
-	
+
 	if Input.is_action_just_pressed("ui_accept") and not is_on_floor():
 		doble_salto()
 
 func trepar() -> void:
-	velocity.y = -speed
+	velocity.x = 0
+	velocity.y = -velocidad_trepado
 	sprite.play("trepar")
+	move_and_slide()
 
 func saltar(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
