@@ -55,5 +55,6 @@ func soltar_item() -> void:
 func _morir() -> void:
 	#if GameManager:
 		#GameManager.sumar_puntos(_puntaje)
+	sprite.play("morir")
 	soltar_item()
 	super._morir()
