@@ -10,3 +10,4 @@ func _ready() :
 	
 	var instanciaOjo = ojo.instantiate()
 	add_child(instanciaOjo)
+	

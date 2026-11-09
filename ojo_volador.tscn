@@ -72,7 +72,7 @@ frame_progress = 0.568894
 [node name="Area2D" type="Area2D" parent="." unique_id=1873494244]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=366664813]
-position = Vector2(1, 1)
-polygon = PackedVector2Array(-2, -8, 5, -7, 13, -12, 20, -2, 21, 7, 18, 9, 17, 13, 14, 13, 16, 16, 11, 19, 10, 18, 9, 18, 8, 20, 4, 20, -5, 18, -9, 12, -12, 8, -15, 4, -15, -5, -8, -10)
+position = Vector2(2, 3)
+polygon = PackedVector2Array(0, -5, 5, -7, 13, -12, 20, -2, 21, 7, 18, 9, 17, 13, 14, 13, 16, 16, 11, 19, 10, 18, 9, 18, 8, 20, 4, 20, -5, 18, -9, 12, -12, 8, -15, 4, -12, -4, -8, -10)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
