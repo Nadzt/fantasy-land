@@ -4,7 +4,6 @@ extends Personaje
 @export var speed: float = 300.0
 @export var jump_velocity: float = -400.0
 @export var velocidad_trepado: float = 50.0
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var _saltos_hechos: int = 0
 var puede_trepar := false
@@ -17,25 +16,8 @@ func _init():
 	super(100, 20, 5)
 
 func recibir_dmg(dmg: int) -> void:
-	var dmg_final := maxi(dmg - _defensa, 0)
-	_vida -= dmg_final
+	super(dmg)
 	sprite.play("recibir_ataque")
-	
-	var tween := create_tween()
-	tween.set_loops(2)
-
-	tween.tween_property(
-		sprite,
-		"modulate",
-		Color.RED,
-		0.08
-	)
-	tween.tween_property(
-		sprite,
-		"modulate",
-		Color.WHITE,
-		0.08
-	)
 	
 	if _vida <= 0:
 		_vida = 0
