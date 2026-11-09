@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://botndi28ex1kj"]
+
+[ext_resource type="Script" uid="uid://btufa4l83r2pp" path="res://escenasP/ojo_volador.gd" id="1_4bx5l"]
+[ext_resource type="SpriteFrames" path="res://personajes/enemigos/enemigo de un ojo/ojo_volador.pngo" id="1_el4ad"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g83iv"]
+
+[node name="OjoVolador" type="CharacterBody2D" unique_id=1102138749]
+script = ExtResource("1_4bx5l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1324861004]
+scale = Vector2(1.8, 1.8)
+shape = SubResource("CircleShape2D_g83iv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1868374242]
+texture_filter = 1
+position = Vector2(-1, -1)
+sprite_frames = ExtResource("1_el4ad")
+animation = &"vuelo"
+frame_progress = 0.7028198
