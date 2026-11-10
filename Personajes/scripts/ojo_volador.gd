@@ -1,7 +1,7 @@
 class_name OjoVolador
 extends Enemigo
 
-@export var velocidad: float = 70.0
+@export var velocidad: float = 50.0
 @export var rango_deteccion: float = 200.0
 
 var jugador: Jugador = null
