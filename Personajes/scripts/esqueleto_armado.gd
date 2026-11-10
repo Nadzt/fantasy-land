@@ -28,21 +28,18 @@ func _physics_process(delta: float) -> void:
 			var direccion = (jugador.global_position - global_position).normalized()  
 			velocity.x = direccion.x * velocidad
 			
-			if sprite:  
-				sprite.play("correr")  
-				sprite.flip_h = direccion.x < 0
+			sprite.play("correr")  
+			sprite.flip_h = direccion.x < 0
 			
 			#if arma:  
 				#arma.scale.x = -1 if sprite.flip_h else 1
 				
 		else:  
-			velocity.x = move_toward(velocity.x, 0, velocidad * delta)  
-			if sprite:  
-				sprite.play("idle")  
+			velocity.x = move_toward(velocity.x, 0, velocidad * delta)    
+			sprite.play("idle")  
 	else:  
 		velocity.x = move_toward(velocity.x, 0, velocidad * delta)
-		if sprite:
-			sprite.play("idle")
+		sprite.play("idle")
 			
 	move_and_slide()
 
@@ -56,5 +53,6 @@ func _morir() -> void:
 	#if GameManager:
 		#GameManager.sumar_puntos(_puntaje)
 	sprite.play("morir")
+	await sprite.animation_finished
 	soltar_item()
 	super._morir()
