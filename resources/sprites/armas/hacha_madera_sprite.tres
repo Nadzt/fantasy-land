@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://d0afy7xkmudq6"]
+
+[ext_resource type="Texture2D" uid="uid://da126wr8uu0fx" path="res://assets/sprites/armas/madera.png" id="1_3881p"]
+
+[resource]
+atlas = ExtResource("1_3881p")
+region = Rect2(48, 18, 16, 28)

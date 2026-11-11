@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ArmaResource" format=3 uid="uid://bwbvgriaivsdo"]
+
+[ext_resource type="Script" uid="uid://3888la0xt88m" path="res://scripts/resources/AnimacionAtaqueResource.gd" id="1_mlyxn"]
+[ext_resource type="Texture2D" uid="uid://6fmkyhv0vv3e" path="res://resources/sprites/armas/martillo_madera_sprite.tres" id="1_tek0m"]
+[ext_resource type="Script" uid="uid://b8i8ll3s3la6h" path="res://scripts/resources/ArmaResource.gd" id="2_c0ljx"]
+[ext_resource type="Resource" uid="uid://cahpnbs4gvm2k" path="res://resources/animacion_ataque/slash_basico.tres" id="2_mlyxn"]
+
+[sub_resource type="Resource" id="Resource_c0ljx"]
+script = ExtResource("1_mlyxn")
+_ant_tiene_rotacion = true
+_ant_tiene_traslacion = true
+_ant_tiempo_de_espera = 0.05
+_ant_r_duracion = 0.3
+_ant_r_curva_ease = 0.4
+_ant_r_distancia = -0.785
+_ant_t_duracion = 0.5
+_ant_t_curva_ease = 0.3
+_ant_t_distancia = 20.0
+_atk_tiene_rotacion = true
+_atk_tiene_traslacion = true
+_atk_tiempo_de_espera = 1.0
+_atk_r_duracion = 0.25
+_atk_r_curva_ease = 4.0
+_atk_r_distancia = 2.356
+_atk_t_duracion = 0.2
+_atk_t_curva_ease = 4.0
+_atk_t_distancia = 15.0
+_vol_r_duracion = 0.5
+_vol_r_curva_ease = 5.0
+_vol_t_duracion = 0.5
+_vol_t_curva_ease = 9.0
+metadata/_custom_type_script = "uid://3888la0xt88m"
+
+[resource]
+script = ExtResource("2_c0ljx")
+_sprite = ExtResource("1_tek0m")
+_pos_mano = Vector2(0, -7.5)
+_area_polygon_array = PackedVector2Array(-8, -14, 8, -14, 8, -4, -8, -4)
+_nombre = "Martillo"
+_dmg = 10
+_animaciones = Array[ExtResource("1_mlyxn")]([SubResource("Resource_c0ljx"), ExtResource("2_mlyxn")])
+metadata/_custom_type_script = "uid://b8i8ll3s3la6h"
