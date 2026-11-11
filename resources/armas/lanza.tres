@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ArmaResource" format=3 uid="uid://b32k2j5eplkg"]
+
+[ext_resource type="Texture2D" uid="uid://dq6qndxijyrbs" path="res://resources/sprites/armas/lanza_madera_sprite.tres" id="1_64n4j"]
+[ext_resource type="Script" uid="uid://b8i8ll3s3la6h" path="res://scripts/resources/ArmaResource.gd" id="1_fuuif"]
+[ext_resource type="Script" uid="uid://3888la0xt88m" path="res://scripts/resources/AnimacionAtaqueResource.gd" id="1_i6c58"]
+[ext_resource type="Resource" uid="uid://bkhnf1r36u0qa" path="res://resources/animacion_ataque/estocada_basica.tres" id="2_fbl5w"]
+
+[resource]
+script = ExtResource("1_fuuif")
+_sprite = ExtResource("1_64n4j")
+_pos_mano = Vector2(0, -17.5)
+_area_polygon_array = PackedVector2Array(2, -24.5, 4, -10.5, -4, -10.5)
+_nombre = "Lanza de madera"
+_dmg = 4
+_animaciones = Array[ExtResource("1_i6c58")]([ExtResource("2_fbl5w")])
+metadata/_custom_type_script = "uid://b8i8ll3s3la6h"
