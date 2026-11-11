@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xndkntifaoh0"]
 
 [ext_resource type="Texture2D" uid="uid://djtysmd2ldl1p" path="res://Personajes/enemigos/orcos/encapuchado/Run-Sheet.png" id="1_gis2b"]
-[ext_resource type="Script" uid="uid://cqrpvkm075yhv" path="res://Personajes/orco.gd" id="1_ofxc1"]
+[ext_resource type="Script" uid="uid://cqrpvkm075yhv" path="res://Personajes/scripts/orco.gd" id="1_ofxc1"]
 [ext_resource type="Texture2D" uid="uid://b06wgpiuld4ko" path="res://Personajes/enemigos/orcos/encapuchado/Idle-Sheet.png" id="2_ofxc1"]
 [ext_resource type="Texture2D" uid="uid://dqpt7bk6uso7t" path="res://Personajes/enemigos/orcos/encapuchado/Death-Sheet.png" id="3_fycn4"]
 

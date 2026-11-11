@@ -1,23 +1,24 @@
 class_name Orco
-extends Enemigo
+extends EnemigoConArma
 
 @export var velocidad: float = 70.0
-var jugador : Jugador = null
 
 func _init() -> void:
 	super(70) 
 
 	_vida = 65
-	_fuerza = 10
+	_fuerza = 20
 	_defensa = 5
 
 func _ready() -> void:
-	jugador = get_tree().get_first_node_in_group("Jugador")
+	super._ready()
 	sprite.play("correr")
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * delta / 2
+	if _muerto:
+		return
+		
+	super._physics_process(delta)
 
 	# Este lo hice hacia la derecha
 	velocity.x = velocidad
@@ -29,16 +30,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		atacar()
 
 func atacar() -> void:
-	if jugador and is_instance_valid(jugador):
-		jugador.recibir_dmg(_fuerza)
+	if intentar_atacar():
 		print("¡El orco atacó al jugador e hizo ", _fuerza, " de daño!")
 
 func soltar_item() -> void:
-	pass
-
-func _morir() -> void:
-	sprite.play("morir")
-	await sprite.animation_finished
-
-	soltar_item()
-	super._morir()
+	print("El orco suelta una espada")

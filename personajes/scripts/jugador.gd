@@ -15,13 +15,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _init():
 	super(100, 20, 5)
 
+func _ready() -> void:
+	add_to_group("Jugador")
+	
 func recibir_dmg(dmg: int) -> void:
 	super(dmg)
-	sprite.play("recibir_ataque")
-	
-	if _vida <= 0:
-		_vida = 0
-		super._morir()
+	if not _muerto:
+		sprite.play("recibir_ataque")
 
 #func usar_mano_derecha() -> void:
 	#if mano_derecha:
@@ -59,8 +59,8 @@ func _physics_process(delta):
 	if is_on_floor():
 		sprite.play("idle")
 
-	correr(delta)
-	saltar(delta)
+	correr()
+	saltar()
 
 	if Input.is_action_just_pressed("ui_accept") and not is_on_floor():
 		doble_salto()
@@ -71,13 +71,13 @@ func trepar() -> void:
 	sprite.play("trepar")
 	move_and_slide()
 
-func saltar(delta):
+func saltar():
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		_saltos_hechos = 1
 		velocity.y = jump_velocity
 		sprite.play("salto")
 		
-func correr(delta):	
+func correr():	
 	var dire := Input.get_axis("ui_left", "ui_right")
 	
 	if dire != 0:
