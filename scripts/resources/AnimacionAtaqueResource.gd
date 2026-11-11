@@ -15,7 +15,7 @@ class_name AnimacionAtaqueResource extends Resource
 ## el tiempo total que cura la traslacion
 @export var _ant_r_duracion: float
 ## la curva de animacion de esa traslacion
-@export var _ant_r_curva_ease: float
+@export var _ant_r_curva_ease: float = 1
 ## la distancia objetivo que se quiere trasladar
 @export var _ant_r_distancia: float
 
@@ -23,7 +23,7 @@ class_name AnimacionAtaqueResource extends Resource
 ## el tiempo total que cura la traslacion
 @export var _ant_t_duracion: float
 ## la curva de animacion de esa traslacion
-@export var _ant_t_curva_ease: float
+@export var _ant_t_curva_ease: float = 1
 ## la distancia objetivo que se quiere trasladar
 @export var _ant_t_distancia: float
 
@@ -39,7 +39,7 @@ class_name AnimacionAtaqueResource extends Resource
 ## el tiempo total que cura la traslacion
 @export var _atk_r_duracion: float
 ## la curva de animacion de esa traslacion
-@export var _atk_r_curva_ease: float
+@export var _atk_r_curva_ease: float = 1
 ## la distancia objetivo que se quiere trasladar
 @export var _atk_r_distancia: float
 
@@ -47,7 +47,7 @@ class_name AnimacionAtaqueResource extends Resource
 ## el tiempo total que cura la traslacion
 @export var _atk_t_duracion: float
 ## la curva de animacion de esa traslacion
-@export var _atk_t_curva_ease: float
+@export var _atk_t_curva_ease: float = 1
 ## la distancia objetivo que se quiere trasladar
 @export var _atk_t_distancia: float
 
@@ -56,7 +56,7 @@ class_name AnimacionAtaqueResource extends Resource
 ## el tiempo total que cura la traslacion
 @export var _vol_r_duracion: float
 ## la curva de animacion de esa traslacion
-@export var _vol_r_curva_ease: float
+@export var _vol_r_curva_ease: float = 1
 ## la distancia objetivo que se quiere trasladar
 var _vol_r_distancia: float
 
@@ -64,15 +64,14 @@ var _vol_r_distancia: float
 ## el tiempo total que cura la traslacion
 @export var _vol_t_duracion: float
 ## la curva de animacion de esa traslacion
-@export var _vol_t_curva_ease: float
+@export var _vol_t_curva_ease: float = 1
 ## la distancia objetivo que se quiere trasladar
 var _vol_t_distancia: float
+
 
 ## retorna el tiempo de cooldown de un arma
 func get_cooldown() -> float:
 	return _cooldown
-
-
 
 ## Anticipacion Anticipacion Anticipacion Anticipacion
 
@@ -183,3 +182,25 @@ func get_vol_t_curva_ease() -> float:
 ## retorna la distancia en px de la traslacion de la animacion volviendo 
 func get_vol_t_distancia() -> float:
 	return _vol_t_distancia
+
+
+# retorna la duracion total de un ataque 
+func get_duracion_total() -> float:
+	# duracion de la anticipacion
+	var ant_r_dur = _ant_r_duracion if _ant_tiene_rotacion else 0.0
+	var ant_t_dur = _ant_t_duracion if _ant_tiene_traslacion else 0.0
+	var ant_dt = max(ant_r_dur, ant_t_dur) + _ant_tiempo_de_espera
+	
+	# duracion del estado atacando
+	var atk_r_dur = _atk_r_duracion if _atk_tiene_rotacion else 0.0
+	var atk_t_dur = _atk_t_duracion if _atk_tiene_traslacion else 0.0
+	var atk_dt = max(atk_r_dur, atk_t_dur) + _atk_tiempo_de_espera
+	
+	# duracion del estado atacando
+	var hay_rotacion = get_ant_r_distancia() + get_atk_r_distancia() != 0
+	var hay_traslacion = get_ant_t_distancia() + get_atk_t_distancia() != 0
+	var vol_r_dur = _vol_r_duracion if hay_rotacion else 0.0
+	var vol_t_dur = _vol_t_duracion if hay_traslacion else 0.0
+	var vol_dt = max(vol_r_dur, vol_t_dur)
+	
+	return ant_dt + atk_dt + vol_dt

@@ -4,4 +4,26 @@
 
 [resource]
 script = ExtResource("1_bd7l2")
+_ant_tiene_rotacion = true
+_ant_tiene_traslacion = true
+_ant_tiempo_de_espera = 0.05
+_ant_r_duracion = 0.1
+_ant_r_curva_ease = 0.4
+_ant_r_distancia = -0.393
+_ant_t_duracion = 0.1
+_ant_t_curva_ease = 0.3
+_ant_t_distancia = 5.0
+_atk_tiene_rotacion = true
+_atk_tiene_traslacion = true
+_atk_tiempo_de_espera = 0.2
+_atk_r_duracion = 0.25
+_atk_r_curva_ease = 4.0
+_atk_r_distancia = 3.535
+_atk_t_duracion = 0.2
+_atk_t_curva_ease = 4.0
+_atk_t_distancia = 15.0
+_vol_r_duracion = 0.5
+_vol_r_curva_ease = 5.0
+_vol_t_duracion = 0.5
+_vol_t_curva_ease = 9.0
 metadata/_custom_type_script = "uid://3888la0xt88m"

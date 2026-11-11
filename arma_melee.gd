@@ -129,12 +129,11 @@ func _ready() -> void:
 	
 	# setup de la animacion
 	animacion_actual = animaciones_de_ataque.get(0)
+	print("%s: duracion de animacion actual: %s" % [nombre, animacion_actual.get_duracion_total()])
 
 #
 func _physics_process(delta: float) -> void:
 	# animaciones de ataque
-	#ataque_en_arco(delta)
-
 	ataque_en_estocada(delta)
 
 #region inicializacion
@@ -163,6 +162,10 @@ func _cargar_animaciones() -> void:
 ## empieza un ataque
 func usar() -> void:
 	print_dev("%s: usando arma" % nombre)
+	if animaciones_de_ataque.is_empty():
+		printerr("%s no tiene animaciones" % nombre)
+		return
+	
 	iniciar_ataque()
 
 #region cambio de estados de ciclo de vida de un ataque

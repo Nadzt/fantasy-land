@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="ArmaResource" format=3 uid="uid://bykekbj1ujhre"]
 
 [ext_resource type="Texture2D" uid="uid://b0ttk3n1kqsvc" path="res://resources/sprites/armas/espada_madera_sprite.tres" id="1_h6kjw"]
+[ext_resource type="Script" uid="uid://3888la0xt88m" path="res://scripts/resources/AnimacionAtaqueResource.gd" id="1_ox0kk"]
 [ext_resource type="Script" uid="uid://b8i8ll3s3la6h" path="res://scripts/resources/ArmaResource.gd" id="1_wpbsc"]
+[ext_resource type="Resource" uid="uid://cahpnbs4gvm2k" path="res://resources/animacion_ataque/slash_basico.tres" id="2_vds5r"]
 
 [resource]
 script = ExtResource("1_wpbsc")
@@ -10,9 +12,5 @@ _pos_mano = Vector2(0, -12.5)
 _area_polygon_array = PackedVector2Array(-4, 8.5, -4, -17.5, 0, -20.5, 4, -17.5, 4, 8.5)
 _nombre = "espada de madera"
 _dmg = 2
-_arco_de_ataque = 2.75
-_speed = 35.0
-_speed_return = 10.0
-_wait_time = 0.1
-_cooldown = 0.1
+_animaciones = Array[ExtResource("1_ox0kk")]([ExtResource("2_vds5r")])
 metadata/_custom_type_script = "uid://b8i8ll3s3la6h"
