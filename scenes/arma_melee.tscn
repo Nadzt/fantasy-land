@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dy1y8qqrxvc51"]
+
+[ext_resource type="Script" uid="uid://dc4wnsrivotgr" path="res://arma_melee.gd" id="1_0fmgw"]
+[ext_resource type="Resource" uid="uid://b32k2j5eplkg" path="res://resources/armas/lanza.tres" id="2_krxa6"]
+[ext_resource type="Texture2D" uid="uid://bi30bkqn7v27t" path="res://resources/sprites/armas/cuchillo_martillo_sprite.tres" id="2_tj3td"]
+
+[node name="ArmaMelee" type="Node2D" unique_id=417194038 node_paths=PackedStringArray("sprite", "pivote", "container", "hitbox", "timer_de_espera")]
+script = ExtResource("1_0fmgw")
+res = ExtResource("2_krxa6")
+sprite = NodePath("Pivote/Container/Sprite2D")
+pivote = NodePath("Pivote")
+container = NodePath("Pivote/Container")
+hitbox = NodePath("Pivote/Container/Area2D/CollisionPolygon2D")
+timer_de_espera = NodePath("TimerDeEspera")
+
+[node name="Pivote" type="Node2D" parent="." unique_id=622450963]
+
+[node name="Container" type="Node2D" parent="Pivote" unique_id=1412399964]
+position = Vector2(0, -7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivote/Container" unique_id=1448188816]
+texture = ExtResource("2_tj3td")
+
+[node name="Area2D" type="Area2D" parent="Pivote/Container" unique_id=227140475]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivote/Container/Area2D" unique_id=403927143]
+polygon = PackedVector2Array(6, -15, 6, 5, -6, 5, -6, -15)
+
+[node name="TimerDeEspera" type="Timer" parent="." unique_id=728459303]
+one_shot = true
+
+[connection signal="body_entered" from="Pivote/Container/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="TimerDeEspera" to="." method="_on_timer_de_espera_timeout"]

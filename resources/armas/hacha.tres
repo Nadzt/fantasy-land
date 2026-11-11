@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ArmaResource" format=3 uid="uid://cjrobra56l458"]
+
+[ext_resource type="Script" uid="uid://b8i8ll3s3la6h" path="res://scripts/resources/ArmaResource.gd" id="1_dcckg"]
+[ext_resource type="Texture2D" uid="uid://d0afy7xkmudq6" path="res://resources/sprites/armas/hacha_madera_sprite.tres" id="1_iawd7"]
+
+[resource]
+script = ExtResource("1_dcckg")
+_sprite = ExtResource("1_iawd7")
+_pos_mano = Vector2(0, -9)
+_area_polygon_array = PackedVector2Array(-8, -14, 8, -14, 8, -4, -8, -4)
+_nombre = "hacha de una mano"
+_dmg = 10
+_arco_de_ataque = 3.0
+_speed = 25.0
+_speed_return = 25.0
+_wait_time = 0.5
+_cooldown = 0.75
+metadata/_custom_type_script = "uid://b8i8ll3s3la6h"
