@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://botndi28ex1kj"]
+
+[ext_resource type="Script" uid="uid://btufa4l83r2pp" path="res://Personajes/scripts/ojo_volador.gd" id="1_l02on"]
+[ext_resource type="Texture2D" uid="uid://bq3e1ehkvav2s" path="res://Personajes/enemigos/enemigo de un ojo/ojo_volador.png" id="2_woyr8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g83iv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bx5l"]
+atlas = ExtResource("2_woyr8")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h5hx"]
+atlas = ExtResource("2_woyr8")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc6kt"]
+atlas = ExtResource("2_woyr8")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2hc1"]
+atlas = ExtResource("2_woyr8")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mynt0"]
+atlas = ExtResource("2_woyr8")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2klxh"]
+atlas = ExtResource("2_woyr8")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxehp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bx5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h5hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rc6kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2hc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mynt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2klxh")
+}],
+"loop": true,
+"name": &"volar",
+"speed": 5.0
+}]
+
+[node name="OjoVolador" type="CharacterBody2D" unique_id=1102138749]
+script = ExtResource("1_l02on")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1324861004]
+visible = false
+scale = Vector2(1.8, 1.8)
+shape = SubResource("CircleShape2D_g83iv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1873968067]
+sprite_frames = SubResource("SpriteFrames_mxehp")
+animation = &"volar"
+frame = 3
+frame_progress = 0.568894
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1873494244]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=366664813]
+position = Vector2(2, 3)
+polygon = PackedVector2Array(0, -5, 5, -7, 13, -12, 20, -2, 21, 7, 18, 9, 17, 13, 14, 13, 16, 16, 11, 19, 10, 18, 9, 18, 8, 20, 4, 20, -5, 18, -9, 12, -12, 8, -15, 4, -12, -4, -8, -10)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

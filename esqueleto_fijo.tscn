@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://c4t1g4jfa6x3g"]
+
+[ext_resource type="Script" uid="uid://dmhxs7j05bmhe" path="res://Personajes/scripts/esqueleto_fijo.gd" id="1_7gys6"]
+[ext_resource type="Texture2D" uid="uid://bmlpwyp41lp8i" path="res://Personajes/enemigos/esqueletos/encapuchado/Idle-Sheet.png" id="2_p2dql"]
+[ext_resource type="Texture2D" uid="uid://c2ce3iwx5p4hg" path="res://Personajes/enemigos/esqueletos/encapuchado/Death-Sheet.png" id="3_k3us5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7o8t8"]
+radius = 6.666667
+height = 23.333334
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlfks"]
+atlas = ExtResource("2_p2dql")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkkbl"]
+atlas = ExtResource("2_p2dql")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41isk"]
+atlas = ExtResource("2_p2dql")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5bmj"]
+atlas = ExtResource("2_p2dql")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc3ii"]
+atlas = ExtResource("3_k3us5")
+region = Rect2(0, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rhol"]
+atlas = ExtResource("3_k3us5")
+region = Rect2(64, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4hsm"]
+atlas = ExtResource("3_k3us5")
+region = Rect2(128, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcwq5"]
+atlas = ExtResource("3_k3us5")
+region = Rect2(192, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eu2q"]
+atlas = ExtResource("3_k3us5")
+region = Rect2(256, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kvt7"]
+atlas = ExtResource("3_k3us5")
+region = Rect2(320, 27, 64, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxehp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlfks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkkbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41isk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5bmj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hc3ii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rhol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4hsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcwq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eu2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kvt7")
+}],
+"loop": true,
+"name": &"morir",
+"speed": 5.0
+}]
+
+[node name="EsqueletoFijo" type="CharacterBody2D" unique_id=1102138749]
+script = ExtResource("1_7gys6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1324861004]
+scale = Vector2(1.8, 1.8)
+shape = SubResource("CapsuleShape2D_7o8t8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1873968067]
+sprite_frames = SubResource("SpriteFrames_mxehp")
+animation = &"idle"
+frame_progress = 0.62697077
