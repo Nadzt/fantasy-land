@@ -12,6 +12,9 @@ enum estado {
 ## si esta on, imprime en consola informacion extra
 @export var debug: bool = true
 
+## si esta on, permite usar armas sin un personaje
+@export var test: bool = false
+
 ## el recurso del arma
 @export var res: ArmaResource
 
@@ -110,6 +113,9 @@ func print_coords_hitbox() -> void:
 
 ## TODO: Pasar al jugador:
 func _unhandled_input(_event: InputEvent) -> void:
+	if !test:
+		return
+	
 	if Input.is_action_just_pressed("usar_mano_izq") and estado_actual == estado.lista:
 		print_dev("usando mano izquierda")
 		usar()

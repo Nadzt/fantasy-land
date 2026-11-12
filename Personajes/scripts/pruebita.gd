@@ -1,10 +1,10 @@
 extends Node2D
 
-var jugador = preload("res://jugador.tscn")
-var ojo = preload("res://ojo_volador.tscn")
-var esqueletoArmado = preload("res://esqueleto_armado.tscn")
-var esqueletoFijo = preload("res://esqueleto_fijo.tscn")
-var orco = preload("res://orco.tscn")
+@export var jugador: PackedScene
+@export var ojo: PackedScene
+@export var esqueletoArmado: PackedScene
+@export var esqueletoFijo: PackedScene
+@export var orco: PackedScene
 
 func _ready() : 
 

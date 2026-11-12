@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bmhau7hx1d4dy" path="res://Personajes/scripts/jugador.gd" id="1_5mo7q"]
 [ext_resource type="Texture2D" uid="uid://bn2nr7pe0aeek" path="res://Personajes/player.png" id="2_7t3ce"]
+[ext_resource type="PackedScene" uid="uid://dy1y8qqrxvc51" path="res://scenes/armas/arma_melee.tscn" id="3_28edd"]
+[ext_resource type="Script" uid="uid://nrslcf4cbclv" path="res://scenes/mano.gd" id="3_gynwn"]
+[ext_resource type="Resource" uid="uid://bykekbj1ujhre" path="res://resources/armas/espada.tres" id="4_k64kw"]
+[ext_resource type="Resource" uid="uid://cafclyswnu3cq" path="res://resources/armas/cuchillo.tres" id="4_qimn5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fil1"]
 radius = 7.0
@@ -143,10 +147,6 @@ region = Rect2(32, 99, 32, 30)
 atlas = ExtResource("2_7t3ce")
 region = Rect2(64, 99, 32, 30)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hns4q"]
-atlas = ExtResource("2_7t3ce")
-region = Rect2(0, 260, 32, 30)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_4g2as"]
 atlas = ExtResource("2_7t3ce")
 region = Rect2(32, 260, 32, 30)
@@ -162,6 +162,10 @@ region = Rect2(96, 260, 32, 30)
 [sub_resource type="AtlasTexture" id="AtlasTexture_janri"]
 atlas = ExtResource("2_7t3ce")
 region = Rect2(128, 260, 32, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hns4q"]
+atlas = ExtResource("2_7t3ce")
+region = Rect2(0, 260, 32, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_omvyu"]
 atlas = ExtResource("2_7t3ce")
@@ -337,9 +341,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hns4q")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_4g2as")
 }, {
 "duration": 1.0,
@@ -350,6 +351,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_janri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hns4q")
 }],
 "loop": true,
 "name": &"salto",
@@ -370,8 +374,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Jugador" type="CharacterBody2D" unique_id=681307978]
+[node name="Jugador" type="CharacterBody2D" unique_id=681307978 node_paths=PackedStringArray("mano_derecha", "mano_izquierda")]
 script = ExtResource("1_5mo7q")
+mano_derecha = NodePath("ManoDerecha")
+mano_izquierda = NodePath("ManoIzquierda")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=652280929]
 position = Vector2(0, 3.5)
@@ -381,6 +387,25 @@ shape = SubResource("CapsuleShape2D_1fil1")
 texture_filter = 1
 position = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_o4ec4")
-animation = &"morir"
-frame = 1
-frame_progress = 0.7672463
+animation = &"picadita"
+
+[node name="ManoDerecha" type="Marker2D" parent="." unique_id=1515247481 node_paths=PackedStringArray("arma")]
+position = Vector2(-6, 7)
+gizmo_extents = 0.0
+script = ExtResource("3_gynwn")
+arma = NodePath("ArmaMelee")
+
+[node name="ArmaMelee" parent="ManoDerecha" unique_id=417194038 instance=ExtResource("3_28edd")]
+debug = false
+res = ExtResource("4_qimn5")
+
+[node name="ManoIzquierda" type="Marker2D" parent="." unique_id=155025921 node_paths=PackedStringArray("arma")]
+position = Vector2(5, 6)
+gizmo_extents = 0.0
+script = ExtResource("3_gynwn")
+arma = NodePath("ArmaMelee")
+
+[node name="ArmaMelee" parent="ManoIzquierda" unique_id=458316924 instance=ExtResource("3_28edd")]
+position = Vector2(6, 0)
+debug = false
+res = ExtResource("4_k64kw")

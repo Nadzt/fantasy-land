@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://cxx00mk654lf8"]
 
 [ext_resource type="Script" uid="uid://x258tbn5k1ni" path="res://Personajes/scripts/pruebita.gd" id="1_8ye53"]
+[ext_resource type="PackedScene" uid="uid://3gn34gdita2x" path="res://scenes/jugador.tscn" id="2_d1kt6"]
 [ext_resource type="Script" uid="uid://fx7lgd27keu7" path="res://Personajes/scripts/area_2d.gd" id="2_lsx06"]
+[ext_resource type="PackedScene" uid="uid://xndkntifaoh0" path="res://scenes/enemigos/orco.tscn" id="3_66oi7"]
 [ext_resource type="Script" uid="uid://dkaorvg48kl8d" path="res://Personajes/scripts/escalera_(ponele).gd" id="3_d1kt6"]
+[ext_resource type="PackedScene" uid="uid://botndi28ex1kj" path="res://scenes/enemigos/ojo_volador.tscn" id="3_trm3b"]
+[ext_resource type="PackedScene" uid="uid://c8rmq4xsng5j8" path="res://scenes/enemigos/esqueleto_armado.tscn" id="4_r0der"]
+[ext_resource type="PackedScene" uid="uid://c4t1g4jfa6x3g" path="res://scenes/enemigos/esqueleto_fijo.tscn" id="5_357gu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5pg0"]
 size = Vector2(330, 20)
@@ -14,6 +19,11 @@ size = Vector2(11, 41)
 
 [node name="Node2D" type="Node2D" unique_id=613286823]
 script = ExtResource("1_8ye53")
+jugador = ExtResource("2_d1kt6")
+ojo = ExtResource("3_trm3b")
+esqueletoArmado = ExtResource("4_r0der")
+esqueletoFijo = ExtResource("5_357gu")
+orco = ExtResource("3_66oi7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=759102489]
 position = Vector2(161, 90)

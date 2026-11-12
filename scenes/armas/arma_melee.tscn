@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://dy1y8qqrxvc51"]
 
-[ext_resource type="Script" uid="uid://dc4wnsrivotgr" path="res://arma_melee.gd" id="1_0fmgw"]
+[ext_resource type="Script" uid="uid://dc4wnsrivotgr" path="res://scripts/armas/arma_melee.gd" id="1_0fmgw"]
 [ext_resource type="Resource" uid="uid://b32k2j5eplkg" path="res://resources/armas/lanza.tres" id="2_krxa6"]
 [ext_resource type="Texture2D" uid="uid://bi30bkqn7v27t" path="res://resources/sprites/armas/cuchillo_martillo_sprite.tres" id="2_tj3td"]
 
 [node name="ArmaMelee" type="Node2D" unique_id=417194038 node_paths=PackedStringArray("sprite", "pivote", "container", "hitbox", "timer_de_espera")]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_0fmgw")
 res = ExtResource("2_krxa6")
 sprite = NodePath("Pivote/Container/Sprite2D")

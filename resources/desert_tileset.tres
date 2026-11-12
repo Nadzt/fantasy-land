@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://b1iiirg3utbxi" path="res://assets/tilesets/desert.png" id="1_3hug4"]
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_3hug4"]
+tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 1, 131072, 458752, 0, 1, 131072, 0, 65537, 327680, 0, 131073, 524288, 0, 2, 131072, 0, 65538, 327680, 0, 131074, 983040, 0, 196610, 1245184, 0, 262146, 1245184, 0, 327682, 458752, 0, 3, 131072, 0, 65539, 327680, 0, 131075, 917504, 0, 196611, 1048576, 0, 262147, 1048576, 0, 327683, 589824, 0, 4, 131072, 0, 65540, 327680, 0, 131076, 524288, 0, 5, 196608, 0, 65541, 65536, 1, 131077, 589824, 0)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_otwa2"]
 texture = ExtResource("1_3hug4")
 1:0/0 = 0
@@ -235,3 +238,4 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "desert"
 terrain_set_0/terrain_0/color = Color(0.34715226, 0.7225545, 0.91021496, 1)
 sources/0 = SubResource("TileSetAtlasSource_otwa2")
+pattern_0 = SubResource("TileMapPattern_3hug4")
