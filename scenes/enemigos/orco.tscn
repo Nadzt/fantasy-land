@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7o8t8"]
 radius = 6.1111116
-height = 20.0
+height = 16.666668
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6rsy7"]
 atlas = ExtResource("1_gis2b")
@@ -140,24 +140,25 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofxc1"]
-size = Vector2(23.88889, 20)
+size = Vector2(21.666668, 17.777779)
 
 [node name="Orco" type="CharacterBody2D" unique_id=1102138749]
 script = ExtResource("1_ofxc1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1324861004]
+position = Vector2(0, 2)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("CapsuleShape2D_7o8t8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1873968067]
 sprite_frames = SubResource("SpriteFrames_mxehp")
-animation = &"morir"
-frame_progress = 0.026583098
+animation = &"correr"
+frame_progress = 0.18315332
 
 [node name="Area2D" type="Area2D" parent="." unique_id=855140556]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1132559888]
-position = Vector2(8.500001, 0)
+position = Vector2(8.5, 1.9999996)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_ofxc1")
 

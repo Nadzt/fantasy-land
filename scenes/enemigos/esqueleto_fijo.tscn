@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://c2ce3iwx5p4hg" path="res://Personajes/enemigos/esqueletos/encapuchado/Death-Sheet.png" id="3_k3us5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7o8t8"]
-radius = 6.666667
-height = 23.333334
+radius = 5.555556
+height = 18.88889
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tlfks"]
 atlas = ExtResource("2_p2dql")
@@ -95,10 +95,12 @@ animations = [{
 script = ExtResource("1_7gys6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1324861004]
+position = Vector2(0, 4)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("CapsuleShape2D_7o8t8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1873968067]
+position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_mxehp")
 animation = &"idle"
-frame_progress = 0.62697077
+frame_progress = 0.6257902

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://3gn34gdita2x" path="res://scenes/jugador.tscn" id="2_d1kt6"]
 [ext_resource type="Script" uid="uid://fx7lgd27keu7" path="res://Personajes/scripts/area_2d.gd" id="2_lsx06"]
 [ext_resource type="PackedScene" uid="uid://xndkntifaoh0" path="res://scenes/enemigos/orco.tscn" id="3_66oi7"]
-[ext_resource type="Script" uid="uid://dkaorvg48kl8d" path="res://Personajes/scripts/escalera_(ponele).gd" id="3_d1kt6"]
+[ext_resource type="Script" uid="uid://dkaorvg48kl8d" path="res://Personajes/scripts/escalera.gd" id="3_d1kt6"]
 [ext_resource type="PackedScene" uid="uid://botndi28ex1kj" path="res://scenes/enemigos/ojo_volador.tscn" id="3_trm3b"]
 [ext_resource type="PackedScene" uid="uid://c8rmq4xsng5j8" path="res://scenes/enemigos/esqueleto_armado.tscn" id="4_r0der"]
 [ext_resource type="PackedScene" uid="uid://c4t1g4jfa6x3g" path="res://scenes/enemigos/esqueleto_fijo.tscn" id="5_357gu"]
@@ -17,7 +17,7 @@ size = Vector2(330, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ye53"]
 size = Vector2(11, 41)
 
-[node name="Node2D" type="Node2D" unique_id=613286823]
+[node name="Pruebita" type="Node2D" unique_id=613286823]
 script = ExtResource("1_8ye53")
 jugador = ExtResource("2_d1kt6")
 ojo = ExtResource("3_trm3b")
@@ -42,13 +42,13 @@ script = ExtResource("2_lsx06")
 position = Vector2(100, 120)
 shape = SubResource("RectangleShape2D_koc7m")
 
-[node name="Escalera (ponele)" type="Area2D" parent="." unique_id=469740727]
+[node name="Escalera" type="Area2D" parent="." unique_id=469740727]
 script = ExtResource("3_d1kt6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Escalera (ponele)" unique_id=2103302552]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Escalera" unique_id=2103302552]
 position = Vector2(154.5, 140.5)
 shape = SubResource("RectangleShape2D_8ye53")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="Escalera (ponele)" to="Escalera (ponele)" method="_on_body_entered"]
-[connection signal="body_exited" from="Escalera (ponele)" to="Escalera (ponele)" method="_on_body_exited"]
+[connection signal="body_entered" from="Escalera" to="Escalera" method="_on_body_entered"]
+[connection signal="body_exited" from="Escalera" to="Escalera" method="_on_body_exited"]

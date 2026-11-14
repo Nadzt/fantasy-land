@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c31nvde7hc5de" path="res://Personajes/enemigos/esqueletos/armado/Death-Sheet.png" id="4_7r24a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7o8t8"]
-radius = 6.666667
-height = 23.333334
+radius = 5.555556
+height = 16.666668
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wuiyy"]
 atlas = ExtResource("2_7r24a")
@@ -143,10 +143,11 @@ animations = [{
 script = ExtResource("1_7o8t8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1324861004]
+position = Vector2(0, 4)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("CapsuleShape2D_7o8t8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1873968067]
+position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_mxehp")
 animation = &"morir"
-frame_progress = 0.46059826
