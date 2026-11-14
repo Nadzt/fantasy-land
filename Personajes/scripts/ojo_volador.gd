@@ -3,6 +3,8 @@ extends Enemigo
 
 @export var velocidad: float = 50.0
 @export var rango_deteccion: float = 200.0
+@export var collision: CollisionShape2D
+@export var puede_atacar: bool = true
 
 func _init() -> void:
 	super(25) #puntaje 
@@ -39,9 +41,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		atacar()
 
 func atacar() -> void:
-	if jugador and is_instance_valid(jugador):
+	if jugador and is_instance_valid(jugador) and puede_atacar:
 		jugador.recibir_dmg(_fuerza)
 		print("¡El ojo atacó al jugador e hizo ", _fuerza, " de daño!")
+		puede_atacar = false
+		await get_tree().create_timer(1).timeout
+		puede_atacar = true
 
 func soltar_item() -> void:
 	print("El ojo soltó una moneda")

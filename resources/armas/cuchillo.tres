@@ -11,6 +11,6 @@ _sprite = ExtResource("1_8mxqc")
 _pos_mano = Vector2(0, -7)
 _area_polygon_array = PackedVector2Array(6, -15, 6, 5, -6, 5, -6, -15)
 _nombre = "cuchillo de madera"
-_dmg = 4
+_dmg = 6
 _animaciones = Array[ExtResource("1_pcf4o")]([ExtResource("2_l1fvm")])
 metadata/_custom_type_script = "uid://b8i8ll3s3la6h"

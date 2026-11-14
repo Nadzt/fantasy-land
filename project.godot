@@ -35,6 +35,11 @@ usar_mano_der={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="armas"
+2d_physics/layer_3="enemigos"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dc4wnsrivotgr" path="res://scripts/armas/arma_melee.gd" id="1_0fmgw"]
 [ext_resource type="Resource" uid="uid://b32k2j5eplkg" path="res://resources/armas/lanza.tres" id="2_krxa6"]
 [ext_resource type="Texture2D" uid="uid://bi30bkqn7v27t" path="res://resources/sprites/armas/cuchillo_martillo_sprite.tres" id="2_tj3td"]
+[ext_resource type="Texture2D" uid="uid://bulcu4oppi8ai" path="res://resources/sprites/mano_derecha.tres" id="4_xjiux"]
 
 [node name="ArmaMelee" type="Node2D" unique_id=417194038 node_paths=PackedStringArray("sprite", "pivote", "container", "hitbox", "timer_de_espera")]
 scale = Vector2(0.5, 0.5)
@@ -23,9 +24,15 @@ position = Vector2(0, -7)
 texture = ExtResource("2_tj3td")
 
 [node name="Area2D" type="Area2D" parent="Pivote/Container" unique_id=227140475]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivote/Container/Area2D" unique_id=403927143]
 polygon = PackedVector2Array(6, -15, 6, 5, -6, 5, -6, -15)
+
+[node name="SpriteMano" type="Sprite2D" parent="Pivote" unique_id=814702310]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_xjiux")
 
 [node name="TimerDeEspera" type="Timer" parent="." unique_id=728459303]
 one_shot = true

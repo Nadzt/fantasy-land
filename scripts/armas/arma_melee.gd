@@ -15,6 +15,11 @@ enum estado {
 ## si esta on, permite usar armas sin un personaje
 @export var test: bool = false
 
+## el multiplicador de daño que hace el jugador con las armas
+@export var multiplicador_jugador: float = 2
+## el multiplicador de daño que hacen los  con las armas
+@export var multiplicador_enemigos: float = 1
+
 ## el recurso del arma
 @export var res: ArmaResource
 
@@ -25,6 +30,10 @@ enum estado {
 @export var dmg: int
 ## si es de 2 manos
 @export var es_de_dos_manos: bool
+## direccion de donde esta mirando el arma
+@export var dir_izquierda: bool = false
+## entidad padre
+@export var entidad_padre: Node2D
 
 @export_group("Componentes")
 ## Sprite del arma
@@ -136,6 +145,8 @@ func _ready() -> void:
 	# setup de la animacion
 	animacion_actual = animaciones_de_ataque.get(0)
 	print("%s: duracion de animacion actual: %s" % [nombre, animacion_actual.get_duracion_total()])
+	
+	
 
 #
 func _physics_process(delta: float) -> void:
@@ -150,6 +161,8 @@ func _cargar_sprite_y_alinear() -> void:
 	sprite.texture = res.get_sprite()
 	container.position = res.get_pos_mano()
 	hitbox.polygon = res.get_hitbox_area()
+	hitbox.disabled = true
+	
 
 ## carga la info general del arma
 func _cargar_info_general() -> void:
@@ -172,7 +185,8 @@ func usar() -> void:
 		printerr("%s no tiene animaciones" % nombre)
 		return
 	
-	iniciar_ataque()
+	if estado_actual == estado.lista:
+		iniciar_ataque()
 
 #region cambio de estados de ciclo de vida de un ataque
 
@@ -372,7 +386,6 @@ func cambiar_a_siguiente_estado() -> void:
 
 #endregion
 
-
 #region callbacks de señales
 ## cambia el estado del arma para que empiece a volver
 func _on_timer_de_espera_timeout() -> void:
@@ -382,7 +395,14 @@ func _on_timer_de_espera_timeout() -> void:
 
 ## Hitbox
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("%s le pego a un body: %s" % [nombre, body.name])
+	#print("%s le pego a un body: %s" % [nombre, body.name])
+	
+	if body is Enemigo:
+		body.recibir_dmg(dmg*multiplicador_jugador)
+	
+	if body is Jugador:
+		body.recibir_dmg(dmg*multiplicador_enemigos)
+
 
 #endregion
 
@@ -446,5 +466,23 @@ func animar_movimiento_traslacion(delta: float) -> bool:
 	
 	pivote.position.x = nueva_pos_x
 	return animacion_terminada
+
+#endregion
+
+#region sync con mano
+
+## actualiza la posicion con la mano padre
+func actualizar_pos() -> void:
+	var parent = get_parent()
+	
+	if parent is Mano:
+		global_position = parent.global_position
+
+## invierte el sprite en caso de mirar a la izquierda
+func invertir_por_direccion(mira_izquierda) -> void:
+	if mira_izquierda:
+		scale.x = abs(scale.x) * -1
+	else:
+		scale.x = abs(scale.x)
 
 #endregion

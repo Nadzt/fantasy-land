@@ -23,7 +23,9 @@ func _physics_process(delta: float) -> void:
 	
 	if jugador and is_instance_valid(jugador):
 		if global_position.distance_to(jugador.global_position) <= rango_ataque:
-			sprite.flip_h = global_position.direction_to(jugador.global_position).x < 0
+			var mira_hacia_izquierda: bool = global_position.direction_to(jugador.global_position).x < 0
+			sprite.flip_h = mira_hacia_izquierda
+			cambiar_pos_manos(mira_hacia_izquierda)
 			
 			if intentar_atacar():
 				atacar()

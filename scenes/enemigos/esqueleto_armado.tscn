@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://chcmu4e7alqre" path="res://Personajes/scripts/esqueleto_armado.gd" id="1_7o8t8"]
 [ext_resource type="Texture2D" uid="uid://b20mp6gajjkto" path="res://Personajes/enemigos/esqueletos/armado/Run-Sheet.png" id="2_7r24a"]
+[ext_resource type="Script" uid="uid://nrslcf4cbclv" path="res://scenes/mano.gd" id="2_gnxmi"]
 [ext_resource type="Texture2D" uid="uid://b3505u4u4ilbk" path="res://Personajes/enemigos/esqueletos/armado/Idle-Sheet.png" id="3_rpxnf"]
+[ext_resource type="PackedScene" uid="uid://dy1y8qqrxvc51" path="res://scenes/armas/arma_melee.tscn" id="3_tpmmh"]
 [ext_resource type="Texture2D" uid="uid://c31nvde7hc5de" path="res://Personajes/enemigos/esqueletos/armado/Death-Sheet.png" id="4_7r24a"]
+[ext_resource type="Resource" uid="uid://bykekbj1ujhre" path="res://resources/armas/espada.tres" id="4_d17m6"]
+[ext_resource type="Resource" uid="uid://cafclyswnu3cq" path="res://resources/armas/cuchillo.tres" id="8_idjtb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7o8t8"]
 radius = 5.555556
@@ -139,15 +143,47 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EsqueletoArmado" type="CharacterBody2D" unique_id=1102138749]
+[node name="EsqueletoArmado" type="CharacterBody2D" unique_id=1102138749 node_paths=PackedStringArray("mano_derecha", "mano_izquierda", "slot_adelante", "slot_atras")]
+scale = Vector2(0.7, 0.7)
+collision_layer = 5
 script = ExtResource("1_7o8t8")
+mano_derecha = NodePath("SlotAdelante/ManoDerecha")
+mano_izquierda = NodePath("SlotAtras/ManoIzquierda")
+slot_adelante = NodePath("SlotAdelante")
+slot_atras = NodePath("SlotAtras")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1324861004]
 position = Vector2(0, 4)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("CapsuleShape2D_7o8t8")
 
+[node name="SlotAtras" type="Node2D" parent="." unique_id=1117086684]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="ManoIzquierda" type="Marker2D" parent="SlotAtras" unique_id=1413755677 node_paths=PackedStringArray("arma")]
+position = Vector2(7, 7)
+gizmo_extents = 0.0
+script = ExtResource("2_gnxmi")
+arma = NodePath("ArmaMelee")
+
+[node name="ArmaMelee" parent="SlotAtras/ManoIzquierda" unique_id=417194038 node_paths=PackedStringArray("entidad_padre") instance=ExtResource("3_tpmmh")]
+debug = false
+res = ExtResource("4_d17m6")
+entidad_padre = NodePath("")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1873968067]
 position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_mxehp")
-animation = &"morir"
+animation = &"correr"
+
+[node name="SlotAdelante" type="Node2D" parent="." unique_id=1573411938]
+
+[node name="ManoDerecha" type="Marker2D" parent="SlotAdelante" unique_id=1062334066 node_paths=PackedStringArray("arma")]
+position = Vector2(-5, 9)
+gizmo_extents = 0.0
+script = ExtResource("2_gnxmi")
+arma = NodePath("ArmaMelee")
+
+[node name="ArmaMelee" parent="SlotAdelante/ManoDerecha" unique_id=910459821 instance=ExtResource("3_tpmmh")]
+debug = false
+res = ExtResource("8_idjtb")

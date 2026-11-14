@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://dwfycte4di63h" path="res://resources/dungeon_tileset.tres" id="5_75jji"]
 [ext_resource type="Script" uid="uid://qg1k2iucadhc" path="res://scripts/camara.gd" id="5_vwj67"]
 [ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scenes/minimapa.gd" id="6_jaeu2"]
+[ext_resource type="PackedScene" uid="uid://c8rmq4xsng5j8" path="res://scenes/enemigos/esqueleto_armado.tscn" id="8_kxyy5"]
 
 [node name="Mundo" type="Node2D" unique_id=348896220]
 
@@ -58,4 +59,7 @@ camera_2d = NodePath("minimapa")
 jugador = NodePath("../../../Jugador")
 
 [node name="minimapa" type="Camera2D" parent="LayerMinimapa/SubViewportContainer/SubViewport" unique_id=1563568819]
-zoom = Vector2(0.2, 0.2)
+zoom = Vector2(0.1, 0.1)
+
+[node name="EsqueletoArmado" parent="." unique_id=873685854 instance=ExtResource("8_kxyy5")]
+position = Vector2(-119, 642)

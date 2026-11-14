@@ -11,6 +11,6 @@ _sprite = ExtResource("1_h6kjw")
 _pos_mano = Vector2(0, -12.5)
 _area_polygon_array = PackedVector2Array(-4, 8.5, -4, -17.5, 0, -20.5, 4, -17.5, 4, 8.5)
 _nombre = "espada de madera"
-_dmg = 2
+_dmg = 9
 _animaciones = Array[ExtResource("1_ox0kk")]([ExtResource("2_vds5r")])
 metadata/_custom_type_script = "uid://b8i8ll3s3la6h"

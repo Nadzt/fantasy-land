@@ -7,10 +7,6 @@
 [ext_resource type="Resource" uid="uid://bykekbj1ujhre" path="res://resources/armas/espada.tres" id="4_k64kw"]
 [ext_resource type="Resource" uid="uid://cafclyswnu3cq" path="res://resources/armas/cuchillo.tres" id="4_qimn5"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fil1"]
-radius = 7.0
-height = 24.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ook8"]
 atlas = ExtResource("2_7t3ce")
 region = Rect2(0, 325, 32, 30)
@@ -374,38 +370,48 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Jugador" type="CharacterBody2D" unique_id=681307978 node_paths=PackedStringArray("mano_derecha", "mano_izquierda")]
-script = ExtResource("1_5mo7q")
-mano_derecha = NodePath("ManoDerecha")
-mano_izquierda = NodePath("ManoIzquierda")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fil1"]
+radius = 3.0
+height = 21.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=652280929]
-position = Vector2(0, 3.5)
-shape = SubResource("CapsuleShape2D_1fil1")
+[node name="Jugador" type="CharacterBody2D" unique_id=681307978 node_paths=PackedStringArray("mano_derecha", "mano_izquierda", "slot_adelante", "slot_atras")]
+script = ExtResource("1_5mo7q")
+mano_derecha = NodePath("SlotAdelante/ManoDerecha")
+mano_izquierda = NodePath("SlotAtras/ManoIzquierda")
+slot_adelante = NodePath("SlotAdelante")
+slot_atras = NodePath("SlotAtras")
+
+[node name="SlotAtras" type="Node2D" parent="." unique_id=1658886494]
+
+[node name="ManoIzquierda" type="Marker2D" parent="SlotAtras" unique_id=155025921 node_paths=PackedStringArray("arma")]
+position = Vector2(7, 7)
+gizmo_extents = 0.0
+script = ExtResource("3_gynwn")
+arma = NodePath("ArmaMelee")
+
+[node name="ArmaMelee" parent="SlotAtras/ManoIzquierda" unique_id=458316924 node_paths=PackedStringArray("entidad_padre") instance=ExtResource("3_28edd")]
+debug = false
+res = ExtResource("4_k64kw")
+entidad_padre = NodePath("../../..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2035435485]
 texture_filter = 1
 position = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_o4ec4")
-animation = &"picadita"
+animation = &"idle"
 
-[node name="ManoDerecha" type="Marker2D" parent="." unique_id=1515247481 node_paths=PackedStringArray("arma")]
-position = Vector2(-6, 7)
+[node name="SlotAdelante" type="Node2D" parent="." unique_id=691736256]
+
+[node name="ManoDerecha" type="Marker2D" parent="SlotAdelante" unique_id=1515247481 node_paths=PackedStringArray("arma")]
+position = Vector2(-5, 9)
 gizmo_extents = 0.0
 script = ExtResource("3_gynwn")
 arma = NodePath("ArmaMelee")
 
-[node name="ArmaMelee" parent="ManoDerecha" unique_id=417194038 instance=ExtResource("3_28edd")]
+[node name="ArmaMelee" parent="SlotAdelante/ManoDerecha" unique_id=417194038 instance=ExtResource("3_28edd")]
 debug = false
 res = ExtResource("4_qimn5")
 
-[node name="ManoIzquierda" type="Marker2D" parent="." unique_id=155025921 node_paths=PackedStringArray("arma")]
-position = Vector2(5, 6)
-gizmo_extents = 0.0
-script = ExtResource("3_gynwn")
-arma = NodePath("ArmaMelee")
-
-[node name="ArmaMelee" parent="ManoIzquierda" unique_id=458316924 instance=ExtResource("3_28edd")]
-position = Vector2(6, 0)
-debug = false
-res = ExtResource("4_k64kw")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=652280929]
+position = Vector2(0, 3.5)
+shape = SubResource("CapsuleShape2D_1fil1")

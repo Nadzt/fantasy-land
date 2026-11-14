@@ -11,6 +11,7 @@ radius = 11.401754
 [node name="Node2D" type="Node2D" unique_id=198373447]
 
 [node name="Espada" parent="." unique_id=417194038 instance=ExtResource("1_odcqa")]
+visibility_layer = 2
 position = Vector2(27, 34)
 debug = false
 test = true
@@ -38,3 +39,21 @@ position = Vector2(160, 143)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Test pj" unique_id=991047539]
 shape = SubResource("CircleShape2D_37kl0")
+
+[node name="Espada2" parent="." unique_id=374927421 instance=ExtResource("1_odcqa")]
+position = Vector2(213, 34)
+debug = false
+res = ExtResource("2_h05by")
+dir_izquierda = true
+
+[node name="Lanza2" parent="." unique_id=700814893 instance=ExtResource("1_odcqa")]
+position = Vector2(213, 75)
+debug = false
+test = true
+dir_izquierda = true
+
+[node name="Martillo2" parent="." unique_id=300065246 instance=ExtResource("1_odcqa")]
+position = Vector2(213, 115)
+debug = false
+res = ExtResource("3_xchcf")
+dir_izquierda = true

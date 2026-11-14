@@ -28,9 +28,8 @@ func _physics_process(delta: float) -> void:
 			
 			sprite.play("correr")  
 			sprite.flip_h = direccion.x < 0
+			cambiar_pos_manos(direccion.x < 0)
 			
-			#if arma:  
-				#arma.scale.x = -1 if sprite.flip_h else 1
 				
 		else:  
 			velocity.x = move_toward(velocity.x, 0, velocidad * delta)    
