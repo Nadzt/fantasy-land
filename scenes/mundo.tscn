@@ -61,5 +61,5 @@ jugador = NodePath("../../../Jugador")
 [node name="minimapa" type="Camera2D" parent="LayerMinimapa/SubViewportContainer/SubViewport" unique_id=1563568819]
 zoom = Vector2(0.1, 0.1)
 
-[node name="EsqueletoArmado" parent="." unique_id=873685854 instance=ExtResource("8_kxyy5")]
-position = Vector2(-119, 642)
+[node name="EsqueletoArmado" parent="." unique_id=1102138749 instance=ExtResource("8_kxyy5")]
+position = Vector2(-140.00002, 641.00006)

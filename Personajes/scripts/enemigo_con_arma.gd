@@ -4,7 +4,7 @@ extends Enemigo
 @export var tiempo_cooldown: float = 1.5     
 var _tiempo_actual_ataque: float = 0.0    
 
-@onready var arma: Node2D = get_node_or_null("Arma")
+@onready var arma: ArmaMelee
 
 @export_group("armas")
 @export var mano_derecha: Mano
@@ -23,6 +23,7 @@ func _ready() -> void:
 	super._ready()
 	cambiar_pos_manos(false)
 	if mano_izquierda.arma:
+		arma = mano_izquierda.arma
 		mano_izquierda.arma.actualizar_pos()
 	if mano_derecha.arma:
 		mano_derecha.arma.actualizar_pos()
@@ -37,8 +38,6 @@ func intentar_atacar() -> bool:
 		
 		if arma and arma.has_method("usar"):
 			arma.usar()
-		else:
-			jugador.recibir_dmg(_fuerza)
 			
 		_tiempo_actual_ataque = tiempo_cooldown # acá reinicio el cooldown
 		return true
@@ -73,3 +72,9 @@ func cambiar_pos_manos(mira_hacia_izquierda: bool) -> void:
 	if mano_derecha.arma:
 		mano_derecha.arma.actualizar_pos()
 		mano_derecha.arma.invertir_por_direccion(mira_hacia_izquierda)
+
+func cambiar_arma_principal(mira_hacia_izquierda: bool) -> void:
+	if mira_hacia_izquierda:
+		arma = mano_derecha.arma
+	else:
+		arma = mano_izquierda.arma

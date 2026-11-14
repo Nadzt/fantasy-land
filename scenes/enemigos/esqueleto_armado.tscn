@@ -151,6 +151,10 @@ mano_derecha = NodePath("SlotAdelante/ManoDerecha")
 mano_izquierda = NodePath("SlotAtras/ManoIzquierda")
 slot_adelante = NodePath("SlotAdelante")
 slot_atras = NodePath("SlotAtras")
+mano_izquierda_pos_1 = Vector2(5.5, 8.5)
+mano_derecha_pos_1 = Vector2(-10.000001, 10.000001)
+mano_izquierda_pos_2 = Vector2(10, 8.5)
+mano_derecha_pos_2 = Vector2(-7, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1324861004]
 position = Vector2(0, 4)
@@ -161,15 +165,14 @@ shape = SubResource("CapsuleShape2D_7o8t8")
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="ManoIzquierda" type="Marker2D" parent="SlotAtras" unique_id=1413755677 node_paths=PackedStringArray("arma")]
-position = Vector2(7, 7)
+position = Vector2(10, 8.5)
 gizmo_extents = 0.0
 script = ExtResource("2_gnxmi")
 arma = NodePath("ArmaMelee")
 
-[node name="ArmaMelee" parent="SlotAtras/ManoIzquierda" unique_id=417194038 node_paths=PackedStringArray("entidad_padre") instance=ExtResource("3_tpmmh")]
+[node name="ArmaMelee" parent="SlotAtras/ManoIzquierda" unique_id=417194038 instance=ExtResource("3_tpmmh")]
 debug = false
 res = ExtResource("4_d17m6")
-entidad_padre = NodePath("")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1873968067]
 position = Vector2(0, 4)
@@ -179,7 +182,7 @@ animation = &"correr"
 [node name="SlotAdelante" type="Node2D" parent="." unique_id=1573411938]
 
 [node name="ManoDerecha" type="Marker2D" parent="SlotAdelante" unique_id=1062334066 node_paths=PackedStringArray("arma")]
-position = Vector2(-5, 9)
+position = Vector2(-7, 10)
 gizmo_extents = 0.0
 script = ExtResource("2_gnxmi")
 arma = NodePath("ArmaMelee")
