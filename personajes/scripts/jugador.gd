@@ -7,11 +7,9 @@ extends Personaje
 
 var _saltos_hechos: int = 0
 var puede_trepar := false
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export var mano_derecha: Mano
 @export var mano_izquierda: Mano
-
 
 func _init():
 	super(100, 20, 5)
@@ -39,7 +37,6 @@ func _unhandled_input(_event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("usar_mano_izq"):
 		usar_mano_izquierda()
-
 
 #func agarrar_arma(arma:Arma) -> void:
 #
