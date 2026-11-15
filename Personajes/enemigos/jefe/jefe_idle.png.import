@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b62dpx0o7jvv3"
-path="res://.godot/imported/Idle-Sheet.png-b7174d92e9a8adf1b416e1a4a1e1f7f7.ctex"
+uid="uid://88pbjhf5568x"
+path="res://.godot/imported/jefe_idle.png-6a65cbf90592a4154527a83ae6082eb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personajes/enemigos/orcos/shaman/Idle-Sheet.png"
-dest_files=["res://.godot/imported/Idle-Sheet.png-b7174d92e9a8adf1b416e1a4a1e1f7f7.ctex"]
+source_file="res://Personajes/enemigos/jefe/jefe_idle.png"
+dest_files=["res://.godot/imported/jefe_idle.png-6a65cbf90592a4154527a83ae6082eb5.ctex"]
 
 [params]
 

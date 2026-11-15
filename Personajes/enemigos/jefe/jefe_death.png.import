@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvt0jn4ym14yj"
-path="res://.godot/imported/Death-Sheet.png-0398ab08a41489e7fbfc7396c971242f.ctex"
+uid="uid://cf3i48tvkt887"
+path="res://.godot/imported/jefe_death.png-8885c5ae0fdaf340fea07303dd921d33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personajes/enemigos/orcos/shaman/Death-Sheet.png"
-dest_files=["res://.godot/imported/Death-Sheet.png-0398ab08a41489e7fbfc7396c971242f.ctex"]
+source_file="res://Personajes/enemigos/jefe/jefe_death.png"
+dest_files=["res://.godot/imported/jefe_death.png-8885c5ae0fdaf340fea07303dd921d33.ctex"]
 
 [params]
 

@@ -7,6 +7,8 @@ extends Personaje
 
 var _saltos_hechos: int = 0
 var puede_trepar := false
+var _posicionx_trepar : float
+var _offset_trepar : float
 
 @export_group("armas")
 @export var mano_derecha: Mano
@@ -91,46 +93,52 @@ func agarrar_item() -> void:
 
 func _physics_process(delta):
 	
-	if puede_trepar and Input.is_action_pressed("ui_up"):
+	if puede_trepar and Input.is_action_pressed("trepar"):
 		trepar()
 		return
 		
 	super._physics_process(delta)
 
-	if is_on_floor():
-		sprite.play("idle")
-
 	correr()
 	saltar()
 
-	if Input.is_action_just_pressed("ui_accept") and not is_on_floor():
+	if Input.is_action_just_pressed("saltar") and not is_on_floor():
 		doble_salto()
+
+	if is_on_floor() and velocity.x == 0:
+		sprite.play("idle")
 
 func trepar() -> void:
 	velocity.x = 0
 	velocity.y = -velocidad_trepado
+	global_position.x = _posicionx_trepar + _offset_trepar
 	sprite.play("trepar")
 	move_and_slide()
 
 func saltar():
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("saltar") and is_on_floor():
 		_saltos_hechos = 1
 		velocity.y = jump_velocity
 		sprite.play("salto")
 		
 func correr():	
-	var dire := Input.get_axis("ui_left", "ui_right")
+	var dire := Input.get_axis("caminar izquierda", "caminar derecha")
 	
 	if dire != 0:
 		cambiar_pos_manos(dire < 0)
 		sprite.flip_h = dire < 0 
+		if dire < 0 :
+			_offset_trepar = 7
+		else:
+			_offset_trepar = -7
 		
-		if Input.is_action_pressed("ui_accept"):
+		if Input.is_action_pressed("correr"):
 			velocity.x = dire * speed * 2 # corre
 			sprite.play("correr")
 		else:
 			velocity.x = dire * speed     # camina
-			sprite.play("caminar")
+			if sprite.animation != "caminar":
+				sprite.play("caminar")
 	else:
 		velocity.x = 0
 

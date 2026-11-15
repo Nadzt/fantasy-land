@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ArmaResource" format=3 uid="uid://otmtj0o18tjv"]
+
+[ext_resource type="Script" uid="uid://3888la0xt88m" path="res://scripts/resources/AnimacionAtaqueResource.gd" id="1_v4d05"]
+[ext_resource type="Script" uid="uid://b8i8ll3s3la6h" path="res://scripts/resources/ArmaResource.gd" id="2_ovcdo"]
+[ext_resource type="Resource" uid="uid://cdbdrc2jdiij5" path="res://resources/animacion_ataque/ataque_guadaña.tres" id="2_xnbri"]
+[ext_resource type="Texture2D" uid="uid://dcv4rflsqujem" path="res://resources/sprites/armas/guadaña_jefe.tres" id="3_b4ihn"]
+
+[resource]
+script = ExtResource("2_ovcdo")
+_sprite = ExtResource("3_b4ihn")
+_pos_mano = Vector2(-29, -3)
+_area_polygon_array = PackedVector2Array(10.675, 8.11, 20.015, 11.44)
+_nombre = "guadaña"
+_dmg = 10
+_es_de_dos_manos = true
+_animaciones = Array[ExtResource("1_v4d05")]([ExtResource("2_xnbri")])
+metadata/_custom_type_script = "uid://b8i8ll3s3la6h"
