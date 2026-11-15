@@ -62,4 +62,4 @@ jugador = NodePath("../../../Jugador")
 zoom = Vector2(0.1, 0.1)
 
 [node name="EsqueletoArmado" parent="." unique_id=1102138749 instance=ExtResource("8_kxyy5")]
-position = Vector2(-140.00002, 641.00006)
+position = Vector2(-115, 642)

@@ -375,6 +375,7 @@ radius = 3.0
 height = 21.0
 
 [node name="Jugador" type="CharacterBody2D" unique_id=681307978 node_paths=PackedStringArray("mano_derecha", "mano_izquierda", "slot_adelante", "slot_atras")]
+collision_layer = 9
 script = ExtResource("1_5mo7q")
 mano_derecha = NodePath("SlotAdelante/ManoDerecha")
 mano_izquierda = NodePath("SlotAtras/ManoIzquierda")
@@ -389,10 +390,9 @@ gizmo_extents = 0.0
 script = ExtResource("3_gynwn")
 arma = NodePath("ArmaMelee")
 
-[node name="ArmaMelee" parent="SlotAtras/ManoIzquierda" unique_id=458316924 node_paths=PackedStringArray("entidad_padre") instance=ExtResource("3_28edd")]
+[node name="ArmaMelee" parent="SlotAtras/ManoIzquierda" unique_id=458316924 instance=ExtResource("3_28edd")]
 debug = false
 res = ExtResource("4_k64kw")
-entidad_padre = NodePath("../../..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2035435485]
 texture_filter = 1

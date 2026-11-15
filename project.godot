@@ -39,6 +39,7 @@ usar_mano_der={
 
 2d_physics/layer_2="armas"
 2d_physics/layer_3="enemigos"
+2d_physics/layer_4="jugador"
 
 [physics]
 

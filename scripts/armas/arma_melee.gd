@@ -32,8 +32,8 @@ enum estado {
 @export var es_de_dos_manos: bool
 ## direccion de donde esta mirando el arma
 @export var dir_izquierda: bool = false
-## entidad padre
-@export var entidad_padre: Node2D
+## layer que lee el arma, 1 para jugador y 3 para enemigos
+@export var layer_de_dmg: int = 3
 
 @export_group("Componentes")
 ## Sprite del arma
@@ -46,6 +46,8 @@ enum estado {
 @export var hitbox: CollisionPolygon2D
 ## Timer que se usa para esperar las transiciones
 @export var timer_de_espera: Timer
+## area de hitbox
+@export var hitbox_area: Area2D
 
 @export_group("stats de animacion")
 ## arco de ataque para un ataque de tipo slash (en radianes)
@@ -141,12 +143,13 @@ func _ready() -> void:
 	_cargar_info_general()
 	_cargar_animaciones()
 	_cargar_sprite_y_alinear()
+	cambiar_hitbox_area()
 	
 	# setup de la animacion
 	animacion_actual = animaciones_de_ataque.get(0)
 	print("%s: duracion de animacion actual: %s" % [nombre, animacion_actual.get_duracion_total()])
-	
-	
+
+
 
 #
 func _physics_process(delta: float) -> void:
@@ -469,7 +472,7 @@ func animar_movimiento_traslacion(delta: float) -> bool:
 
 #endregion
 
-#region sync con mano
+#region sync con personaje
 
 ## actualiza la posicion con la mano padre
 func actualizar_pos() -> void:
@@ -484,5 +487,10 @@ func invertir_por_direccion(mira_izquierda) -> void:
 		scale.x = abs(scale.x) * -1
 	else:
 		scale.x = abs(scale.x)
+
+## cambia la layer que lee el hitbox
+func cambiar_hitbox_area(layer: int = layer_de_dmg) -> void:
+	hitbox_area.collision_mask = 0
+	hitbox_area.set_collision_mask_value(layer, true)
 
 #endregion

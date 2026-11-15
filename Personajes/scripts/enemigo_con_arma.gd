@@ -22,7 +22,9 @@ var _tiempo_actual_ataque: float = 0.0
 func _ready() -> void:
 	super._ready()
 	cambiar_pos_manos(false)
+	
 	if mano_izquierda.arma:
+		
 		arma = mano_izquierda.arma
 		mano_izquierda.arma.actualizar_pos()
 	if mano_derecha.arma:

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bi30bkqn7v27t" path="res://resources/sprites/armas/cuchillo_martillo_sprite.tres" id="2_tj3td"]
 [ext_resource type="Texture2D" uid="uid://bulcu4oppi8ai" path="res://resources/sprites/mano_derecha.tres" id="4_xjiux"]
 
-[node name="ArmaMelee" type="Node2D" unique_id=417194038 node_paths=PackedStringArray("sprite", "pivote", "container", "hitbox", "timer_de_espera")]
+[node name="ArmaMelee" type="Node2D" unique_id=417194038 node_paths=PackedStringArray("sprite", "pivote", "container", "hitbox", "timer_de_espera", "hitbox_area")]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_0fmgw")
 res = ExtResource("2_krxa6")
@@ -14,6 +14,7 @@ pivote = NodePath("Pivote")
 container = NodePath("Pivote/Container")
 hitbox = NodePath("Pivote/Container/Area2D/CollisionPolygon2D")
 timer_de_espera = NodePath("TimerDeEspera")
+hitbox_area = NodePath("Pivote/Container/Area2D")
 
 [node name="Pivote" type="Node2D" parent="." unique_id=622450963]
 
