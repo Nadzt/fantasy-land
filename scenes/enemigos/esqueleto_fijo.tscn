@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://c4t1g4jfa6x3g"]
+
+[ext_resource type="Script" uid="uid://dmhxs7j05bmhe" path="res://Personajes/scripts/esqueleto_fijo.gd" id="1_7gys6"]
+[ext_resource type="Script" uid="uid://nrslcf4cbclv" path="res://scenes/mano.gd" id="2_cpkxs"]
+[ext_resource type="Texture2D" uid="uid://bmlpwyp41lp8i" path="res://Personajes/enemigos/esqueletos/encapuchado/Idle-Sheet.png" id="2_p2dql"]
+[ext_resource type="Texture2D" uid="uid://c2ce3iwx5p4hg" path="res://Personajes/enemigos/esqueletos/encapuchado/Death-Sheet.png" id="3_k3us5"]
+[ext_resource type="PackedScene" uid="uid://dy1y8qqrxvc51" path="res://scenes/armas/arma_melee.tscn" id="3_v07e0"]
+[ext_resource type="Resource" uid="uid://bykekbj1ujhre" path="res://resources/armas/espada.tres" id="4_fiw6g"]
+[ext_resource type="Resource" uid="uid://cafclyswnu3cq" path="res://resources/armas/cuchillo.tres" id="7_kwujm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7o8t8"]
+radius = 5.555556
+height = 18.88889
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlfks"]
+atlas = ExtResource("2_p2dql")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkkbl"]
+atlas = ExtResource("2_p2dql")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41isk"]
+atlas = ExtResource("2_p2dql")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5bmj"]
+atlas = ExtResource("2_p2dql")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc3ii"]
+atlas = ExtResource("3_k3us5")
+region = Rect2(0, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rhol"]
+atlas = ExtResource("3_k3us5")
+region = Rect2(64, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4hsm"]
+atlas = ExtResource("3_k3us5")
+region = Rect2(128, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcwq5"]
+atlas = ExtResource("3_k3us5")
+region = Rect2(192, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eu2q"]
+atlas = ExtResource("3_k3us5")
+region = Rect2(256, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kvt7"]
+atlas = ExtResource("3_k3us5")
+region = Rect2(320, 27, 64, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxehp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlfks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkkbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41isk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5bmj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hc3ii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rhol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4hsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcwq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eu2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kvt7")
+}],
+"loop": true,
+"name": &"morir",
+"speed": 5.0
+}]
+
+[node name="EsqueletoFijo" type="CharacterBody2D" unique_id=1102138749 node_paths=PackedStringArray("mano_derecha", "mano_izquierda", "slot_adelante", "slot_atras")]
+collision_layer = 5
+script = ExtResource("1_7gys6")
+mano_derecha = NodePath("SlotAdelante/ManoDerecha")
+mano_izquierda = NodePath("SlotAtras/ManoIzquierda")
+slot_adelante = NodePath("SlotAdelante")
+slot_atras = NodePath("SlotAtras")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1324861004]
+position = Vector2(0, 4)
+scale = Vector2(1.8, 1.8)
+shape = SubResource("CapsuleShape2D_7o8t8")
+
+[node name="SlotAtras" type="Node2D" parent="." unique_id=705093761]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="ManoIzquierda" type="Marker2D" parent="SlotAtras" unique_id=60293956 node_paths=PackedStringArray("arma")]
+position = Vector2(10, 8.5)
+gizmo_extents = 0.0
+script = ExtResource("2_cpkxs")
+arma = NodePath("ArmaMelee")
+
+[node name="ArmaMelee" parent="SlotAtras/ManoIzquierda" unique_id=417194038 instance=ExtResource("3_v07e0")]
+debug = false
+res = ExtResource("4_fiw6g")
+layer_de_dmg = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1873968067]
+position = Vector2(0, 4)
+sprite_frames = SubResource("SpriteFrames_mxehp")
+animation = &"idle"
+frame_progress = 0.6257902
+
+[node name="SlotAdelante" type="Node2D" parent="." unique_id=1820392486]
+
+[node name="ManoDerecha" type="Marker2D" parent="SlotAdelante" unique_id=1196502800 node_paths=PackedStringArray("arma")]
+position = Vector2(-7, 10)
+gizmo_extents = 0.0
+script = ExtResource("2_cpkxs")
+arma = NodePath("ArmaMelee")
+
+[node name="ArmaMelee" parent="SlotAdelante/ManoDerecha" unique_id=487917213 instance=ExtResource("3_v07e0")]
+debug = false
+res = ExtResource("7_kwujm")
+layer_de_dmg = 4

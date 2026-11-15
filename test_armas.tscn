@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://de8gy7ht428pp"]
+
+[ext_resource type="PackedScene" uid="uid://dy1y8qqrxvc51" path="res://scenes/armas/arma_melee.tscn" id="1_odcqa"]
+[ext_resource type="Resource" uid="uid://bykekbj1ujhre" path="res://resources/armas/espada.tres" id="2_h05by"]
+[ext_resource type="Resource" uid="uid://bwbvgriaivsdo" path="res://resources/armas/martillo.tres" id="3_xchcf"]
+[ext_resource type="Resource" uid="uid://cafclyswnu3cq" path="res://resources/armas/cuchillo.tres" id="4_h05by"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_37kl0"]
+radius = 11.401754
+
+[node name="Node2D" type="Node2D" unique_id=198373447]
+
+[node name="Espada" parent="." unique_id=417194038 instance=ExtResource("1_odcqa")]
+visibility_layer = 2
+position = Vector2(27, 34)
+debug = false
+test = true
+res = ExtResource("2_h05by")
+
+[node name="Lanza" parent="." unique_id=1138211403 instance=ExtResource("1_odcqa")]
+position = Vector2(27, 75)
+debug = false
+test = true
+
+[node name="Martillo" parent="." unique_id=1307372122 instance=ExtResource("1_odcqa")]
+position = Vector2(27, 115)
+debug = false
+test = true
+res = ExtResource("3_xchcf")
+
+[node name="Cuchillo" parent="." unique_id=568601186 instance=ExtResource("1_odcqa")]
+position = Vector2(85, 33)
+debug = false
+test = true
+res = ExtResource("4_h05by")
+
+[node name="Test pj" type="CharacterBody2D" parent="." unique_id=255035406]
+position = Vector2(160, 143)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test pj" unique_id=991047539]
+shape = SubResource("CircleShape2D_37kl0")
+
+[node name="Espada2" parent="." unique_id=374927421 instance=ExtResource("1_odcqa")]
+position = Vector2(213, 34)
+debug = false
+res = ExtResource("2_h05by")
+dir_izquierda = true
+
+[node name="Lanza2" parent="." unique_id=700814893 instance=ExtResource("1_odcqa")]
+position = Vector2(213, 75)
+debug = false
+test = true
+dir_izquierda = true
+
+[node name="Martillo2" parent="." unique_id=300065246 instance=ExtResource("1_odcqa")]
+position = Vector2(213, 115)
+debug = false
+res = ExtResource("3_xchcf")
+dir_izquierda = true

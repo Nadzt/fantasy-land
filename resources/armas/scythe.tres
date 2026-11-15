@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ArmaResource" format=3 uid="uid://xo8sog7w3ju0"]
+
+[ext_resource type="Texture2D" uid="uid://d0youhbad3jtt" path="res://resources/sprites/armas/scithe_madera_sprite.tres" id="1_iinmp"]
+[ext_resource type="Script" uid="uid://b8i8ll3s3la6h" path="res://scripts/resources/ArmaResource.gd" id="2_57q6y"]
+
+[resource]
+script = ExtResource("2_57q6y")
+_sprite = ExtResource("1_iinmp")
+_pos_mano = Vector2(4, -10.5)
+_area_polygon_array = PackedVector2Array(-8, -14, 8, -14, 8, -4, -8, -4)
+_nombre = "hacha de dos manos"
+_dmg = 10
+_arco_de_ataque = 3.3
+_speed = 10.0
+_speed_return = 10.0
+_wait_time = 0.2
+_cooldown = 0.2
+metadata/_custom_type_script = "uid://b8i8ll3s3la6h"

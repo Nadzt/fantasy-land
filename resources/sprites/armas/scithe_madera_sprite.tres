@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://d0youhbad3jtt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i12gc"]
+load_path = "res://.godot/imported/madera.png-1b79ae6ea92a30294a5bceb85a7a5f5f.ctex"
+
+[resource]
+atlas = SubResource("CompressedTexture2D_i12gc")
+region = Rect2(32, 49, 16, 31)

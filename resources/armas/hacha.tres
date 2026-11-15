@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ArmaResource" format=3 uid="uid://cjrobra56l458"]
+
+[ext_resource type="Script" uid="uid://b8i8ll3s3la6h" path="res://scripts/resources/ArmaResource.gd" id="1_dcckg"]
+[ext_resource type="Texture2D" uid="uid://d0afy7xkmudq6" path="res://resources/sprites/armas/hacha_madera_sprite.tres" id="1_iawd7"]
+[ext_resource type="Script" uid="uid://3888la0xt88m" path="res://scripts/resources/AnimacionAtaqueResource.gd" id="1_twuo0"]
+[ext_resource type="Resource" uid="uid://cahpnbs4gvm2k" path="res://resources/animacion_ataque/slash_basico.tres" id="2_xm1yv"]
+
+[resource]
+script = ExtResource("1_dcckg")
+_sprite = ExtResource("1_iawd7")
+_pos_mano = Vector2(0, -9)
+_area_polygon_array = PackedVector2Array(-8, -14, 8, -14, 8, -4, -8, -4)
+_nombre = "hacha de una mano"
+_dmg = 12
+_animaciones = Array[ExtResource("1_twuo0")]([ExtResource("2_xm1yv")])
+metadata/_custom_type_script = "uid://b8i8ll3s3la6h"
