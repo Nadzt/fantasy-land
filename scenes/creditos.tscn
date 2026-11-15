@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4xn1l0h4swwc"]
 
-[ext_resource type="Script" uid="uid://cvs2v10ibxuqo" path="res://scenes/creditos.gd" id="1_jddgq"]
+[ext_resource type="Script" uid="uid://cvs2v10ibxuqo" path="res://scripts/creditos.gd" id="1_jddgq"]
 [ext_resource type="Texture2D" uid="uid://ckxt7idc8bvn1" path="res://assets/menu/fondo_creditos.jpg" id="1_spoww"]
 [ext_resource type="FontFile" uid="uid://cbl1geaiylh1b" path="res://resources/fonts/Pixelta.ttf" id="2_6yhot"]
 

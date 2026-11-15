@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://dwfycte4di63h" path="res://resources/dungeon_tileset.tres" id="3_fk01h"]
 [ext_resource type="PackedScene" uid="uid://3gn34gdita2x" path="res://scenes/jugador.tscn" id="5_hfl50"]
 [ext_resource type="Script" uid="uid://qg1k2iucadhc" path="res://scripts/camara.gd" id="6_nw836"]
-[ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scenes/minimapa.gd" id="7_12jbs"]
+[ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scripts/minimapa.gd" id="7_12jbs"]
 
 [node name="Mundo" type="Node2D" unique_id=348896220]
 

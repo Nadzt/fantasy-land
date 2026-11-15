@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://botndi28ex1kj"]
 
-[ext_resource type="Script" uid="uid://btufa4l83r2pp" path="res://Personajes/scripts/ojo_volador.gd" id="1_l02on"]
-[ext_resource type="Texture2D" uid="uid://bq3e1ehkvav2s" path="res://Personajes/enemigos/enemigo de un ojo/ojo_volador.png" id="2_woyr8"]
+[ext_resource type="Script" uid="uid://btufa4l83r2pp" path="res://scripts/enemigos/ojo_volador.gd" id="1_l02on"]
+[ext_resource type="Texture2D" uid="uid://bq3e1ehkvav2s" path="res://assets/personajes/enemigos/enemigo de un ojo/ojo_volador.png" id="2_woyr8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4bx5l"]
 atlas = ExtResource("2_woyr8")

@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://o7xqii5i8ddn" path="res://scenes/point.tscn" id="4_kdu2j"]
 [ext_resource type="PackedScene" uid="uid://3gn34gdita2x" path="res://scenes/jugador.tscn" id="5_ug8jr"]
 [ext_resource type="Script" uid="uid://qg1k2iucadhc" path="res://scripts/camara.gd" id="6_gtekg"]
-[ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scenes/minimapa.gd" id="7_vahxe"]
+[ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scripts/minimapa.gd" id="7_vahxe"]
 [ext_resource type="PackedScene" uid="uid://c8rmq4xsng5j8" path="res://scenes/enemigos/esqueleto_armado.tscn" id="8_u6et0"]
 [ext_resource type="PackedScene" uid="uid://csqr3a46y0124" path="res://scenes/enemigos/jefe.tscn" id="9_dsa2m"]
 [ext_resource type="Texture2D" uid="uid://c7ye52bewogwp" path="res://assets/LifeBarMiniUnder.png" id="10_kdu2j"]
 [ext_resource type="Texture2D" uid="uid://hcg1uv74o2ss" path="res://assets/LifeBarMiniProgress.png" id="11_ug8jr"]
-[ext_resource type="Script" uid="uid://chcklwcrvknk3" path="res://scenes/hud_vida.gd" id="12_kdu2j"]
+[ext_resource type="Script" uid="uid://chcklwcrvknk3" path="res://scripts/hud_vida.gd" id="12_kdu2j"]
 
 [node name="Mundo" type="Node2D" unique_id=348896220]
 

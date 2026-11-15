@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://qg1k2iucadhc" path="res://scripts/camara.gd" id="5_vwj67"]
 [ext_resource type="PackedScene" uid="uid://com6kq8vxumnw" path="res://scenes/liana.tscn" id="5_wd5o3"]
 [ext_resource type="PackedScene" uid="uid://dkvkt4w6wql81" path="res://scenes/liana_larga.tscn" id="6_06eai"]
-[ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scenes/minimapa.gd" id="6_jaeu2"]
+[ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scripts/minimapa.gd" id="6_jaeu2"]
 [ext_resource type="PackedScene" uid="uid://dykr88j8huiie" path="res://scenes/enemigos/super_orco.tscn" id="7_m7g0u"]
 [ext_resource type="PackedScene" uid="uid://o7xqii5i8ddn" path="res://scenes/point.tscn" id="8_6o2rw"]
 [ext_resource type="PackedScene" uid="uid://c8rmq4xsng5j8" path="res://scenes/enemigos/esqueleto_armado.tscn" id="8_kxyy5"]

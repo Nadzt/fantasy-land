@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://xndkntifaoh0"]
 
-[ext_resource type="Texture2D" uid="uid://djtysmd2ldl1p" path="res://Personajes/enemigos/orcos/encapuchado/Run-Sheet.png" id="1_gis2b"]
-[ext_resource type="Script" uid="uid://cqrpvkm075yhv" path="res://Personajes/scripts/orco.gd" id="1_ofxc1"]
-[ext_resource type="Script" uid="uid://nrslcf4cbclv" path="res://scenes/mano.gd" id="2_07pol"]
-[ext_resource type="Texture2D" uid="uid://b06wgpiuld4ko" path="res://Personajes/enemigos/orcos/encapuchado/Idle-Sheet.png" id="2_ofxc1"]
+[ext_resource type="Texture2D" uid="uid://djtysmd2ldl1p" path="res://assets/personajes/enemigos/orcos/encapuchado/Run-Sheet.png" id="1_gis2b"]
+[ext_resource type="Script" uid="uid://cqrpvkm075yhv" path="res://scripts/enemigos/orco.gd" id="1_ofxc1"]
+[ext_resource type="Script" uid="uid://nrslcf4cbclv" path="res://scripts/mano.gd" id="2_07pol"]
+[ext_resource type="Texture2D" uid="uid://b06wgpiuld4ko" path="res://assets/personajes/enemigos/orcos/encapuchado/Idle-Sheet.png" id="2_ofxc1"]
 [ext_resource type="PackedScene" uid="uid://dy1y8qqrxvc51" path="res://scenes/armas/arma_melee.tscn" id="3_fjqqk"]
-[ext_resource type="Texture2D" uid="uid://dqpt7bk6uso7t" path="res://Personajes/enemigos/orcos/encapuchado/Death-Sheet.png" id="3_fycn4"]
+[ext_resource type="Texture2D" uid="uid://dqpt7bk6uso7t" path="res://assets/personajes/enemigos/orcos/encapuchado/Death-Sheet.png" id="3_fycn4"]
 [ext_resource type="Resource" uid="uid://bykekbj1ujhre" path="res://resources/armas/espada.tres" id="4_j2f6o"]
 [ext_resource type="Resource" uid="uid://cafclyswnu3cq" path="res://resources/armas/cuchillo.tres" id="8_76qak"]
 

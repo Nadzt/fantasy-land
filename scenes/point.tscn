@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://o7xqii5i8ddn"]
 
-[ext_resource type="Script" uid="uid://8crjryoi8f4d" path="res://scenes/point.gd" id="1_imn7a"]
-[ext_resource type="Texture2D" uid="uid://be0cvng2356cf" path="res://Personajes/spirit-mini.png" id="1_r0uly"]
+[ext_resource type="Script" uid="uid://8crjryoi8f4d" path="res://scripts/point.gd" id="1_imn7a"]
+[ext_resource type="Texture2D" uid="uid://be0cvng2356cf" path="res://assets/personajes/spirit-mini.png" id="1_r0uly"]
 [ext_resource type="AudioStream" uid="uid://bksl57dvf3vom" path="res://sfx/sonido_score.mp3" id="2_tue75"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tue75"]
