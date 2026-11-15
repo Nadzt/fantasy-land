@@ -6,9 +6,9 @@
 [ext_resource type="TileSet" uid="uid://dwfycte4di63h" path="res://resources/dungeon_tileset.tres" id="5_75jji"]
 [ext_resource type="Script" uid="uid://qg1k2iucadhc" path="res://scripts/camara.gd" id="5_vwj67"]
 [ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scenes/minimapa.gd" id="6_jaeu2"]
-[ext_resource type="PackedScene" uid="uid://dykr88j8huiie" path="res://scenes/enemigos/jefe2.tscn" id="8_6o2rw"]
 [ext_resource type="PackedScene" uid="uid://o7xqii5i8ddn" path="res://scenes/point.tscn" id="8_6o2rw"]
 [ext_resource type="PackedScene" uid="uid://c8rmq4xsng5j8" path="res://scenes/enemigos/esqueleto_armado.tscn" id="8_kxyy5"]
+[ext_resource type="PackedScene" uid="uid://csqr3a46y0124" path="res://scenes/enemigos/jefe.tscn" id="9_6o2rw"]
 
 [node name="Mundo" type="Node2D" unique_id=348896220]
 
@@ -68,9 +68,8 @@ zoom = Vector2(0.1, 0.1)
 [node name="EsqueletoArmado" parent="." unique_id=1102138749 instance=ExtResource("8_kxyy5")]
 position = Vector2(-115, 642)
 
-[node name="Jefe2" parent="." unique_id=1832326901 instance=ExtResource("8_6o2rw")]
-position = Vector2(49, 636)
-position = Vector2(-117, 642)
-
 [node name="Point" parent="." unique_id=189525437 instance=ExtResource("8_6o2rw")]
 position = Vector2(73, 636)
+
+[node name="Jefe" parent="." unique_id=841992873 instance=ExtResource("9_6o2rw")]
+position = Vector2(25, 637)

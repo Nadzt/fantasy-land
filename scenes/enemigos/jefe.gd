@@ -31,17 +31,14 @@ func _physics_process(delta: float) -> void:
 			var direccion = (jugador.global_position - global_position).normalized()  
 			velocity.x = direccion.x * velocidad
 			
-			sprite.play("correr")
+			sprite.play("walk")
 			var mira_hacia_izquierda: bool = direccion.x < 0
 			sprite.flip_h = mira_hacia_izquierda
-			cambiar_pos_manos(mira_hacia_izquierda)
-			cambiar_arma_principal(mira_hacia_izquierda)
 		else: 
 			velocity.x = move_toward(velocity.x, 0, velocidad * delta)    
 			sprite.play("idle")
 			
 			if distancia <= rango_detencion:
-				if intentar_atacar():
 					atacar()
 	else:  
 		velocity.x = move_toward(velocity.x, 0, velocidad * delta)
