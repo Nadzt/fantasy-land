@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="AnimacionAtaqueResource" format=3 uid="uid://cdbdrc2jdiij5"]
+
+[ext_resource type="Script" uid="uid://3888la0xt88m" path="res://scripts/resources/AnimacionAtaqueResource.gd" id="1_ppqsa"]
+
+[resource]
+script = ExtResource("1_ppqsa")
+_ant_tiene_rotacion = true
+_ant_tiene_traslacion = true
+_ant_r_duracion = 0.41
+_ant_r_curva_ease = 1.6099999999999999
+_ant_r_distancia = 0.605
+_ant_t_duracion = 0.775
+_ant_t_curva_ease = 1.415
+_ant_t_distancia = 0.25
+_atk_tiene_rotacion = true
+_atk_tiempo_de_espera = 1.005
+_atk_r_duracion = 1.03
+_atk_r_curva_ease = 1.755
+_atk_r_distancia = 3.91
+_atk_t_duracion = 0.185
+_atk_t_curva_ease = 1.22
+_atk_t_distancia = 0.3
+_vol_r_duracion = 0.41
+_vol_r_curva_ease = 1.28
+_vol_t_duracion = 0.435
+_vol_t_curva_ease = 1.13
+metadata/_custom_type_script = "uid://3888la0xt88m"
