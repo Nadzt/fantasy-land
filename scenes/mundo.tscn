@@ -35,27 +35,35 @@ tile_set = ExtResource("5_75jji")
 
 [node name="Point" parent="Puntos" unique_id=189525437 instance=ExtResource("8_6o2rw")]
 position = Vector2(73, 636)
+scale = Vector2(1.7, 1.7)
 
 [node name="Point2" parent="Puntos" unique_id=1143084883 instance=ExtResource("8_6o2rw")]
 position = Vector2(-226, 586)
+scale = Vector2(1.7, 1.7)
 
 [node name="Point3" parent="Puntos" unique_id=921681754 instance=ExtResource("8_6o2rw")]
 position = Vector2(159, 631)
+scale = Vector2(1.7, 1.7)
 
 [node name="Point4" parent="Puntos" unique_id=1091687332 instance=ExtResource("8_6o2rw")]
 position = Vector2(230, 639)
+scale = Vector2(1.7, 1.7)
 
 [node name="Point5" parent="Puntos" unique_id=1126146827 instance=ExtResource("8_6o2rw")]
 position = Vector2(294, 636)
+scale = Vector2(1.7, 1.7)
 
 [node name="Point6" parent="Puntos" unique_id=2065083355 instance=ExtResource("8_6o2rw")]
 position = Vector2(347, 618)
+scale = Vector2(1.7, 1.7)
 
 [node name="Point7" parent="Puntos" unique_id=1234311865 instance=ExtResource("8_6o2rw")]
 position = Vector2(398, 597)
+scale = Vector2(1.7, 1.7)
 
 [node name="Point8" parent="Puntos" unique_id=838704685 instance=ExtResource("8_6o2rw")]
 position = Vector2(456, 576)
+scale = Vector2(1.7, 1.7)
 
 [node name="Jugador" parent="." unique_id=681307978 instance=ExtResource("4_yi5ae")]
 position = Vector2(-46, 633)
