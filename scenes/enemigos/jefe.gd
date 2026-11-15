@@ -22,6 +22,9 @@ func _physics_process(delta: float) -> void:
 	if _muerto:
 		return
 	
+	if _atacando:
+		return
+	
 	super._physics_process(delta)
 		
 	if jugador and is_instance_valid(jugador):
