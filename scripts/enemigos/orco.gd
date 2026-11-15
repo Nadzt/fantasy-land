@@ -2,6 +2,7 @@ class_name Orco
 extends EnemigoConArma
 
 @export var velocidad: float = 70.0
+var dado_vuelta : bool = false
 
 func _init() -> void:
 	super(70) 
@@ -20,12 +21,18 @@ func _physics_process(delta: float) -> void:
 		
 	super._physics_process(delta)
 
-	# Este lo hice hacia la derecha
 	velocity.x = velocidad
 
-	# Agregar estas 2 lineas si el orco de sa vuelta:	
-	#cambiar_pos_manos(mira_hacia_izquierda)
-	#cambiar_arma_principal(mira_hacia_izquierda)
+	if is_on_wall() and !dado_vuelta:
+		dado_vuelta = true
+		velocidad *= -1
+		sprite.flip_h = velocidad < 0
+		await get_tree().create_timer(1).timeout
+		dado_vuelta = false
+
+	var mira_hacia_izquierda = velocidad < 0
+	cambiar_pos_manos(mira_hacia_izquierda)
+	cambiar_arma_principal(mira_hacia_izquierda)
 
 	move_and_slide()
 

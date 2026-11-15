@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://3gn34gdita2x" path="res://scenes/jugador.tscn" id="5_8o31r"]
 [ext_resource type="Script" uid="uid://qg1k2iucadhc" path="res://scripts/camara.gd" id="6_nto18"]
 [ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scripts/minimapa.gd" id="7_4214y"]
-[ext_resource type="PackedScene" uid="uid://c8rmq4xsng5j8" path="res://scenes/enemigos/esqueleto_armado.tscn" id="8_dykrn"]
-[ext_resource type="PackedScene" uid="uid://csqr3a46y0124" path="res://scenes/enemigos/jefe.tscn" id="9_13o2d"]
+[ext_resource type="PackedScene" uid="uid://xndkntifaoh0" path="res://scenes/enemigos/orco.tscn" id="8_432r3"]
 [ext_resource type="PackedScene" uid="uid://com6kq8vxumnw" path="res://scenes/liana.tscn" id="10_wyqac"]
 
 [node name="Mundo" type="Node2D" unique_id=348896220]
@@ -1088,16 +1087,13 @@ jugador = NodePath("../../../Jugador")
 [node name="minimapa" type="Camera2D" parent="LayerMinimapa/SubViewportContainer/SubViewport" unique_id=1563568819]
 zoom = Vector2(0.1, 0.1)
 
-[node name="EsqueletoArmado" parent="." unique_id=1102138749 instance=ExtResource("8_dykrn")]
-position = Vector2(-115, 642)
-
 [node name="Point" parent="." unique_id=474254892 instance=ExtResource("4_oqvge")]
 position = Vector2(73, 636)
-
-[node name="Jefe" parent="." unique_id=841992873 instance=ExtResource("9_13o2d")]
-position = Vector2(25, 637)
 
 [node name="Lianas" type="Node" parent="." unique_id=1637015466]
 
 [node name="Liana" parent="Lianas" unique_id=1583151298 instance=ExtResource("10_wyqac")]
 position = Vector2(485, 542)
+
+[node name="Orco" parent="." unique_id=1102138749 instance=ExtResource("8_432r3")]
+position = Vector2(38, 648)
