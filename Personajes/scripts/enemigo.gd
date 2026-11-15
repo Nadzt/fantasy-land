@@ -23,4 +23,5 @@ func soltar_item() -> void
 func _morir() -> void:
 	Global.sumar_puntos(_puntaje)
 	soltar_item()
+	GameManager.enemigo_derrotado()
 	await super._morir()
