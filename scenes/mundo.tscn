@@ -65,6 +65,110 @@ scale = Vector2(1.7, 1.7)
 position = Vector2(456, 576)
 scale = Vector2(1.7, 1.7)
 
+[node name="Point9" parent="Puntos" unique_id=760810281 instance=ExtResource("8_6o2rw")]
+position = Vector2(505.99994, 572)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point10" parent="Puntos" unique_id=1104264392 instance=ExtResource("8_6o2rw")]
+position = Vector2(553, 707)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point11" parent="Puntos" unique_id=103085785 instance=ExtResource("8_6o2rw")]
+position = Vector2(612, 707)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point12" parent="Puntos" unique_id=1668753256 instance=ExtResource("8_6o2rw")]
+position = Vector2(656.99994, 712)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point13" parent="Puntos" unique_id=495931684 instance=ExtResource("8_6o2rw")]
+position = Vector2(686, 791)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point14" parent="Puntos" unique_id=544173909 instance=ExtResource("8_6o2rw")]
+position = Vector2(761, 790.99994)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point15" parent="Puntos" unique_id=178140877 instance=ExtResource("8_6o2rw")]
+position = Vector2(838.99994, 788.99994)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point16" parent="Puntos" unique_id=704551271 instance=ExtResource("8_6o2rw")]
+position = Vector2(1070, 1191)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point17" parent="Puntos" unique_id=2133380536 instance=ExtResource("8_6o2rw")]
+position = Vector2(932.99994, 1191)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point18" parent="Puntos" unique_id=1996100974 instance=ExtResource("8_6o2rw")]
+position = Vector2(832.99994, 1189)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point19" parent="Puntos" unique_id=1033482115 instance=ExtResource("8_6o2rw")]
+position = Vector2(734.99994, 1189)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point20" parent="Puntos" unique_id=1343023664 instance=ExtResource("8_6o2rw")]
+position = Vector2(607, 1178)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point21" parent="Puntos" unique_id=462857863 instance=ExtResource("8_6o2rw")]
+position = Vector2(495, 1180)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point22" parent="Puntos" unique_id=473950810 instance=ExtResource("8_6o2rw")]
+position = Vector2(371.99994, 1180)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point23" parent="Puntos" unique_id=1504859670 instance=ExtResource("8_6o2rw")]
+position = Vector2(310, 1113)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point24" parent="Puntos" unique_id=2073261357 instance=ExtResource("8_6o2rw")]
+position = Vector2(170.99998, 1034)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point25" parent="Puntos" unique_id=601281663 instance=ExtResource("8_6o2rw")]
+position = Vector2(35.999985, 911.9999)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point26" parent="Puntos" unique_id=441130671 instance=ExtResource("8_6o2rw")]
+position = Vector2(-57.000008, 920.99994)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point27" parent="Puntos" unique_id=1926424678 instance=ExtResource("8_6o2rw")]
+position = Vector2(-130, 924.99994)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point28" parent="Puntos" unique_id=906300581 instance=ExtResource("8_6o2rw")]
+position = Vector2(-202, 922.99994)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point29" parent="Puntos" unique_id=1114462614 instance=ExtResource("8_6o2rw")]
+position = Vector2(-268, 925.99994)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point30" parent="Puntos" unique_id=814081198 instance=ExtResource("8_6o2rw")]
+position = Vector2(-349, 922.99994)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point31" parent="Puntos" unique_id=1450568190 instance=ExtResource("8_6o2rw")]
+position = Vector2(-408, 920.99994)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point32" parent="Puntos" unique_id=1468502735 instance=ExtResource("8_6o2rw")]
+position = Vector2(-488.99997, 921)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point33" parent="Puntos" unique_id=734431684 instance=ExtResource("8_6o2rw")]
+position = Vector2(-603, 917.99994)
+scale = Vector2(1.7, 1.7)
+
+[node name="Point34" parent="Puntos" unique_id=962289558 instance=ExtResource("8_6o2rw")]
+position = Vector2(-673, 876.99994)
+scale = Vector2(1.7, 1.7)
+
 [node name="Jugador" parent="." unique_id=681307978 instance=ExtResource("4_yi5ae")]
 position = Vector2(-46, 633)
 
