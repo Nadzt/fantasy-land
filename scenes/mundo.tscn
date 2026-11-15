@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://xndkntifaoh0" path="res://scenes/enemigos/orco.tscn" id="10_l7i8s"]
 [ext_resource type="PackedScene" uid="uid://botndi28ex1kj" path="res://scenes/enemigos/ojo_volador.tscn" id="11_f7ym0"]
 [ext_resource type="PackedScene" uid="uid://c4t1g4jfa6x3g" path="res://scenes/enemigos/esqueleto_fijo.tscn" id="13_35q48"]
+[ext_resource type="PackedScene" uid="uid://do6iwtntf63xw" path="res://scenes/UI/ui_score.tscn" id="16_f7ym0"]
 
 [node name="Mundo" type="Node2D" unique_id=348896220]
 
@@ -996,6 +997,9 @@ scale = Vector2(1.7, 1.7)
 position = Vector2(-615, 1962)
 scale = Vector2(1.7, 1.7)
 
+[node name="Point186" parent="Puntos" unique_id=474254892 instance=ExtResource("8_6o2rw")]
+position = Vector2(73, 636)
+
 [node name="Lianas" type="Node" parent="." unique_id=23921167]
 
 [node name="Liana2" parent="Lianas" unique_id=1583151298 instance=ExtResource("5_wd5o3")]
@@ -1092,5 +1096,6 @@ jugador = NodePath("../../../Jugador")
 [node name="minimapa" type="Camera2D" parent="LayerMinimapa/SubViewportContainer/SubViewport" unique_id=1563568819]
 zoom = Vector2(0.1, 0.1)
 
-[node name="Point" parent="." unique_id=474254892 instance=ExtResource("8_6o2rw")]
-position = Vector2(73, 636)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1056761130]
+
+[node name="UIScore" parent="CanvasLayer" unique_id=934855641 instance=ExtResource("16_f7ym0")]
