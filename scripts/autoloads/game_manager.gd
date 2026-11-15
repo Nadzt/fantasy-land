@@ -8,7 +8,7 @@ signal juego_terminado
 signal enemigos_derrotados
 
 var puntos: int = 0
-var cantidad_jefes: int = 1
+var cantidad_jefes: int = 2
 var cant_jefes_derrotados: int = 0
 var cant_enemigos: int = 5 #valor de prueba, modificar despes con la contidad correspondiente
 
