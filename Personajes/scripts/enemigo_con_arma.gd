@@ -6,6 +6,7 @@ var _tiempo_actual_ataque: float = 0.0
 
 @onready var arma: ArmaMelee
 
+
 @export_group("armas")
 @export var mano_derecha: Mano
 @export var mano_izquierda: Mano
@@ -50,8 +51,16 @@ func atacar() -> void:
 	intentar_atacar()
 
 func soltar_item() -> void:
-	print("Solté un item")
+	var nuevo_drop: Drop = item_drop.instantiate()
+	nuevo_drop.sprite.texture = arma.res.get_sprite()
+	nuevo_drop.res = arma.res
+	nuevo_drop.global_position = global_position
+	get_tree().current_scene.get_node("Drops").add_child(nuevo_drop)
 
+func _morir() -> void:
+	mano_derecha.hide()
+	mano_izquierda.hide()
+	super._morir()
 
 ## cambia las posiciones de las manos en el characterbody2d
 func cambiar_pos_manos(mira_hacia_izquierda: bool) -> void:

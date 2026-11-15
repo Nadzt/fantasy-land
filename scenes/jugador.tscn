@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bn2nr7pe0aeek" path="res://Personajes/player.png" id="2_7t3ce"]
 [ext_resource type="PackedScene" uid="uid://dy1y8qqrxvc51" path="res://scenes/armas/arma_melee.tscn" id="3_28edd"]
 [ext_resource type="Script" uid="uid://nrslcf4cbclv" path="res://scenes/mano.gd" id="3_gynwn"]
+[ext_resource type="PackedScene" uid="uid://sw2f3xj4wdoh" path="res://scenes/drop.tscn" id="3_xm55e"]
 [ext_resource type="Resource" uid="uid://bykekbj1ujhre" path="res://resources/armas/espada.tres" id="4_k64kw"]
 [ext_resource type="Resource" uid="uid://cafclyswnu3cq" path="res://resources/armas/cuchillo.tres" id="4_qimn5"]
 
@@ -381,6 +382,8 @@ mano_derecha = NodePath("SlotAdelante/ManoDerecha")
 mano_izquierda = NodePath("SlotAtras/ManoIzquierda")
 slot_adelante = NodePath("SlotAdelante")
 slot_atras = NodePath("SlotAtras")
+escena_arma = ExtResource("3_28edd")
+escena_drop = ExtResource("3_xm55e")
 
 [node name="SlotAtras" type="Node2D" parent="." unique_id=1658886494]
 

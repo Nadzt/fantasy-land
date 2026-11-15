@@ -23,6 +23,10 @@ func _physics_process(delta: float) -> void:
 	# Este lo hice hacia la derecha
 	velocity.x = velocidad
 
+	# Agregar estas 2 lineas si el orco de sa vuelta:	
+	#cambiar_pos_manos(mira_hacia_izquierda)
+	#cambiar_arma_principal(mira_hacia_izquierda)
+
 	move_and_slide()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

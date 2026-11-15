@@ -138,7 +138,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4cr1s")
 }],
-"loop": true,
+"loop": false,
 "name": &"morir",
 "speed": 5.0
 }]
@@ -178,7 +178,7 @@ layer_de_dmg = 4
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1873968067]
 position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_mxehp")
-animation = &"correr"
+animation = &"morir"
 
 [node name="SlotAdelante" type="Node2D" parent="." unique_id=1573411938]
 

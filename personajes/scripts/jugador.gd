@@ -13,10 +13,13 @@ var puede_trepar := false
 @export var mano_izquierda: Mano
 @export var slot_adelante: Node2D
 @export var slot_atras: Node2D
+@export_subgroup("escenas")
+@export var escena_arma: PackedScene
+@export var escena_drop: PackedScene
+
 @export_subgroup("personaje mira a la izquierda")
 @export var mano_izquierda_pos_1: Vector2 = Vector2(1.5, 7)
 @export var mano_derecha_pos_1: Vector2 = Vector2(-9.5, 4.5)
-
 @export_subgroup("personaje mira a la derecha")
 @export var mano_izquierda_pos_2: Vector2 = Vector2(7, 5)
 @export var mano_derecha_pos_2: Vector2 = Vector2(-3, 7)
@@ -54,17 +57,34 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("usar_mano_izq"):
 		usar_mano_izquierda()
 
-#func agarrar_arma(arma:Arma) -> void:
-#
-	#if arma.es_de_dos_manos:
-		#mano_derecha = arma
-		#mano_izquierda = arma
-		#return
-#
-	#if mano_derecha == null:
-		#mano_derecha = arma
-	#elif mano_izquierda == null:
-		#mano_izquierda = arma
+func agarrar_arma(res: ArmaResource, es_arma_izquierda: bool) -> void:
+	var nueva_arma: ArmaMelee = escena_arma.instantiate()
+	nueva_arma.res = res
+	
+	if es_arma_izquierda:
+		for child in mano_izquierda.get_children():
+			if child is ArmaMelee:
+				drop_arma(child.res)
+			child.queue_free()
+		mano_izquierda.add_child(nueva_arma)
+		mano_izquierda.set_arma(nueva_arma)
+		return
+	
+	if !es_arma_izquierda:
+		for child in mano_derecha.get_children():
+			if child is ArmaMelee:
+				drop_arma(child.res)
+			child.queue_free()
+		mano_derecha.add_child(nueva_arma)
+		mano_derecha.set_arma(nueva_arma)
+		return
+
+func drop_arma(res_arma: ArmaResource) -> void:
+	var nuevo_drop: Drop = escena_drop.instantiate()
+	nuevo_drop.sprite.texture = res_arma.get_sprite()
+	nuevo_drop.res = res_arma
+	nuevo_drop.global_position = global_position
+	get_tree().current_scene.get_node("Drops").add_child(nuevo_drop)
 
 func agarrar_item() -> void:
 	pass #después definir la clase Item"
