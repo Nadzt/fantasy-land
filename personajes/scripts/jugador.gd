@@ -7,6 +7,8 @@ extends Personaje
 
 var _saltos_hechos: int = 0
 var puede_trepar := false
+var _posicionx_trepar : float
+var _offset_trepar : float
 
 @export_group("armas")
 @export var mano_derecha: Mano
@@ -109,6 +111,7 @@ func _physics_process(delta):
 func trepar() -> void:
 	velocity.x = 0
 	velocity.y = -velocidad_trepado
+	global_position.x = _posicionx_trepar + _offset_trepar
 	sprite.play("trepar")
 	move_and_slide()
 
@@ -124,6 +127,10 @@ func correr():
 	if dire != 0:
 		cambiar_pos_manos(dire < 0)
 		sprite.flip_h = dire < 0 
+		if dire < 0 :
+			_offset_trepar = 7
+		else:
+			_offset_trepar = -7
 		
 		if Input.is_action_pressed("correr"):
 			velocity.x = dire * speed * 2 # corre
