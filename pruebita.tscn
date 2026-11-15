@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://botndi28ex1kj" path="res://scenes/enemigos/ojo_volador.tscn" id="3_trm3b"]
 [ext_resource type="PackedScene" uid="uid://c8rmq4xsng5j8" path="res://scenes/enemigos/esqueleto_armado.tscn" id="4_r0der"]
 [ext_resource type="PackedScene" uid="uid://c4t1g4jfa6x3g" path="res://scenes/enemigos/esqueleto_fijo.tscn" id="5_357gu"]
-[ext_resource type="PackedScene" uid="uid://dykr88j8huiie" path="res://scenes/enemigos/jefe2.tscn" id="7_r0der"]
+[ext_resource type="PackedScene" uid="uid://csqr3a46y0124" path="res://scenes/enemigos/jefe.tscn" id="7_r0der"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5pg0"]
 size = Vector2(330, 20)

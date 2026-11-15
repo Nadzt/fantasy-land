@@ -269,6 +269,7 @@ radius = 29.0
 height = 74.0
 
 [node name="Jefe" type="CharacterBody2D" unique_id=841992873]
+collision_layer = 5
 script = ExtResource("1_ervgk")
 _puntaje = 100
 vuela = true
@@ -276,7 +277,7 @@ vuela = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1497227128]
 scale = Vector2(1.485, 1.485)
 sprite_frames = SubResource("SpriteFrames_uvalc")
-animation = &"recibir_ataque"
+animation = &"attack"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=59429785]
 position = Vector2(3, -3)
