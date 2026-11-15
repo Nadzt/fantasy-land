@@ -2,8 +2,8 @@ class_name Jefe2
 extends EnemigoConArma
 
 @export var velocidad: float = 60.0
-@export var rango_deteccion: float = 110.0  
-@export var rango_detencion: float = 30.0   
+@export var rango_deteccion: float = 170.0  
+@export var rango_detencion: float = 120.0   
 
 #@onready var arma: Node2D = $Arma
 

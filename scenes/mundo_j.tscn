@@ -3,12 +3,10 @@
 [ext_resource type="TileSet" uid="uid://qsurdvetm2om" path="res://resources/grassland_tileset.tres" id="1_7evoj"]
 [ext_resource type="TileSet" uid="uid://hfnjl8ghrddo" path="res://resources/desert_tileset.tres" id="2_32gnv"]
 [ext_resource type="TileSet" uid="uid://dwfycte4di63h" path="res://resources/dungeon_tileset.tres" id="3_fk01h"]
-[ext_resource type="PackedScene" uid="uid://o7xqii5i8ddn" path="res://scenes/point.tscn" id="4_53jn8"]
 [ext_resource type="PackedScene" uid="uid://3gn34gdita2x" path="res://scenes/jugador.tscn" id="5_hfl50"]
 [ext_resource type="Script" uid="uid://qg1k2iucadhc" path="res://scripts/camara.gd" id="6_nw836"]
 [ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scenes/minimapa.gd" id="7_12jbs"]
-[ext_resource type="PackedScene" uid="uid://c8rmq4xsng5j8" path="res://scenes/enemigos/esqueleto_armado.tscn" id="8_yeb8v"]
-[ext_resource type="PackedScene" uid="uid://csqr3a46y0124" path="res://scenes/enemigos/jefe.tscn" id="9_stkg8"]
+[ext_resource type="PackedScene" uid="uid://dykr88j8huiie" path="res://scenes/enemigos/jefe2.tscn" id="9_7evoj"]
 
 [node name="Mundo" type="Node2D" unique_id=348896220]
 
@@ -31,40 +29,6 @@ tile_map_data = PackedByteArray("AAARAQYAAQADAAMAAAARAQUAAQADAAIAAAARAQQAAQADAAI
 tile_set = ExtResource("3_fk01h")
 
 [node name="Drops" type="Node" parent="." unique_id=282654870]
-
-[node name="Puntos" type="Node" parent="." unique_id=978085026]
-
-[node name="Point" parent="Puntos" unique_id=189525437 instance=ExtResource("4_53jn8")]
-position = Vector2(73, 636)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point2" parent="Puntos" unique_id=1143084883 instance=ExtResource("4_53jn8")]
-position = Vector2(-226, 586)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point3" parent="Puntos" unique_id=921681754 instance=ExtResource("4_53jn8")]
-position = Vector2(159, 631)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point4" parent="Puntos" unique_id=1091687332 instance=ExtResource("4_53jn8")]
-position = Vector2(230, 639)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point5" parent="Puntos" unique_id=1126146827 instance=ExtResource("4_53jn8")]
-position = Vector2(294, 636)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point6" parent="Puntos" unique_id=2065083355 instance=ExtResource("4_53jn8")]
-position = Vector2(347, 618)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point7" parent="Puntos" unique_id=1234311865 instance=ExtResource("4_53jn8")]
-position = Vector2(398, 597)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point8" parent="Puntos" unique_id=838704685 instance=ExtResource("4_53jn8")]
-position = Vector2(456, 576)
-scale = Vector2(1.7, 1.7)
 
 [node name="Jugador" parent="." unique_id=681307978 instance=ExtResource("5_hfl50")]
 position = Vector2(-46, 633)
@@ -99,11 +63,5 @@ jugador = NodePath("../../../Jugador")
 [node name="minimapa" type="Camera2D" parent="LayerMinimapa/SubViewportContainer/SubViewport" unique_id=1563568819]
 zoom = Vector2(0.1, 0.1)
 
-[node name="EsqueletoArmado" parent="." unique_id=1102138749 instance=ExtResource("8_yeb8v")]
-position = Vector2(-115, 642)
-
-[node name="Point" parent="." unique_id=207639179 instance=ExtResource("4_53jn8")]
-position = Vector2(73, 636)
-
-[node name="Jefe" parent="." unique_id=841992873 instance=ExtResource("9_stkg8")]
-position = Vector2(25, 637)
+[node name="Jefe2" parent="." unique_id=1832326901 instance=ExtResource("9_7evoj")]
+position = Vector2(22, 645)
