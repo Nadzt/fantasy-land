@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 			var mira_hacia_izquierda: bool = global_position.direction_to(jugador.global_position).x < 0
 			sprite.flip_h = mira_hacia_izquierda
 			cambiar_pos_manos(mira_hacia_izquierda)
+			cambiar_arma_principal(mira_hacia_izquierda)
 			
 			if intentar_atacar():
 				atacar()

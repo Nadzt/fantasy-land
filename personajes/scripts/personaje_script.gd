@@ -53,4 +53,3 @@ func _morir() -> void:
 		sprite.play("morir")
 		await sprite.animation_finished
 	queue_free()
-	

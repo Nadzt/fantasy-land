@@ -48,4 +48,5 @@ func atacar() -> void:
 	print("El esqueleto armado ataca.")
 
 func soltar_item() -> void:
-	print("El esqueleto armado soltó un arco")
+	super.soltar_item()
+	print("dropeo un item")

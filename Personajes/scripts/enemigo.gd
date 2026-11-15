@@ -4,6 +4,7 @@ extends Personaje
 
 @export var _puntaje: int
 var jugador: Jugador = null
+var item_drop: PackedScene = preload("uid://sw2f3xj4wdoh")
 
 func _init(e_puntaje:int):
 	super(100, 10, 5) #Valores por defecto
@@ -21,5 +22,5 @@ func soltar_item() -> void
 
 func _morir() -> void:
 	# GameManager.sumar_puntos(_puntaje)
-	soltar_item()
 	await super._morir()
+	soltar_item()
