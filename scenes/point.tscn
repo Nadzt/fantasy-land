@@ -52,8 +52,8 @@ collision_shape_2d = NodePath("CollisionShape2D")
 position = Vector2(0, -1.5)
 sprite_frames = SubResource("SpriteFrames_dnso1")
 animation = &"espiritu"
-frame = 1
-frame_progress = 0.18055347
+autoplay = "espiritu"
+frame_progress = 0.9748527
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=545759652]
 visible = false
