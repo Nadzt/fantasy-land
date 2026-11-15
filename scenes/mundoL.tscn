@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://nps02xu3d1qk"]
 
 [ext_resource type="TileSet" uid="uid://qsurdvetm2om" path="res://resources/grassland_tileset.tres" id="1_4i0hu"]
+[ext_resource type="PackedScene" uid="uid://do6iwtntf63xw" path="res://scenes/UI/ui_score.tscn" id="1_wyqac"]
 [ext_resource type="TileSet" uid="uid://hfnjl8ghrddo" path="res://resources/desert_tileset.tres" id="2_wyqac"]
 [ext_resource type="TileSet" uid="uid://dwfycte4di63h" path="res://resources/dungeon_tileset.tres" id="3_jtyqo"]
 [ext_resource type="PackedScene" uid="uid://o7xqii5i8ddn" path="res://scenes/point.tscn" id="4_oqvge"]
@@ -1097,3 +1098,7 @@ position = Vector2(485, 542)
 
 [node name="Orco" parent="." unique_id=1102138749 instance=ExtResource("8_432r3")]
 position = Vector2(38, 648)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=331127728]
+
+[node name="UIScore" parent="CanvasLayer" unique_id=934855641 instance=ExtResource("1_wyqac")]
