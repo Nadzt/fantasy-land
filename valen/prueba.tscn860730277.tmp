@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cfnsd2y8p0dkf"]
+
+[ext_resource type="Script" uid="uid://b3e0ux3fqvhba" path="res://valen/buttons_container.gd" id="1_6knhy"]
+[ext_resource type="Script" uid="uid://ceiby65nhjjv4" path="res://valen/puntos_label.gd" id="2_dy6g2"]
+[ext_resource type="Script" uid="uid://c2tlhi3tgmujd" path="res://valen/guardar_y_cargar.gd" id="3_ijx1s"]
+
+[node name="Prueba" type="Node2D" unique_id=148304840]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=649201034]
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="UI" unique_id=426813668]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6knhy")
+
+[node name="SaveButton" type="Button" parent="UI/ButtonsContainer" unique_id=1174849734]
+layout_mode = 2
+
+[node name="LoadButton" type="Button" parent="UI/ButtonsContainer" unique_id=235289492]
+layout_mode = 2
+
+[node name="PuntosLabel" type="Label" parent="UI" unique_id=635829611]
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 25.0
+offset_bottom = 31.0
+script = ExtResource("2_dy6g2")
+
+[node name="guardarYCargar" type="Node" parent="." unique_id=1605178780]
+script = ExtResource("3_ijx1s")
+
+[connection signal="button_down" from="UI/ButtonsContainer/SaveButton" to="UI/ButtonsContainer" method="_on_save_button_button_down"]
+[connection signal="button_down" from="UI/ButtonsContainer/SaveButton" to="guardarYCargar" method="guardar_partida"]
+[connection signal="button_down" from="UI/ButtonsContainer/LoadButton" to="UI/ButtonsContainer" method="_on_load_button_button_down"]
+[connection signal="button_down" from="UI/ButtonsContainer/LoadButton" to="guardarYCargar" method="cargar_partida"]

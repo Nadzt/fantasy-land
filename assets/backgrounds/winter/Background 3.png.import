@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7cfoetv4eid7"
-path="res://.godot/imported/frame-3.png-399a9a015f44a57399d331860fa153c5.ctex"
+uid="uid://cwl2sj4mx0n1j"
+path="res://.godot/imported/Background 3.png-51268eb80be0dbfe4b486df58b01df1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personajes/enemigos/orcos/shaman/frame-3.png"
-dest_files=["res://.godot/imported/frame-3.png-399a9a015f44a57399d331860fa153c5.ctex"]
+source_file="res://assets/backgrounds/winter/Background 3.png"
+dest_files=["res://.godot/imported/Background 3.png-51268eb80be0dbfe4b486df58b01df1a.ctex"]
 
 [params]
 

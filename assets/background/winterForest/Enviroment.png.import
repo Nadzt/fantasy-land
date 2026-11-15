@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvt0jn4ym14yj"
-path="res://.godot/imported/Death-Sheet.png-0398ab08a41489e7fbfc7396c971242f.ctex"
+uid="uid://d0e4bxjh5ebl7"
+path="res://.godot/imported/Enviroment.png-0bf3d8f674c70e6fe1ab280caa5f6fcc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personajes/enemigos/orcos/shaman/Death-Sheet.png"
-dest_files=["res://.godot/imported/Death-Sheet.png-0398ab08a41489e7fbfc7396c971242f.ctex"]
+source_file="res://assets/background/winterForest/Enviroment.png"
+dest_files=["res://.godot/imported/Enviroment.png-0bf3d8f674c70e6fe1ab280caa5f6fcc.ctex"]
 
 [params]
 
