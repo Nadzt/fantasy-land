@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://3gn34gdita2x" path="res://scenes/jugador.tscn" id="5_hfl50"]
 [ext_resource type="Script" uid="uid://qg1k2iucadhc" path="res://scripts/camara.gd" id="6_nw836"]
 [ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scripts/minimapa.gd" id="7_12jbs"]
-[ext_resource type="PackedScene" uid="uid://csqr3a46y0124" path="res://scenes/enemigos/jefe.tscn" id="7_fauxd"]
 
 [node name="Mundo" type="Node2D" unique_id=348896220]
 
@@ -62,6 +61,3 @@ jugador = NodePath("../../../Jugador")
 
 [node name="minimapa" type="Camera2D" parent="LayerMinimapa/SubViewportContainer/SubViewport" unique_id=1563568819]
 zoom = Vector2(0.1, 0.1)
-
-[node name="Jefe" parent="." unique_id=841992873 instance=ExtResource("7_fauxd")]
-position = Vector2(162, 634)

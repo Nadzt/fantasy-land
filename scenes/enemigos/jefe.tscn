@@ -268,11 +268,9 @@ size = Vector2(50.34375, 21)
 radius = 29.0
 height = 74.0
 
-[node name="Jefe" type="CharacterBody2D" unique_id=841992873 node_paths=PackedStringArray("area_1", "area_2")]
+[node name="Jefe" type="CharacterBody2D" unique_id=841992873]
 collision_layer = 5
 script = ExtResource("1_ervgk")
-area_1 = NodePath("RangoDeteccion")
-area_2 = NodePath("AlcanceGuadaña")
 _puntaje = 100
 vuela = true
 
