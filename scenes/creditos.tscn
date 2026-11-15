@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://4xn1l0h4swwc"]
+
+[ext_resource type="Script" uid="uid://cvs2v10ibxuqo" path="res://scenes/creditos.gd" id="1_jddgq"]
+[ext_resource type="Texture2D" uid="uid://ckxt7idc8bvn1" path="res://assets/menu/fondo_creditos.jpg" id="1_spoww"]
+[ext_resource type="FontFile" uid="uid://cbl1geaiylh1b" path="res://resources/fonts/Pixelta.ttf" id="2_6yhot"]
+
+[node name="Creditos" type="Node2D" unique_id=643757796]
+script = ExtResource("1_jddgq")
+
+[node name="FondoCreditos" type="Sprite2D" parent="." unique_id=1019396548]
+position = Vector2(160.5, 90.5)
+scale = Vector2(0.26583335, 0.26814815)
+texture = ExtResource("1_spoww")
+
+[node name="Valen" type="RichTextLabel" parent="." unique_id=1471566745]
+offset_left = 6.0
+offset_top = 157.0
+offset_right = 108.0
+offset_bottom = 181.0
+theme_override_fonts/normal_font = ExtResource("2_6yhot")
+bbcode_enabled = true
+text = "[wave amp=7]Valentina Arenas"
+
+[node name="Lore" type="RichTextLabel" parent="." unique_id=56328188]
+offset_left = 115.0
+offset_top = 157.0
+offset_right = 204.0
+offset_bottom = 179.0
+theme_override_fonts/normal_font = ExtResource("2_6yhot")
+bbcode_enabled = true
+text = "[wave amp=7]Lorena Repossi"
+
+[node name="Joaquin" type="RichTextLabel" parent="." unique_id=2090703574]
+offset_left = 215.0
+offset_top = 153.0
+offset_right = 316.0
+offset_bottom = 179.0
+theme_override_fonts/normal_font = ExtResource("2_6yhot")
+bbcode_enabled = true
+text = "[wave amp=7]Joaquín Enriques"
+
+[node name="Equipo" type="Label" parent="." unique_id=829686496]
+offset_left = 7.0
+offset_top = 10.0
+offset_right = 163.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0.08627451, 0.21568628, 0.23529412, 1)
+theme_override_fonts/font = ExtResource("2_6yhot")
+theme_override_font_sizes/font_size = 18
+text = "Equipo: Pathlighters
+"
+
+[node name="Miembros" type="Label" parent="." unique_id=1098498006]
+offset_left = 7.0
+offset_top = 133.0
+offset_right = 79.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.9629422, 0.85424304, 0.5232049, 0.94509804)
+theme_override_fonts/font = ExtResource("2_6yhot")
+theme_override_font_sizes/font_size = 18
+text = "Miembros:
+"
+
+[node name="Volver" type="TextureButton" parent="." unique_id=1865850528]
+offset_right = 320.0
+offset_bottom = 181.0
+
+[connection signal="button_down" from="Volver" to="." method="_on_volver_button_down"]
