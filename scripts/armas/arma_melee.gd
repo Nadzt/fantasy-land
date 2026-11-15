@@ -10,7 +10,7 @@ enum estado {
 }
 
 ## si esta on, imprime en consola informacion extra
-@export var debug: bool = true
+@export var debug: bool = false
 
 ## si esta on, permite usar armas sin un personaje
 @export var test: bool = false
