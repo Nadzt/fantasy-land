@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://3gn34gdita2x" path="res://scenes/jugador.tscn" id="4_yi5ae"]
 [ext_resource type="TileSet" uid="uid://dwfycte4di63h" path="res://resources/dungeon_tileset.tres" id="5_75jji"]
 [ext_resource type="Script" uid="uid://qg1k2iucadhc" path="res://scripts/camara.gd" id="5_vwj67"]
+[ext_resource type="PackedScene" uid="uid://com6kq8vxumnw" path="res://scenes/liana.tscn" id="5_wd5o3"]
+[ext_resource type="PackedScene" uid="uid://dkvkt4w6wql81" path="res://scenes/liana_larga.tscn" id="6_06eai"]
 [ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scenes/minimapa.gd" id="6_jaeu2"]
 [ext_resource type="PackedScene" uid="uid://o7xqii5i8ddn" path="res://scenes/point.tscn" id="8_6o2rw"]
 [ext_resource type="PackedScene" uid="uid://c8rmq4xsng5j8" path="res://scenes/enemigos/esqueleto_armado.tscn" id="8_kxyy5"]
@@ -1053,6 +1055,32 @@ scale = Vector2(1.7, 1.7)
 [node name="Point255" parent="Puntos" unique_id=998002700 instance=ExtResource("8_6o2rw")]
 position = Vector2(3790, -123)
 scale = Vector2(1.7, 1.7)
+
+[node name="Lianas" type="Node" parent="." unique_id=23921167]
+
+[node name="Liana2" parent="Lianas" unique_id=1583151298 instance=ExtResource("5_wd5o3")]
+position = Vector2(488, 462)
+
+[node name="Liana" parent="Lianas" unique_id=2107859489 instance=ExtResource("5_wd5o3")]
+position = Vector2(1136, 1448)
+
+[node name="LianaLarga" parent="Lianas" unique_id=132582012 instance=ExtResource("6_06eai")]
+position = Vector2(1114, 672)
+
+[node name="LianaLarga2" parent="Lianas" unique_id=571968108 instance=ExtResource("6_06eai")]
+position = Vector2(1402, 575)
+
+[node name="LianaLarga3" parent="Lianas" unique_id=791303039 instance=ExtResource("6_06eai")]
+position = Vector2(1466, 1392)
+
+[node name="LianaLarga4" parent="Lianas" unique_id=492255350 instance=ExtResource("6_06eai")]
+position = Vector2(-981, 480)
+
+[node name="LianaLarga5" parent="Lianas" unique_id=929552177 instance=ExtResource("6_06eai")]
+position = Vector2(2808, 64)
+
+[node name="LianaLarga6" parent="Lianas" unique_id=825993708 instance=ExtResource("6_06eai")]
+position = Vector2(1802, 735)
 
 [node name="Jugador" parent="." unique_id=681307978 instance=ExtResource("4_yi5ae")]
 position = Vector2(-46, 633)
