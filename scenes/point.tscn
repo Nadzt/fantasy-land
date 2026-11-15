@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://o7xqii5i8ddn"]
+
+[ext_resource type="Script" uid="uid://8crjryoi8f4d" path="res://scenes/point.gd" id="1_imn7a"]
+[ext_resource type="Texture2D" uid="uid://be0cvng2356cf" path="res://Personajes/spirit-mini.png" id="1_r0uly"]
+[ext_resource type="AudioStream" uid="uid://bksl57dvf3vom" path="res://sfx/sonido_score.mp3" id="2_tue75"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tue75"]
+atlas = ExtResource("1_r0uly")
+region = Rect2(1, 7, 15, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imn7a"]
+atlas = ExtResource("1_r0uly")
+region = Rect2(18, 7, 15, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw0ea"]
+atlas = ExtResource("1_r0uly")
+region = Rect2(33, 7, 15, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqg1k"]
+atlas = ExtResource("1_r0uly")
+region = Rect2(49, 7, 15, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dnso1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tue75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imn7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw0ea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqg1k")
+}],
+"loop": true,
+"name": &"espiritu",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_olwhu"]
+radius = 3.0
+
+[node name="Point" type="Area2D" unique_id=189525437 node_paths=PackedStringArray("sonido_score", "collision_shape_2d")]
+script = ExtResource("1_imn7a")
+sonido_score = NodePath("Score")
+collision_shape_2d = NodePath("CollisionShape2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=269465394]
+position = Vector2(0, -1.5)
+sprite_frames = SubResource("SpriteFrames_dnso1")
+animation = &"espiritu"
+frame = 1
+frame_progress = 0.18055347
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=545759652]
+visible = false
+shape = SubResource("CircleShape2D_olwhu")
+
+[node name="Score" type="AudioStreamPlayer2D" parent="." unique_id=420831272]
+stream = ExtResource("2_tue75")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
