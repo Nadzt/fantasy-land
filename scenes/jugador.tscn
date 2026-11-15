@@ -394,14 +394,14 @@ script = ExtResource("3_gynwn")
 arma = NodePath("ArmaMelee")
 
 [node name="ArmaMelee" parent="SlotAtras/ManoIzquierda" unique_id=458316924 instance=ExtResource("3_28edd")]
-debug = false
 res = ExtResource("4_k64kw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2035435485]
 texture_filter = 1
 position = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_o4ec4")
-animation = &"idle"
+animation = &"correr"
+frame_progress = 0.17479216
 
 [node name="SlotAdelante" type="Node2D" parent="." unique_id=691736256]
 
@@ -412,7 +412,6 @@ script = ExtResource("3_gynwn")
 arma = NodePath("ArmaMelee")
 
 [node name="ArmaMelee" parent="SlotAdelante/ManoDerecha" unique_id=417194038 instance=ExtResource("3_28edd")]
-debug = false
 res = ExtResource("4_qimn5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=652280929]
