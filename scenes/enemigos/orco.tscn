@@ -10,8 +10,8 @@
 [ext_resource type="Resource" uid="uid://cafclyswnu3cq" path="res://resources/armas/cuchillo.tres" id="8_76qak"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7o8t8"]
-radius = 6.1111116
-height = 16.666668
+radius = 3.4722223
+height = 10.277779
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6rsy7"]
 atlas = ExtResource("1_gis2b")
@@ -138,13 +138,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rwy1l")
 }],
-"loop": true,
+"loop": false,
 "name": &"morir",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofxc1"]
-size = Vector2(21.666668, 17.777779)
+size = Vector2(15.972224, 11.805557)
 
 [node name="Orco" type="CharacterBody2D" unique_id=1102138749 node_paths=PackedStringArray("mano_derecha", "mano_izquierda", "slot_adelante", "slot_atras")]
 scale = Vector2(0.8, 0.8)
@@ -173,14 +173,13 @@ script = ExtResource("2_07pol")
 arma = NodePath("ArmaMelee")
 
 [node name="ArmaMelee" parent="SlotAtras/ManoIzquierda" unique_id=417194038 instance=ExtResource("3_fjqqk")]
-debug = false
 res = ExtResource("4_j2f6o")
 layer_de_dmg = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1873968067]
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_mxehp")
-animation = &"correr"
-frame_progress = 0.18315332
+animation = &"idle"
 
 [node name="SlotAdelante" type="Node2D" parent="." unique_id=187928081]
 
@@ -191,15 +190,14 @@ script = ExtResource("2_07pol")
 arma = NodePath("ArmaMelee")
 
 [node name="ArmaMelee" parent="SlotAdelante/ManoDerecha" unique_id=1203998243 instance=ExtResource("3_fjqqk")]
-debug = false
 res = ExtResource("8_76qak")
 layer_de_dmg = 4
 
 [node name="Area2D" type="Area2D" parent="." unique_id=855140556]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1132559888]
-position = Vector2(8.5, 1.9999996)
-scale = Vector2(1.8, 1.8)
+position = Vector2(6.875, 0.6250005)
+scale = Vector2(1.7999994, 1.7999994)
 shape = SubResource("RectangleShape2D_ofxc1")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

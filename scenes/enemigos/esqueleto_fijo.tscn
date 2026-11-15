@@ -9,8 +9,8 @@
 [ext_resource type="Resource" uid="uid://cafclyswnu3cq" path="res://resources/armas/cuchillo.tres" id="7_kwujm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7o8t8"]
-radius = 5.555556
-height = 18.88889
+radius = 3.3333335
+height = 13.333334
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tlfks"]
 atlas = ExtResource("2_p2dql")
@@ -90,7 +90,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7kvt7")
 }],
-"loop": true,
+"loop": false,
 "name": &"morir",
 "speed": 5.0
 }]
@@ -118,15 +118,14 @@ script = ExtResource("2_cpkxs")
 arma = NodePath("ArmaMelee")
 
 [node name="ArmaMelee" parent="SlotAtras/ManoIzquierda" unique_id=417194038 instance=ExtResource("3_v07e0")]
-debug = false
 res = ExtResource("4_fiw6g")
 layer_de_dmg = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1873968067]
 position = Vector2(0, 4)
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_mxehp")
-animation = &"idle"
-frame_progress = 0.6257902
+animation = &"morir"
 
 [node name="SlotAdelante" type="Node2D" parent="." unique_id=1820392486]
 
@@ -137,6 +136,5 @@ script = ExtResource("2_cpkxs")
 arma = NodePath("ArmaMelee")
 
 [node name="ArmaMelee" parent="SlotAdelante/ManoDerecha" unique_id=487917213 instance=ExtResource("3_v07e0")]
-debug = false
 res = ExtResource("7_kwujm")
 layer_de_dmg = 4
