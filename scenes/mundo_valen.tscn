@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scenes/minimapa.gd" id="7_vahxe"]
 [ext_resource type="PackedScene" uid="uid://c8rmq4xsng5j8" path="res://scenes/enemigos/esqueleto_armado.tscn" id="8_u6et0"]
 [ext_resource type="PackedScene" uid="uid://csqr3a46y0124" path="res://scenes/enemigos/jefe.tscn" id="9_dsa2m"]
+[ext_resource type="Texture2D" uid="uid://c7ye52bewogwp" path="res://assets/LifeBarMiniUnder.png" id="10_kdu2j"]
+[ext_resource type="Texture2D" uid="uid://hcg1uv74o2ss" path="res://assets/LifeBarMiniProgress.png" id="11_ug8jr"]
+[ext_resource type="Script" uid="uid://chcklwcrvknk3" path="res://scenes/hud_vida.gd" id="12_kdu2j"]
 
 [node name="Mundo" type="Node2D" unique_id=348896220]
 
@@ -102,8 +105,21 @@ zoom = Vector2(0.1, 0.1)
 [node name="EsqueletoArmado" parent="." unique_id=1102138749 instance=ExtResource("8_u6et0")]
 position = Vector2(-115, 642)
 
-[node name="Point" parent="." unique_id=189525437 instance=ExtResource("4_kdu2j")]
+[node name="Point" parent="." unique_id=22706480 instance=ExtResource("4_kdu2j")]
 position = Vector2(73, 636)
 
 [node name="Jefe" parent="." unique_id=841992873 instance=ExtResource("9_dsa2m")]
 position = Vector2(25, 637)
+
+[node name="Hud" type="CanvasLayer" parent="." unique_id=723313658]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Hud" unique_id=1850007776 node_paths=PackedStringArray("jugador")]
+offset_left = 227.0
+offset_top = 1.0
+offset_right = 320.0
+offset_bottom = 13.0
+nine_patch_stretch = true
+texture_under = ExtResource("10_kdu2j")
+texture_progress = ExtResource("11_ug8jr")
+script = ExtResource("12_kdu2j")
+jugador = NodePath("../../Jugador")

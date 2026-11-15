@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dmngj10aj65mc"]
+
+[ext_resource type="Script" uid="uid://rb51q5l5dyrb" path="res://scenes/menu.gd" id="1_1abgu"]
+[ext_resource type="Texture2D" uid="uid://kwh17emh72hf" path="res://assets/menu/fondo_menu.jpg" id="1_11y2r"]
+[ext_resource type="Texture2D" uid="uid://citrq88wytue1" path="res://assets/menu/caja_botones.png" id="2_o0tnf"]
+[ext_resource type="FontFile" uid="uid://cbl1geaiylh1b" path="res://resources/fonts/Pixelta.ttf" id="3_jmdev"]
+[ext_resource type="Texture2D" uid="uid://gblte40fnrw5" path="res://assets/menu/header.png" id="3_o0tnf"]
+[ext_resource type="Texture2D" uid="uid://buccnxgo1662p" path="res://assets/menu/A Buttons Big2.png" id="5_aaywf"]
+[ext_resource type="Texture2D" uid="uid://1bfivk8342nx" path="res://assets/menu/A Buttons Big1.png" id="6_1abgu"]
+[ext_resource type="Texture2D" uid="uid://8l6dop3222g0" path="res://assets/menu/A Buttons Big3.png" id="7_yt8fu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4umqm"]
+texture = ExtResource("5_aaywf")
+modulate_color = Color(1, 0.7764706, 0.69411767, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pp5m5"]
+texture = ExtResource("6_1abgu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_el213"]
+texture = ExtResource("7_yt8fu")
+modulate_color = Color(1, 0.7764706, 0.69411767, 1)
+
+[sub_resource type="Theme" id="Theme_thu7x"]
+Button/font_sizes/font_size = 21
+Button/fonts/font = ExtResource("3_jmdev")
+Button/styles/hover = SubResource("StyleBoxTexture_4umqm")
+Button/styles/normal = SubResource("StyleBoxTexture_pp5m5")
+Button/styles/pressed = SubResource("StyleBoxTexture_el213")
+
+[node name="Menu" type="Node2D" unique_id=854890784]
+script = ExtResource("1_1abgu")
+
+[node name="FondoMenu" type="Sprite2D" parent="." unique_id=677758805]
+position = Vector2(159.5, 90.50001)
+scale = Vector2(0.26583332, 0.268945)
+texture = ExtResource("1_11y2r")
+
+[node name="CajaBotones" type="Sprite2D" parent="." unique_id=2110590752]
+position = Vector2(161.00002, 91.49999)
+scale = Vector2(0.9166667, 1.076389)
+texture = ExtResource("2_o0tnf")
+
+[node name="Header" type="Sprite2D" parent="." unique_id=1869478117]
+position = Vector2(160, 49)
+scale = Vector2(1.09375, 1)
+texture = ExtResource("3_o0tnf")
+
+[node name="Label" type="Label" parent="." unique_id=1781079991]
+offset_left = 131.0
+offset_top = 38.0
+offset_right = 190.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0.9843137, 0.6627451, 0.40392157, 1)
+theme_override_fonts/font = ExtResource("3_jmdev")
+theme_override_font_sizes/font_size = 13
+text = "Fantasy Land"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1772021234]
+offset_left = 124.0
+offset_top = 76.00001
+offset_right = 193.735
+offset_bottom = 136.10056
+scale = Vector2(1.09, 1.09)
+theme = SubResource("Theme_thu7x")
+theme_override_constants/separation = 3
+
+[node name="NuevaPartida" type="Button" parent="VBoxContainer" unique_id=1624568737]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Nuevo juego"
+
+[node name="Cargar" type="Button" parent="VBoxContainer" unique_id=1706449902]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Cargar"
+
+[node name="Creditos" type="Button" parent="VBoxContainer" unique_id=1427077568]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Creditos"
+
+[node name="Salir" type="Button" parent="VBoxContainer" unique_id=222426782]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Salir"
+
+[connection signal="button_down" from="VBoxContainer/NuevaPartida" to="." method="_on_nueva_partida_button_down"]
+[connection signal="button_down" from="VBoxContainer/Cargar" to="." method="_on_cargar_button_down"]
+[connection signal="button_down" from="VBoxContainer/Creditos" to="." method="_on_creditos_button_down"]
+[connection signal="button_down" from="VBoxContainer/Salir" to="." method="_on_salir_button_down"]

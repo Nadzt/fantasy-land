@@ -1,6 +1,10 @@
 class_name Jugador
 extends Personaje
 
+signal cambio_en_vida
+
+const vida_max:int = 100 #cambiar segun convenga
+
 @export var speed: float = 300.0
 @export var jump_velocity: float = -400.0
 @export var velocidad_trepado: float = 50.0
@@ -43,6 +47,7 @@ func recibir_dmg(dmg: int) -> void:
 	super(dmg)
 	if not _muerto:
 		sprite.play("recibir_ataque")
+		cambio_en_vida.emit()
 
 func usar_mano_derecha() -> void:
 	if mano_derecha:
