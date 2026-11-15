@@ -171,14 +171,13 @@ script = ExtResource("2_gnxmi")
 arma = NodePath("ArmaMelee")
 
 [node name="ArmaMelee" parent="SlotAtras/ManoIzquierda" unique_id=417194038 instance=ExtResource("3_tpmmh")]
-debug = false
 res = ExtResource("4_d17m6")
 layer_de_dmg = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1873968067]
 position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_mxehp")
-animation = &"morir"
+animation = &"idle"
 
 [node name="SlotAdelante" type="Node2D" parent="." unique_id=1573411938]
 
@@ -189,6 +188,5 @@ script = ExtResource("2_gnxmi")
 arma = NodePath("ArmaMelee")
 
 [node name="ArmaMelee" parent="SlotAdelante/ManoDerecha" unique_id=910459821 instance=ExtResource("3_tpmmh")]
-debug = false
 res = ExtResource("8_idjtb")
 layer_de_dmg = 4

@@ -33,6 +33,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y = get_gravity().y * delta * 10
 	if _tiempo_actual_ataque > 0:
 		_tiempo_actual_ataque -= delta
 

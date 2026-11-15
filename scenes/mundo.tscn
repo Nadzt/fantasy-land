@@ -8,9 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://com6kq8vxumnw" path="res://scenes/liana.tscn" id="5_wd5o3"]
 [ext_resource type="PackedScene" uid="uid://dkvkt4w6wql81" path="res://scenes/liana_larga.tscn" id="6_06eai"]
 [ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scenes/minimapa.gd" id="6_jaeu2"]
+[ext_resource type="PackedScene" uid="uid://dykr88j8huiie" path="res://scenes/enemigos/super_orco.tscn" id="7_m7g0u"]
 [ext_resource type="PackedScene" uid="uid://o7xqii5i8ddn" path="res://scenes/point.tscn" id="8_6o2rw"]
 [ext_resource type="PackedScene" uid="uid://c8rmq4xsng5j8" path="res://scenes/enemigos/esqueleto_armado.tscn" id="8_kxyy5"]
 [ext_resource type="PackedScene" uid="uid://csqr3a46y0124" path="res://scenes/enemigos/jefe.tscn" id="9_6o2rw"]
+[ext_resource type="PackedScene" uid="uid://c4t1g4jfa6x3g" path="res://scenes/enemigos/esqueleto_fijo.tscn" id="13_35q48"]
 
 [node name="Mundo" type="Node2D" unique_id=348896220]
 
@@ -776,38 +778,6 @@ scale = Vector2(1.7, 1.7)
 position = Vector2(3400, 1832)
 scale = Vector2(1.7, 1.7)
 
-[node name="Point186" parent="Puntos" unique_id=206781199 instance=ExtResource("8_6o2rw")]
-position = Vector2(3714, -114)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point187" parent="Puntos" unique_id=445266629 instance=ExtResource("8_6o2rw")]
-position = Vector2(3640, -119)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point188" parent="Puntos" unique_id=1770127634 instance=ExtResource("8_6o2rw")]
-position = Vector2(3567, -115)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point189" parent="Puntos" unique_id=316226039 instance=ExtResource("8_6o2rw")]
-position = Vector2(3495, -117)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point190" parent="Puntos" unique_id=883669429 instance=ExtResource("8_6o2rw")]
-position = Vector2(3429, -114)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point191" parent="Puntos" unique_id=987289489 instance=ExtResource("8_6o2rw")]
-position = Vector2(3348, -117)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point192" parent="Puntos" unique_id=2114743973 instance=ExtResource("8_6o2rw")]
-position = Vector2(3289, -119)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point193" parent="Puntos" unique_id=1964091765 instance=ExtResource("8_6o2rw")]
-position = Vector2(3208, -119)
-scale = Vector2(1.7, 1.7)
-
 [node name="Point194" parent="Puntos" unique_id=1443947096 instance=ExtResource("8_6o2rw")]
 position = Vector2(3106, -129)
 scale = Vector2(1.7, 1.7)
@@ -898,14 +868,6 @@ scale = Vector2(1.7, 1.7)
 
 [node name="Point216" parent="Puntos" unique_id=874404844 instance=ExtResource("8_6o2rw")]
 position = Vector2(2211, 2060)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point217" parent="Puntos" unique_id=2131014425 instance=ExtResource("8_6o2rw")]
-position = Vector2(2129, 2062)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point218" parent="Puntos" unique_id=137784422 instance=ExtResource("8_6o2rw")]
-position = Vector2(2045.0001, 2063.9998)
 scale = Vector2(1.7, 1.7)
 
 [node name="Point219" parent="Puntos" unique_id=1294719065 instance=ExtResource("8_6o2rw")]
@@ -1032,30 +994,6 @@ scale = Vector2(1.7, 1.7)
 position = Vector2(-615, 1962)
 scale = Vector2(1.7, 1.7)
 
-[node name="Point250" parent="Puntos" unique_id=1815832218 instance=ExtResource("8_6o2rw")]
-position = Vector2(4156, -120)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point251" parent="Puntos" unique_id=2038733738 instance=ExtResource("8_6o2rw")]
-position = Vector2(4082, -125)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point252" parent="Puntos" unique_id=52359979 instance=ExtResource("8_6o2rw")]
-position = Vector2(4009, -121)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point253" parent="Puntos" unique_id=4223698 instance=ExtResource("8_6o2rw")]
-position = Vector2(3937, -123)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point254" parent="Puntos" unique_id=1139349898 instance=ExtResource("8_6o2rw")]
-position = Vector2(3871, -120)
-scale = Vector2(1.7, 1.7)
-
-[node name="Point255" parent="Puntos" unique_id=998002700 instance=ExtResource("8_6o2rw")]
-position = Vector2(3790, -123)
-scale = Vector2(1.7, 1.7)
-
 [node name="Lianas" type="Node" parent="." unique_id=23921167]
 
 [node name="Liana2" parent="Lianas" unique_id=1583151298 instance=ExtResource("5_wd5o3")]
@@ -1081,6 +1019,17 @@ position = Vector2(2808, 64)
 
 [node name="LianaLarga6" parent="Lianas" unique_id=825993708 instance=ExtResource("6_06eai")]
 position = Vector2(1802, 735)
+
+[node name="LianaLarga7" parent="Lianas" unique_id=14073045 instance=ExtResource("6_06eai")]
+position = Vector2(-220, 1330)
+
+[node name="Jefes" type="Node" parent="." unique_id=2146424905]
+
+[node name="Jefe2" parent="Jefes" unique_id=1832326901 instance=ExtResource("7_m7g0u")]
+position = Vector2(4107, -107)
+
+[node name="Jefe" parent="Jefes" unique_id=841992873 instance=ExtResource("9_6o2rw")]
+position = Vector2(2068, 2071)
 
 [node name="Jugador" parent="." unique_id=681307978 instance=ExtResource("4_yi5ae")]
 position = Vector2(-46, 633)
@@ -1116,10 +1065,10 @@ jugador = NodePath("../../../Jugador")
 zoom = Vector2(0.1, 0.1)
 
 [node name="EsqueletoArmado" parent="." unique_id=1102138749 instance=ExtResource("8_kxyy5")]
-position = Vector2(-115, 642)
+position = Vector2(-118, 640)
 
 [node name="Point" parent="." unique_id=474254892 instance=ExtResource("8_6o2rw")]
 position = Vector2(73, 636)
 
-[node name="Jefe" parent="." unique_id=841992873 instance=ExtResource("9_6o2rw")]
-position = Vector2(25, 637)
+[node name="EsqueletoFijo" parent="." unique_id=156352445 instance=ExtResource("13_35q48")]
+position = Vector2(339, 612)
