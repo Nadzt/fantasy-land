@@ -8,6 +8,10 @@ extends Enemigo
 @onready var alcance:CollisionShape2D = $"AlcanceGuadaña/Alcance"
 @onready var _atacando: bool = false
 
+@export var area_1: Area2D
+@export var area_2: Area2D
+
+
 func _init():
 	super(100) #puntaje 
 	_vida = 100
@@ -37,6 +41,9 @@ func _physics_process(delta: float) -> void:
 			sprite.play("walk")
 			var mira_hacia_izquierda: bool = direccion.x < 0
 			sprite.flip_h = mira_hacia_izquierda
+			area_1.scale.x = -1 if mira_hacia_izquierda else 1
+			area_2.scale.x = -1 if mira_hacia_izquierda else 1
+			
 		else: 
 			velocity.x = move_toward(velocity.x, 0, velocidad * delta)    
 			sprite.play("idle")
@@ -49,6 +56,7 @@ func _physics_process(delta: float) -> void:
 			
 	move_and_slide()
 
+
 func atacar() -> void :
 	if jugador and is_instance_valid(jugador) and !_atacando:
 		_atacando = true
@@ -57,9 +65,7 @@ func atacar() -> void :
 		_atacando = false
 		alcance.disabled = true
 		sprite.play("idle")
-		
-	
-	
+
 
 func soltar_item() -> void :
 	pass
