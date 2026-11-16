@@ -528,3 +528,20 @@ func cambiar_hitbox_area(layer: int = layer_de_dmg) -> void:
 	hitbox_area.set_collision_mask_value(layer, true)
 
 #endregion
+
+#region buffs
+
+## se suma el attack speed al arma en su porcentaje
+func buffear_atk_speed(nuevo_buff: float) -> void:
+	bonus_atk_speed = min(bonus_atk_speed + ((100 - bonus_atk_speed) * nuevo_buff/100), 80)
+
+func buffear_dmg(nuevo_buff: int) -> void:
+	bonus_ad += nuevo_buff
+
+func buffear_rango(rango_extra: float) -> void:
+	bonus_range += rango_extra
+
+func buffear_multi(multiplicador_extra : float) -> void:
+	bonus_multi += multiplicador_extra
+
+#endregion

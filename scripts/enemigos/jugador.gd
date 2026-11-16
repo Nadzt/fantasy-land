@@ -3,7 +3,7 @@ extends Personaje
 
 signal cambio_en_vida()
 
-const VIDA_MAX: int = 100 #cambiar segun convenga
+var _hp_maxima: int = 100 #cambiar segun convenga
 
 @export var speed: float = 300.0
 @export var jump_velocity: float = -400.0
@@ -51,10 +51,14 @@ func get_vida() -> int:
 	return _vida
 
 func get_vida_max() -> int:
-	return VIDA_MAX
+	return _hp_maxima
 
 func get_hp_max() -> int:
-	return VIDA_MAX
+	return _hp_maxima
+
+func set_max_hp(nueva_hp_max: int) -> void:
+	_hp_maxima = nueva_hp_max
+	cambio_en_vida.emit()
 
 func set_vida(nueva_vida: int) -> void:
 	_vida = nueva_vida

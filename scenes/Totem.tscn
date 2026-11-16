@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bbxr8h05njnmm"]
+
+[ext_resource type="Script" uid="uid://ls47dojwusom" path="res://scripts/totem.gd" id="1_a2jfi"]
+[ext_resource type="Texture2D" uid="uid://bjoqredctd6r8" path="res://assets/props/TX Props.png" id="1_tmiox"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfhhg"]
+atlas = ExtResource("1_tmiox")
+region = Rect2(227, 91, 26, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmiox"]
+atlas = ExtResource("1_tmiox")
+region = Rect2(259, 91, 26, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a2jfi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmiox")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmiox")
+}, {
+"duration": 10.0,
+"texture": null
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmiox"]
+size = Vector2(80, 80)
+
+[node name="Totem" type="Node2D" unique_id=1136395159 node_paths=PackedStringArray("indicaciones", "respuesta", "sfx_player")]
+script = ExtResource("1_a2jfi")
+indicaciones = NodePath("indicaciones")
+respuesta = NodePath("respuesta")
+sfx_player = NodePath("AudioStreamPlayer2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=571768015]
+texture = SubResource("AtlasTexture_xfhhg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=45477347]
+sprite_frames = SubResource("SpriteFrames_a2jfi")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=252126639]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1752171161]
+shape = SubResource("RectangleShape2D_tmiox")
+
+[node name="indicaciones" type="RichTextLabel" parent="." unique_id=1895492014]
+visible = false
+offset_left = -63.0
+offset_top = -54.0
+offset_right = 62.0
+offset_bottom = -33.0
+theme_override_font_sizes/normal_font_size = 5
+bbcode_enabled = true
+text = "[wave]A -> Buff del dios de la tormenta
+S -> Buff del dios de la forja[/wave]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="respuesta" type="RichTextLabel" parent="." unique_id=360654879]
+visible = false
+offset_left = -63.0
+offset_top = -19.0
+offset_right = 63.0
+offset_bottom = -4.0
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=352326865]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

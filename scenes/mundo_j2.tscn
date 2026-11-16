@@ -17,9 +17,7 @@
 [ext_resource type="Script" uid="uid://qg1k2iucadhc" path="res://scripts/camara.gd" id="14_66k2a"]
 [ext_resource type="Script" uid="uid://bigi4dym7pn0c" path="res://scripts/minimapa.gd" id="15_46ryp"]
 [ext_resource type="PackedScene" uid="uid://do6iwtntf63xw" path="res://scenes/UI/ui_score.tscn" id="16_hiyul"]
-[ext_resource type="Script" uid="uid://chcklwcrvknk3" path="res://scripts/hud_vida.gd" id="17_6dga6"]
-[ext_resource type="Texture2D" uid="uid://c7ye52bewogwp" path="res://assets/LifeBarMiniUnder.png" id="17_q1xkm"]
-[ext_resource type="Texture2D" uid="uid://hcg1uv74o2ss" path="res://assets/LifeBarMiniProgress.png" id="18_jqa17"]
+[ext_resource type="PackedScene" uid="uid://bbxr8h05njnmm" path="res://scenes/Totem.tscn" id="21_xs1yj"]
 
 [node name="Mundo" type="Node2D" unique_id=348896220]
 
@@ -1110,13 +1108,5 @@ zoom = Vector2(0.1, 0.1)
 
 [node name="UIScore" parent="HUD" unique_id=934855641 instance=ExtResource("16_hiyul")]
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD" unique_id=489324412 node_paths=PackedStringArray("jugador")]
-offset_left = 227.0
-offset_top = 1.0
-offset_right = 320.0
-offset_bottom = 13.0
-nine_patch_stretch = true
-texture_under = ExtResource("17_q1xkm")
-texture_progress = ExtResource("18_jqa17")
-script = ExtResource("17_6dga6")
-jugador = NodePath("../../Jugador")
+[node name="Totem" parent="." unique_id=1136395159 instance=ExtResource("21_xs1yj")]
+position = Vector2(-108, 622)
