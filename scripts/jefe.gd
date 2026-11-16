@@ -70,12 +70,10 @@ func atacar() -> void :
 func soltar_item() -> void :
 	if not drop_gema:
 		return
-		
 	var nuevo_drop: Gema = drop_gema.instantiate()
 	nuevo_drop.global_position = global_position
-	
 	# Buscamos el contenedor "Drops" o usamos la escena actual si no existe
-	var contenedor = get_tree().current_scene.get_node_or_null("Drops")
+	var contenedor = get_tree().current_scene.get_node_or_null("Gemas")
 	if contenedor == null:
 		contenedor = get_tree().current_scene
 		

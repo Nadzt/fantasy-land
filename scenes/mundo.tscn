@@ -1253,4 +1253,18 @@ position = Vector2(3423, -156)
 [node name="GestorEnemigos4" parent="Gestores" unique_id=888932427 instance=ExtResource("26_lbjxv")]
 position = Vector2(3810, 1019)
 
+[node name="Totem" parent="." unique_id=1136395159 instance=ExtResource("27_np3xf")]
+position = Vector2(1014, 1198)
+
+[node name="Totem2" parent="." unique_id=858690037 instance=ExtResource("27_np3xf")]
+position = Vector2(632, 1950)
+
+[node name="Totem3" parent="." unique_id=1746572299 instance=ExtResource("27_np3xf")]
+position = Vector2(2845, -128)
+
+[node name="Totem4" parent="." unique_id=1005145982 instance=ExtResource("27_np3xf")]
+position = Vector2(1472, 339)
+
+[node name="Gemas" type="Node" parent="." unique_id=270522812]
+
 [connection signal="body_entered" from="AreaMuerte" to="AreaMuerte" method="_on_body_entered"]
