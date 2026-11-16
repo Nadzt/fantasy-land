@@ -1068,8 +1068,8 @@ position = Vector2(534, 1945)
 [node name="Liana2" parent="Lianas" unique_id=1583151298 instance=ExtResource("5_wd5o3")]
 position = Vector2(488, 462)
 
-[node name="Liana" parent="Lianas" unique_id=2107859489 instance=ExtResource("5_wd5o3")]
-position = Vector2(1136, 1448)
+[node name="Liana" parent="Lianas" unique_id=1366927867 instance=ExtResource("5_wd5o3")]
+position = Vector2(592, 1595)
 
 [node name="LianaLarga" parent="Lianas" unique_id=132582012 instance=ExtResource("6_06eai")]
 position = Vector2(1114, 672)
@@ -1090,7 +1090,40 @@ position = Vector2(2808, 64)
 position = Vector2(1802, 735)
 
 [node name="LianaLarga7" parent="Lianas" unique_id=14073045 instance=ExtResource("6_06eai")]
-position = Vector2(-220, 1330)
+position = Vector2(-112, 1439)
+
+[node name="LianaLarga8" parent="Lianas" unique_id=1649431369 instance=ExtResource("6_06eai")]
+position = Vector2(1135, 1419)
+
+[node name="LianaLarga9" parent="Lianas" unique_id=150001770 instance=ExtResource("6_06eai")]
+position = Vector2(1121, 1756)
+
+[node name="LianaLarga10" parent="Lianas" unique_id=495221149 instance=ExtResource("6_06eai")]
+position = Vector2(1274, 1289)
+
+[node name="LianaLarga11" parent="Lianas" unique_id=1012650702 instance=ExtResource("6_06eai")]
+position = Vector2(1482, 382)
+
+[node name="LianaLarga12" parent="Lianas" unique_id=552122734 instance=ExtResource("6_06eai")]
+position = Vector2(2100, 202)
+
+[node name="LianaLarga13" parent="Lianas" unique_id=1704357681 instance=ExtResource("6_06eai")]
+position = Vector2(2031, 315)
+
+[node name="LianaLarga14" parent="Lianas" unique_id=1585959645 instance=ExtResource("6_06eai")]
+position = Vector2(2743, -105)
+
+[node name="LianaLarga15" parent="Lianas" unique_id=1335859522 instance=ExtResource("6_06eai")]
+position = Vector2(2663, 25)
+
+[node name="LianaLarga16" parent="Lianas" unique_id=717288466 instance=ExtResource("6_06eai")]
+position = Vector2(2596, 784)
+
+[node name="LianaLarga17" parent="Lianas" unique_id=1831631601 instance=ExtResource("6_06eai")]
+position = Vector2(242, 1706)
+
+[node name="LianaLarga18" parent="Lianas" unique_id=1546474729 instance=ExtResource("6_06eai")]
+position = Vector2(1377, 1608)
 
 [node name="Jefes" type="Node2D" parent="." unique_id=1284673385]
 visibility_layer = 2
