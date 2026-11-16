@@ -541,7 +541,7 @@ func buffear_dmg(nuevo_buff: int) -> void:
 func buffear_rango(rango_extra: float) -> void:
 	bonus_range += rango_extra
 
-func buffear_multi(multiplicador_extra : float) -> void:
+func buffear_multiplicador(multiplicador_extra : float) -> void:
 	bonus_multi += multiplicador_extra
 
 #endregion

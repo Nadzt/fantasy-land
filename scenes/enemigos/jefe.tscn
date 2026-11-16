@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://d1w4fp5yfwioo" path="res://scripts/jefe.gd" id="1_ervgk"]
 [ext_resource type="Texture2D" uid="uid://b552ctj3ye5df" path="res://assets/personajes/enemigos/jefe/jefe_hurt_sheet.png" id="2_ervgk"]
 [ext_resource type="Texture2D" uid="uid://dherwxujki5wt" path="res://assets/personajes/enemigos/jefe/jefe_attack_sheet.png" id="2_ia2cb"]
-[ext_resource type="PackedScene" uid="uid://d3agmnm74alfr" path="res://scenes/gema.tscn" id="2_sleqt"]
 [ext_resource type="Texture2D" uid="uid://dcrmg3s5oqajh" path="res://assets/personajes/enemigos/jefe/jefe_idle_sheet.png" id="3_ia2cb"]
 [ext_resource type="Texture2D" uid="uid://ckcll046dfstx" path="res://assets/personajes/enemigos/jefe/jefe_death_sheet.png" id="3_sleqt"]
 [ext_resource type="Texture2D" uid="uid://bjgkwalbylsoo" path="res://assets/personajes/enemigos/jefe/jefe_walk_sheet.png" id="4_sleqt"]

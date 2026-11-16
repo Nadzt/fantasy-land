@@ -47,8 +47,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		GameManager.restar_puntos(5)
 		respuesta.text = "[shake rate=20 level=2][color='#9C3228']!!![/color][/shake]"
 		jugador_en_rango.mano_derecha.arma.buffear_dmg(15)
-		jugador_en_rango.mano_derecha.arma.buffear_multi(.35)
+		jugador_en_rango.mano_derecha.arma.buffear_multiplicador(.35)
 		jugador_en_rango.mano_izquierda.arma.buffear_dmg(15)
-		jugador_en_rango.mano_izquierda.arma.buffear_multi(.35)
+		jugador_en_rango.mano_izquierda.arma.buffear_multiplicador(.35)
 		sfx_player.stream = SFX_ORNN
 		sfx_player.play()
