@@ -15,6 +15,8 @@ extends Enemigo
 func _init():
 	super(100) #puntaje 
 	_vida = 1000
+	_fuerza = 15
+	_defensa = 50 #Le puse 0 para saber si esto era el problema
 
 func _ready() -> void:
 	super._ready()
