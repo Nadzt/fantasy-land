@@ -3,7 +3,7 @@ extends Personaje
 
 signal cambio_en_vida
 
-const vida_max:int = 100 #cambiar segun convenga
+const VIDA_MAX: int = 100 #cambiar segun convenga
 
 @export var speed: float = 300.0
 @export var jump_velocity: float = -400.0

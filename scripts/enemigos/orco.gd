@@ -1,7 +1,7 @@
 class_name Orco
 extends EnemigoConArma
 
-@export var velocidad: float = 70.0
+@export var velocidad: float = 60.0
 var dado_vuelta : bool = false
 
 @export var area_de_ataque: Area2D

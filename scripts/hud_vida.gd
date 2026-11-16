@@ -7,4 +7,4 @@ func _ready() -> void:
 	actualizar()
 	
 func actualizar():
-	value = jugador._vida * 100 / jugador.vida_max
+	value = jugador._vida * 100 / jugador.VIDA_MAX
