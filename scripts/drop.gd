@@ -3,7 +3,7 @@ class_name Drop extends Node2D
 ## Sprite del drop
 @export var sprite: Sprite2D
 ## Resource del drop
-@export var res: Resource
+@export var res: ArmaResource
 
 @export var jugador_en_rango: Jugador
 @export var indicaciones: RichTextLabel
@@ -25,11 +25,17 @@ func _on_area_recoleccion_body_exited(body: Node2D) -> void:
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("cambiar_arma_der") and jugador_en_rango:
-		jugador_en_rango.agarrar_arma(res, false)
+		cambiar_arma_der_jugador()
 		queue_free()
 		return
 	
 	if Input.is_action_just_pressed("cambiar_arma_izq") and jugador_en_rango:
-		jugador_en_rango.agarrar_arma(res, true)
+		cambiar_arma_izq_jugador()
 		queue_free()
 		return
+
+func cambiar_arma_izq_jugador() -> void:
+	jugador_en_rango.agarrar_arma(res, true)
+
+func cambiar_arma_der_jugador() -> void:
+	jugador_en_rango.agarrar_arma(res, false)

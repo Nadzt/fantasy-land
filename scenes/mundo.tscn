@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://bbxr8h05njnmm" path="res://scenes/Totem.tscn" id="27_np3xf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wf7jv"]
-size = Vector2(8788, 601.5)
+size = Vector2(11986, 601.5)
 
 [node name="Mundo" type="Node2D" unique_id=348896220]
 
@@ -1160,6 +1160,18 @@ position = Vector2(-17, 909)
 [node name="Estatua4" parent="Estatuas" unique_id=132827842 instance=ExtResource("5_w7nu4")]
 position = Vector2(3209, 1007)
 
+[node name="Totem" parent="Estatuas" unique_id=1136395159 instance=ExtResource("27_np3xf")]
+position = Vector2(1014, 1198)
+
+[node name="Totem2" parent="Estatuas" unique_id=858690037 instance=ExtResource("27_np3xf")]
+position = Vector2(632, 1950)
+
+[node name="Totem3" parent="Estatuas" unique_id=1746572299 instance=ExtResource("27_np3xf")]
+position = Vector2(2845, -128)
+
+[node name="Totem4" parent="Estatuas" unique_id=1005145982 instance=ExtResource("27_np3xf")]
+position = Vector2(1472, 339)
+
 [node name="Jugador" parent="." unique_id=681307978 instance=ExtResource("4_yi5ae")]
 position = Vector2(104, 637)
 
@@ -1216,18 +1228,16 @@ autoplay = true
 script = ExtResource("24_y4lqn")
 
 [node name="CollisionLava" type="CollisionShape2D" parent="AreaMuerte" unique_id=1226479127]
-position = Vector2(1892, 2891.25)
+position = Vector2(1709, 2510)
 shape = SubResource("RectangleShape2D_wf7jv")
 
-[node name="Lava" type="Sprite2D" parent="AreaMuerte/CollisionLava" unique_id=932863679]
-position = Vector2(4.500244, 8.25)
-scale = Vector2(7.3308334, 0.5075)
+[node name="TextureRect" type="TextureRect" parent="AreaMuerte/CollisionLava" unique_id=1781603545]
+offset_left = -5996.0
+offset_top = -293.25
+offset_right = 6007.0
+offset_bottom = 906.75
 texture = ExtResource("25_wf7jv")
-
-[node name="Lava" type="Sprite2D" parent="AreaMuerte/CollisionLava/Lava" unique_id=1584064847]
-position = Vector2(-3849.5, 8.25)
-scale = Vector2(0.9075, 0.5075)
-texture = ExtResource("25_wf7jv")
+stretch_mode = 1
 
 [node name="Gestores" type="Node" parent="." unique_id=1626094254]
 
@@ -1242,17 +1252,5 @@ position = Vector2(3423, -156)
 
 [node name="GestorEnemigos4" parent="Gestores" unique_id=888932427 instance=ExtResource("26_lbjxv")]
 position = Vector2(3810, 1019)
-
-[node name="Totem" parent="." unique_id=1136395159 instance=ExtResource("27_np3xf")]
-position = Vector2(1014, 1198)
-
-[node name="Totem2" parent="." unique_id=858690037 instance=ExtResource("27_np3xf")]
-position = Vector2(632, 1950)
-
-[node name="Totem3" parent="." unique_id=1746572299 instance=ExtResource("27_np3xf")]
-position = Vector2(2845, -128)
-
-[node name="Totem4" parent="." unique_id=1005145982 instance=ExtResource("27_np3xf")]
-position = Vector2(1472, 339)
 
 [connection signal="body_entered" from="AreaMuerte" to="AreaMuerte" method="_on_body_entered"]

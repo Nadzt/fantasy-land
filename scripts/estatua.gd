@@ -22,16 +22,22 @@ func _unhandled_input(event: InputEvent) -> void:
 		if GameManager.get_puntos() < 100:
 			respuesta.text = "No tenes suficientes puntos :'("
 			return
-		GameManager.restar_puntos(100)
-		respuesta.text = "Solo tu puedes oirme, invocador ah"
-		jugador_en_rango.set_vida(jugador_en_rango.get_hp_max())
+		curar_jugador()
 	
 	if Input.is_action_just_pressed("interaccion_2") and jugador_en_rango:
 		if GameManager.get_puntos() < 200:
 			respuesta.text = "No tenes suficientes puntos :'("
 			return
-		GameManager.restar_puntos(200)
-		respuesta.text = "[shake rate=20 level=2][color='#E924FF']Enormizar[/color][/shake]"
-		var signo: int = sign(jugador_en_rango.mano_derecha.arma.scale.x)
-		jugador_en_rango.mano_derecha.arma.scale += Vector2(0.4 * signo, 0.4)
-		jugador_en_rango.mano_izquierda.arma.scale += Vector2(0.4 * signo, 0.4)
+		enormizar() 
+
+func curar_jugador() -> void:
+	GameManager.restar_puntos(100)
+	respuesta.text = "Solo tu puedes oirme, invocador ah"
+	jugador_en_rango.set_vida(jugador_en_rango.get_hp_max())
+
+func enormizar() -> void:
+	GameManager.restar_puntos(200)
+	respuesta.text = "[shake rate=20 level=2][color='#E924FF']Enormizar[/color][/shake]"
+	var signo: int = sign(jugador_en_rango.mano_derecha.arma.scale.x)
+	jugador_en_rango.mano_derecha.arma.scale += Vector2(0.4 * signo, 0.4)
+	jugador_en_rango.mano_izquierda.arma.scale += Vector2(0.4 * signo, 0.4)
