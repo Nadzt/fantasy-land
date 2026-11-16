@@ -1195,6 +1195,18 @@ position = Vector2(3423, -156)
 [node name="GestorEnemigos4" parent="Gestores" unique_id=888932427 instance=ExtResource("26_lbjxv")]
 position = Vector2(3810, 1019)
 
+[node name="GestorEnemigos8" parent="Gestores" unique_id=515795058 instance=ExtResource("26_lbjxv")]
+position = Vector2(-763, 779)
+
+[node name="GestorEnemigos9" parent="Gestores" unique_id=1111441093 instance=ExtResource("26_lbjxv")]
+position = Vector2(1066, 2040)
+
+[node name="GestorEnemigos10" parent="Gestores" unique_id=64018126 instance=ExtResource("26_lbjxv")]
+position = Vector2(3423, -156)
+
+[node name="GestorEnemigos11" parent="Gestores" unique_id=842987819 instance=ExtResource("26_lbjxv")]
+position = Vector2(3810, 1019)
+
 [node name="Jugador" parent="." unique_id=681307978 instance=ExtResource("4_yi5ae")]
 position = Vector2(89, 641)
 
@@ -1262,31 +1274,7 @@ offset_bottom = 906.75
 texture = ExtResource("25_wf7jv")
 stretch_mode = 1
 
-[node name="Gestores" type="Node" parent="." unique_id=1626094254]
-
-[node name="GestorEnemigos" parent="Gestores" unique_id=1670199887 instance=ExtResource("26_lbjxv")]
-position = Vector2(-763, 779)
-
-[node name="GestorEnemigos2" parent="Gestores" unique_id=1962015905 instance=ExtResource("26_lbjxv")]
-position = Vector2(1066, 2040)
-
-[node name="GestorEnemigos3" parent="Gestores" unique_id=2117924430 instance=ExtResource("26_lbjxv")]
-position = Vector2(3423, -156)
-
-[node name="GestorEnemigos4" parent="Gestores" unique_id=888932427 instance=ExtResource("26_lbjxv")]
-position = Vector2(3810, 1019)
-
-[node name="Totem" parent="." unique_id=1136395159 instance=ExtResource("27_np3xf")]
-position = Vector2(1014, 1198)
-
-[node name="Totem2" parent="." unique_id=858690037 instance=ExtResource("27_np3xf")]
-position = Vector2(632, 1950)
-
-[node name="Totem3" parent="." unique_id=1746572299 instance=ExtResource("27_np3xf")]
-position = Vector2(2845, -128)
-
-[node name="Totem4" parent="." unique_id=1005145982 instance=ExtResource("27_np3xf")]
-position = Vector2(1472, 339)
+[node name="Gestores2" type="Node" parent="." unique_id=1626094254]
 
 [node name="Gemas" type="Node" parent="." unique_id=270522812]
 
