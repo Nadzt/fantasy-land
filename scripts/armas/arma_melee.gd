@@ -34,7 +34,7 @@ const SFXs_HIT = [preload("uid://vcip7ombq3g6"), preload("uid://ceicqagjxrrrx"),
 ## rango bonus
 @export var bonus_range: float = 0
 ## multiplicador bonus
-@export var bonus_multi: float = 0
+@export var bonus_multi: float = 1
 
 
 @export_group("Info general")

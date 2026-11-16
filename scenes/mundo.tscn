@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://b2em7eji4jb5" path="res://scripts/area_muerte.gd" id="24_y4lqn"]
 [ext_resource type="Texture2D" uid="uid://jshrk1fuvwlx" path="res://assets/lava.jpg" id="25_wf7jv"]
 [ext_resource type="PackedScene" uid="uid://cvt2ueq3gwvmg" path="res://scenes/gestor_enemigos.tscn" id="26_lbjxv"]
+[ext_resource type="PackedScene" uid="uid://bbxr8h05njnmm" path="res://scenes/Totem.tscn" id="27_np3xf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wf7jv"]
 size = Vector2(8788, 601.5)
@@ -1241,5 +1242,17 @@ position = Vector2(3423, -156)
 
 [node name="GestorEnemigos4" parent="Gestores" unique_id=888932427 instance=ExtResource("26_lbjxv")]
 position = Vector2(3810, 1019)
+
+[node name="Totem" parent="." unique_id=1136395159 instance=ExtResource("27_np3xf")]
+position = Vector2(1014, 1198)
+
+[node name="Totem2" parent="." unique_id=858690037 instance=ExtResource("27_np3xf")]
+position = Vector2(632, 1950)
+
+[node name="Totem3" parent="." unique_id=1746572299 instance=ExtResource("27_np3xf")]
+position = Vector2(2845, -128)
+
+[node name="Totem4" parent="." unique_id=1005145982 instance=ExtResource("27_np3xf")]
+position = Vector2(1472, 339)
 
 [connection signal="body_entered" from="AreaMuerte" to="AreaMuerte" method="_on_body_entered"]
