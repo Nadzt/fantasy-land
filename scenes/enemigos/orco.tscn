@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://xndkntifaoh0"]
+[gd_scene format=3 uid="uid://btim8vl5em7no"]
 
 [ext_resource type="Texture2D" uid="uid://djtysmd2ldl1p" path="res://assets/personajes/enemigos/orcos/encapuchado/Run-Sheet.png" id="1_gis2b"]
 [ext_resource type="Script" uid="uid://cqrpvkm075yhv" path="res://scripts/enemigos/orco.gd" id="1_ofxc1"]
@@ -146,9 +146,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofxc1"]
 size = Vector2(15.972224, 11.805557)
 
-[node name="Orco" type="CharacterBody2D" unique_id=1102138749 node_paths=PackedStringArray("mano_derecha", "mano_izquierda", "slot_adelante", "slot_atras")]
-scale = Vector2(0.8, 0.8)
+[node name="Orco" type="CharacterBody2D" unique_id=1102138749 node_paths=PackedStringArray("area_de_ataque", "mano_derecha", "mano_izquierda", "slot_adelante", "slot_atras")]
+scale = Vector2(0.9, 0.9)
 script = ExtResource("1_ofxc1")
+area_de_ataque = NodePath("Area2D")
 mano_derecha = NodePath("SlotAdelante/ManoDerecha")
 mano_izquierda = NodePath("SlotAtras/ManoIzquierda")
 slot_adelante = NodePath("SlotAdelante")

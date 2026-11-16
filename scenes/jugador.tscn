@@ -375,7 +375,7 @@ animations = [{
 radius = 3.0
 height = 21.0
 
-[node name="Jugador" type="CharacterBody2D" unique_id=681307978 node_paths=PackedStringArray("mano_derecha", "mano_izquierda", "slot_adelante", "slot_atras")]
+[node name="Jugador" type="CharacterBody2D" unique_id=681307978 node_paths=PackedStringArray("mano_derecha", "mano_izquierda", "slot_adelante", "slot_atras") groups=["Jugador"]]
 collision_layer = 9
 script = ExtResource("1_5mo7q")
 mano_derecha = NodePath("SlotAdelante/ManoDerecha")

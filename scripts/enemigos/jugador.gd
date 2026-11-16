@@ -34,9 +34,7 @@ var _offset_trepar : float
 func _init():
 	super(100, 20, 5)
 
-func _ready() -> void:
-	add_to_group("Jugador")
-	
+func _ready() -> void:	
 	cambiar_pos_manos(false)
 	if mano_izquierda.arma:
 		mano_izquierda.arma.actualizar_pos()

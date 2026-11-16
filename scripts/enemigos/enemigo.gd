@@ -13,6 +13,7 @@ func _init(e_puntaje:int):
 func _ready() -> void:
 	add_to_group("Enemigos")
 	jugador = get_tree().get_first_node_in_group("Jugador")
+	print(jugador)
 
 @abstract
 func atacar() -> void

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://o7xqii5i8ddn" path="res://scenes/point.tscn" id="8_6o2rw"]
 [ext_resource type="PackedScene" uid="uid://c8rmq4xsng5j8" path="res://scenes/enemigos/esqueleto_armado.tscn" id="8_kxyy5"]
 [ext_resource type="PackedScene" uid="uid://csqr3a46y0124" path="res://scenes/enemigos/jefe.tscn" id="9_6o2rw"]
-[ext_resource type="PackedScene" uid="uid://xndkntifaoh0" path="res://scenes/enemigos/orco.tscn" id="10_l7i8s"]
+[ext_resource type="PackedScene" uid="uid://btim8vl5em7no" path="res://scenes/enemigos/orco.tscn" id="10_l7i8s"]
 [ext_resource type="PackedScene" uid="uid://botndi28ex1kj" path="res://scenes/enemigos/ojo_volador.tscn" id="11_f7ym0"]
 [ext_resource type="PackedScene" uid="uid://c4t1g4jfa6x3g" path="res://scenes/enemigos/esqueleto_fijo.tscn" id="13_35q48"]
 [ext_resource type="PackedScene" uid="uid://do6iwtntf63xw" path="res://scenes/UI/ui_score.tscn" id="16_f7ym0"]
@@ -1064,7 +1064,7 @@ position = Vector2(-405, 163)
 position = Vector2(-362, 1971)
 
 [node name="Jugador" parent="." unique_id=681307978 instance=ExtResource("4_yi5ae")]
-position = Vector2(-46, 633)
+position = Vector2(-41, 641)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=928563124 node_paths=PackedStringArray("player")]
 position = Vector2(160, 90)
