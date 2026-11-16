@@ -1,4 +1,4 @@
-extends TextureProgressBar
+class_name UIHP extends TextureProgressBar
 
 @export var jugador: Jugador
 @export var label: Label
