@@ -3,7 +3,7 @@ extends EnemigoConArma
 
 @export var velocidad: float = 70.0
 @export var rango_deteccion: float = 100.0  
-@export var rango_detencion: float = 25.0   
+@export var rango_detencion: float = 30.0   
 
 #@onready var arma: Node2D = $Arma
 
