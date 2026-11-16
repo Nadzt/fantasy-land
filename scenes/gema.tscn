@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d3agmnm74alfr"]
 
-[ext_resource type="Script" uid="uid://kfef0ple5jcg" path="res://scenes/gema.gd" id="1_bs5gk"]
+[ext_resource type="Script" uid="uid://kfef0ple5jcg" path="res://scripts/gema.gd" id="1_bs5gk"]
 [ext_resource type="Texture2D" uid="uid://dsfgbekv4f4lx" path="res://assets/gemas/GEM 1 - LILAC - Spritesheet.png" id="1_xl8xo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_obdxu"]

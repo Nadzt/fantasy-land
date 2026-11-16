@@ -2,6 +2,7 @@
 class_name Enemigo
 extends Personaje
 
+signal enemigo_muerto
 
 @export var _puntaje: int
 @onready var colisiones: CollisionShape2D = $CollisionShape2D
@@ -27,5 +28,6 @@ func _morir() -> void:
 	GameManager.sumar_puntos(_puntaje)
 	colisiones.set_deferred("disabled", true)
 	soltar_item()
+	enemigo_muerto.emit()
 	GameManager.enemigo_derrotado()
 	await super._morir()

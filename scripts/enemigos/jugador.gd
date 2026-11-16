@@ -45,7 +45,7 @@ func recibir_dmg(dmg: int) -> void:
 	super(dmg)
 	if not _muerto:
 		sprite.play("recibir_ataque")
-		cambio_en_vida.emit(_vida)
+		cambio_en_vida.emit()
 
 func get_vida() -> int:
 	return _vida

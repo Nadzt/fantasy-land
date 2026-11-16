@@ -96,6 +96,6 @@ func _on_alcance_guadaña_body_entered(body: Node2D) -> void:
 func _on_animated_sprite_2d_frame_changed() -> void:
 	if sprite.animation == "attack":
 		if sprite.frame == 5 or sprite.frame == 6 and jugador:
-			alcance.disabled = false
+			alcance.set_deferred("disabled", false)
 		else:
-			alcance.disabled = true
+			alcance.set_deferred("disabled", true)

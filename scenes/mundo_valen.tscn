@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c7ye52bewogwp" path="res://assets/LifeBarMiniUnder.png" id="10_kdu2j"]
 [ext_resource type="Texture2D" uid="uid://hcg1uv74o2ss" path="res://assets/LifeBarMiniProgress.png" id="11_ug8jr"]
 [ext_resource type="Script" uid="uid://chcklwcrvknk3" path="res://scripts/hud_vida.gd" id="12_kdu2j"]
+[ext_resource type="PackedScene" uid="uid://cvt2ueq3gwvmg" path="res://scenes/gestor_enemigos.tscn" id="13_ug8jr"]
 
 [node name="Mundo" type="Node2D" unique_id=348896220]
 
@@ -113,7 +114,7 @@ position = Vector2(25, 637)
 
 [node name="Hud" type="CanvasLayer" parent="." unique_id=723313658]
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Hud" unique_id=1850007776 node_paths=PackedStringArray("jugador")]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Hud" unique_id=1850007776 node_paths=PackedStringArray("jugador", "label")]
 offset_left = 227.0
 offset_top = 1.0
 offset_right = 320.0
@@ -123,3 +124,14 @@ texture_under = ExtResource("10_kdu2j")
 texture_progress = ExtResource("11_ug8jr")
 script = ExtResource("12_kdu2j")
 jugador = NodePath("../../Jugador")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="Hud/TextureProgressBar" unique_id=1270873479]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="GestorEnemigos" parent="." unique_id=1670199887 instance=ExtResource("13_ug8jr")]
+position = Vector2(-194, 593)
+
+[node name="Enemigos" type="Node2D" parent="." unique_id=1093601184]

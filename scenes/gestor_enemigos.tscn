@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cvt2ueq3gwvmg"]
+
+[ext_resource type="Script" uid="uid://lh1kwrukmwr" path="res://scripts/gestor_enemigos.gd" id="1_w7rdg"]
+[ext_resource type="PackedScene" uid="uid://c8rmq4xsng5j8" path="res://scenes/enemigos/esqueleto_armado.tscn" id="2_jyvkp"]
+[ext_resource type="PackedScene" uid="uid://botndi28ex1kj" path="res://scenes/enemigos/ojo_volador.tscn" id="3_xdp3y"]
+[ext_resource type="PackedScene" uid="uid://btim8vl5em7no" path="res://scenes/enemigos/orco.tscn" id="4_xdp3y"]
+
+[node name="GestorEnemigos" type="Node2D" unique_id=1670199887 node_paths=PackedStringArray("tiempo_espera")]
+script = ExtResource("1_w7rdg")
+enemigos_posibles = Array[PackedScene]([ExtResource("2_jyvkp"), ExtResource("3_xdp3y"), ExtResource("4_xdp3y")])
+tiempo_espera = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="." unique_id=1380039564]
+wait_time = 15.0
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1449889014]
