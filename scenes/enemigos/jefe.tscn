@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d1w4fp5yfwioo" path="res://scripts/jefe.gd" id="1_ervgk"]
 [ext_resource type="Texture2D" uid="uid://b552ctj3ye5df" path="res://assets/personajes/enemigos/jefe/jefe_hurt_sheet.png" id="2_ervgk"]
 [ext_resource type="Texture2D" uid="uid://dherwxujki5wt" path="res://assets/personajes/enemigos/jefe/jefe_attack_sheet.png" id="2_ia2cb"]
+[ext_resource type="PackedScene" uid="uid://d3agmnm74alfr" path="res://scenes/gema.tscn" id="2_sleqt"]
 [ext_resource type="Texture2D" uid="uid://dcrmg3s5oqajh" path="res://assets/personajes/enemigos/jefe/jefe_idle_sheet.png" id="3_ia2cb"]
 [ext_resource type="Texture2D" uid="uid://ckcll046dfstx" path="res://assets/personajes/enemigos/jefe/jefe_death_sheet.png" id="3_sleqt"]
 [ext_resource type="Texture2D" uid="uid://bjgkwalbylsoo" path="res://assets/personajes/enemigos/jefe/jefe_walk_sheet.png" id="4_sleqt"]
@@ -273,13 +274,15 @@ collision_layer = 5
 script = ExtResource("1_ervgk")
 area_1 = NodePath("RangoDeteccion")
 area_2 = NodePath("AlcanceGuadaña")
+drop_gema = ExtResource("2_sleqt")
 _puntaje = 100
 vuela = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1497227128]
 scale = Vector2(1.485, 1.485)
 sprite_frames = SubResource("SpriteFrames_uvalc")
-animation = &"morir"
+animation = &"attack"
+frame = 5
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=59429785]
 position = Vector2(3, -3)
@@ -294,7 +297,7 @@ shape = SubResource("RectangleShape2D_ia2cb")
 [node name="AlcanceGuadaña" type="Area2D" parent="." unique_id=1849460492]
 
 [node name="Alcance" type="CollisionShape2D" parent="AlcanceGuadaña" unique_id=684524117]
-position = Vector2(24, 2)
+position = Vector2(28, 0)
 shape = SubResource("CapsuleShape2D_yrd0q")
 disabled = true
 

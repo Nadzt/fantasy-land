@@ -10,12 +10,13 @@ extends Enemigo
 
 @export var area_1: Area2D
 @export var area_2: Area2D
+@export var drop_gema: PackedScene
 
 func _init():
 	super(100) #puntaje 
-	_vida = 100
-	_fuerza = 15
-	_defensa = 0 #Le puse 0 para saber si esto era el problema
+	_vida = 150
+	_fuerza = 20
+	_defensa = 20
 
 func _ready() -> void:
 	super._ready()
@@ -67,24 +68,23 @@ func atacar() -> void :
 	
 
 func soltar_item() -> void :
-	pass
+	if not drop_gema:
+		return
+		
+	var nuevo_drop: Gema = drop_gema.instantiate()
+	nuevo_drop.global_position = global_position
+	
+	# Buscamos el contenedor "Drops" o usamos la escena actual si no existe
+	var contenedor = get_tree().current_scene.get_node_or_null("Drops")
+	if contenedor == null:
+		contenedor = get_tree().current_scene
+		
+	contenedor.call_deferred("add_child", nuevo_drop)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Jugador:
 		atacar()
-
-#func recibir_dmg(dmg: int) -> void:
-	#super(dmg)
-	#_atacando = false
-	#alcance.set_deferred("disabled", true)
-	##if sprite.is_playing():
-		##sprite.stop()
-	##sprite.play("hurt")
-	#await sprite.animation_finished
-	#sprite.play("idle")
-	#print("El jefe fue herido")
-
 
 func _on_alcance_guadaña_body_entered(body: Node2D) -> void:
 	if body is Jugador:

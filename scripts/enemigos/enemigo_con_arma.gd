@@ -59,6 +59,7 @@ func soltar_item() -> void:
 	nuevo_drop.global_position = global_position
 	get_tree().current_scene.get_node("Drops").call_deferred("add_child", nuevo_drop)
 
+
 func _morir() -> void:
 	mano_derecha.hide()
 	mano_izquierda.hide()

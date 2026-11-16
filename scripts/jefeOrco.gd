@@ -1,4 +1,4 @@
-class_name Jefe2
+class_name JefeOrco
 extends EnemigoConArma
 
 @export var velocidad: float = 60.0

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dykr88j8huiie"]
 
-[ext_resource type="Script" uid="uid://v6snli8lysgn" path="res://scripts/jefe_2.gd" id="1_7sraf"]
+[ext_resource type="Script" uid="uid://v6snli8lysgn" path="res://scripts/jefeOrco.gd" id="1_7sraf"]
 [ext_resource type="Script" uid="uid://nrslcf4cbclv" path="res://scripts/mano.gd" id="2_o4nq8"]
 [ext_resource type="PackedScene" uid="uid://dy1y8qqrxvc51" path="res://scenes/armas/arma_melee.tscn" id="3_o4nq8"]
 [ext_resource type="Texture2D" uid="uid://bfreycov4r1jh" path="res://assets/personajes/enemigos/orcos/shaman/shaman_sprites.png" id="5_15rjy"]

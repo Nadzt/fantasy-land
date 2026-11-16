@@ -6,7 +6,9 @@ signal puntos_cambiados(puntos_totales: int)
 signal jefe_derrotado
 signal juego_terminado
 signal enemigos_derrotados
+signal gema_conseguida(id_gema: String)
 
+var gemas_obtenidas: Array[String] = []
 var puntos: int = 0
 var cantidad_jefes: int = 2
 var cant_jefes_derrotados: int = 0
@@ -37,3 +39,11 @@ func fin_del_juego() -> void:
 func enemigo_derrotado() -> void:
 	cant_enemigos -= 1
 	enemigos_derrotados.emit()
+
+func registrar_gema(id: String) -> void:
+	if not gemas_obtenidas.has(id):
+		gemas_obtenidas.append(id)
+		gema_conseguida.emit(id)
+		
+		
+	

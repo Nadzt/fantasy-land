@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://d3agmnm74alfr"]
+
+[ext_resource type="Script" uid="uid://kfef0ple5jcg" path="res://scenes/gema.gd" id="1_bs5gk"]
+[ext_resource type="Texture2D" uid="uid://dsfgbekv4f4lx" path="res://assets/gemas/GEM 1 - LILAC - Spritesheet.png" id="1_xl8xo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obdxu"]
+atlas = ExtResource("1_xl8xo")
+region = Rect2(0, 0, 18.401592, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obdxu"]
+size = Vector2(97, 40)
+
+[node name="Gema" type="Node2D" unique_id=1453737709]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_bs5gk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1717075369]
+texture = SubResource("AtlasTexture_obdxu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=884438203]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1439094975]
+position = Vector2(2.5, -5)
+shape = SubResource("RectangleShape2D_obdxu")
+
+[node name="Coleccionable" type="RichTextLabel" parent="." unique_id=2110008369]
+offset_left = -33.0
+offset_top = -28.0
+offset_right = 36.0
+offset_bottom = -15.0
+theme_override_font_sizes/normal_font_size = 9
+theme_override_font_sizes/bold_font_size = 17
+text = "Coleccionable"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_recoleccion_body_entered"]
