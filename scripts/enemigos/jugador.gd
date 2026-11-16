@@ -108,9 +108,6 @@ func drop_arma(res_arma: ArmaResource) -> void:
 	nuevo_drop.global_position = global_position
 	get_tree().current_scene.get_node("Drops").add_child(nuevo_drop)
 
-func agarrar_item() -> void:
-	pass #después definir la clase Item"
-
 func _physics_process(delta):
 	
 	if puede_trepar and Input.is_action_pressed("trepar"):
