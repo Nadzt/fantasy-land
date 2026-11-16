@@ -35,4 +35,5 @@ func atacar() -> void:
 	print("Uso una maza para atacar")
 
 func soltar_item() -> void:
+	super.soltar_item()
 	print("Suelto la maza")

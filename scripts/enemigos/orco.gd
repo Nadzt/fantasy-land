@@ -48,4 +48,5 @@ func atacar() -> void:
 		print("¡El orco atacó al jugador e hizo ", _fuerza, " de daño!")
 
 func soltar_item() -> void:
+	super.soltar_item()
 	print("El orco suelta una espada")
