@@ -148,6 +148,7 @@ radius = 19.0
 height = 44.0
 
 [node name="SuperOrco" type="CharacterBody2D" unique_id=1832326901 node_paths=PackedStringArray("mano_derecha", "mano_izquierda", "slot_adelante", "slot_atras")]
+collision_layer = 5
 script = ExtResource("1_7sraf")
 drop_gema = ExtResource("2_xapfv")
 mano_derecha = NodePath("SlotAdelante/ManoDerecha")
@@ -168,6 +169,7 @@ arma = NodePath("ArmaMelee")
 
 [node name="ArmaMelee" parent="SlotAtras/ManoIzquierda" unique_id=417194038 instance=ExtResource("3_o4nq8")]
 scale = Vector2(1.5, 1.5)
+layer_de_dmg = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1232342290]
 position = Vector2(-7.0000005, -18.000002)
@@ -187,6 +189,7 @@ arma = NodePath("ArmaMelee")
 
 [node name="ArmaMelee" parent="SlotAdelante/ManoDerecha" unique_id=1165418222 instance=ExtResource("3_o4nq8")]
 scale = Vector2(1.5, 1.5)
+layer_de_dmg = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1807043600]
 position = Vector2(0, -11)
