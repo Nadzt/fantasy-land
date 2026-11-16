@@ -1172,8 +1172,31 @@ position = Vector2(2845, -128)
 [node name="Totem4" parent="Estatuas" unique_id=1005145982 instance=ExtResource("27_np3xf")]
 position = Vector2(1472, 339)
 
+[node name="Gestores" type="Node2D" parent="." unique_id=219963624]
+
+[node name="GestorEnemigos" parent="Gestores" unique_id=1670199887 instance=ExtResource("26_lbjxv")]
+position = Vector2(-669, 911)
+
+[node name="GestorEnemigos5" parent="Gestores" unique_id=1426091015 instance=ExtResource("26_lbjxv")]
+position = Vector2(770, 794)
+
+[node name="GestorEnemigos6" parent="Gestores" unique_id=603439891 instance=ExtResource("26_lbjxv")]
+position = Vector2(940, 81)
+
+[node name="GestorEnemigos7" parent="Gestores" unique_id=518445235 instance=ExtResource("26_lbjxv")]
+position = Vector2(2258, 156)
+
+[node name="GestorEnemigos2" parent="Gestores" unique_id=1962015905 instance=ExtResource("26_lbjxv")]
+position = Vector2(1066, 2040)
+
+[node name="GestorEnemigos3" parent="Gestores" unique_id=2117924430 instance=ExtResource("26_lbjxv")]
+position = Vector2(3423, -156)
+
+[node name="GestorEnemigos4" parent="Gestores" unique_id=888932427 instance=ExtResource("26_lbjxv")]
+position = Vector2(3810, 1019)
+
 [node name="Jugador" parent="." unique_id=681307978 instance=ExtResource("4_yi5ae")]
-position = Vector2(-939, 1202)
+position = Vector2(89, 641)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=928563124 node_paths=PackedStringArray("player")]
 position = Vector2(160, 90)
@@ -1238,19 +1261,5 @@ offset_right = 6007.0
 offset_bottom = 906.75
 texture = ExtResource("25_wf7jv")
 stretch_mode = 1
-
-[node name="Gestores" type="Node" parent="." unique_id=1626094254]
-
-[node name="GestorEnemigos" parent="Gestores" unique_id=1670199887 instance=ExtResource("26_lbjxv")]
-position = Vector2(-763, 779)
-
-[node name="GestorEnemigos2" parent="Gestores" unique_id=1962015905 instance=ExtResource("26_lbjxv")]
-position = Vector2(1066, 2040)
-
-[node name="GestorEnemigos3" parent="Gestores" unique_id=2117924430 instance=ExtResource("26_lbjxv")]
-position = Vector2(3423, -156)
-
-[node name="GestorEnemigos4" parent="Gestores" unique_id=888932427 instance=ExtResource("26_lbjxv")]
-position = Vector2(3810, 1019)
 
 [connection signal="body_entered" from="AreaMuerte" to="AreaMuerte" method="_on_body_entered"]
