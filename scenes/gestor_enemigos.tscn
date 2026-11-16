@@ -12,5 +12,8 @@ tiempo_espera = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="." unique_id=1380039564]
 wait_time = 15.0
+one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1449889014]
+
+[connection signal="timeout" from="Timer" to="." method="instanciar_enemigo"]

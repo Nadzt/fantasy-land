@@ -1175,7 +1175,7 @@ position = Vector2(1472, 339)
 [node name="Gestores" type="Node2D" parent="." unique_id=219963624]
 
 [node name="GestorEnemigos" parent="Gestores" unique_id=1670199887 instance=ExtResource("26_lbjxv")]
-position = Vector2(-669, 911)
+position = Vector2(-681, 901)
 
 [node name="GestorEnemigos5" parent="Gestores" unique_id=1426091015 instance=ExtResource("26_lbjxv")]
 position = Vector2(770, 794)

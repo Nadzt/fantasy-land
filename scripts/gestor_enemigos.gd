@@ -6,13 +6,14 @@ class_name GestorEnemigos
 
 func _ready():
 	_crear_enemigo(0.5)
-	
 
-func _crear_enemigo(tiempo: float = 15):
+func _crear_enemigo(tiempo: float = 3):
 	tiempo_espera.wait_time = tiempo
 	tiempo_espera.start()
+
+func instanciar_enemigo() -> void:
 	var escena_elegida = enemigos_posibles.pick_random()
 	var enemigo = escena_elegida.instantiate()
 	enemigo.global_position = global_position
 	enemigo.enemigo_muerto.connect(_crear_enemigo)
-	get_tree().current_scene.get_node("Enemigos").add_child(enemigo)
+	get_tree().current_scene.get_node("Enemigos").call_deferred("add_child", enemigo)
