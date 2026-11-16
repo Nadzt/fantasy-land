@@ -4,8 +4,9 @@
 [ext_resource type="Resource" uid="uid://b32k2j5eplkg" path="res://resources/armas/lanza.tres" id="2_krxa6"]
 [ext_resource type="Texture2D" uid="uid://bi30bkqn7v27t" path="res://resources/sprites/armas/cuchillo_martillo_sprite.tres" id="2_tj3td"]
 [ext_resource type="Texture2D" uid="uid://bulcu4oppi8ai" path="res://resources/sprites/mano_derecha.tres" id="4_xjiux"]
+[ext_resource type="AudioStream" uid="uid://bfjhw1qckj248" path="res://assets/sfx/Sword Attack 1.wav" id="5_kgdht"]
 
-[node name="ArmaMelee" type="Node2D" unique_id=417194038 node_paths=PackedStringArray("sprite", "pivote", "container", "hitbox", "timer_de_espera", "hitbox_area")]
+[node name="ArmaMelee" type="Node2D" unique_id=417194038 node_paths=PackedStringArray("sprite", "pivote", "container", "hitbox", "timer_de_espera", "hitbox_area", "sfx_atk", "sfx_hit", "buffs_container")]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_0fmgw")
 multiplicador_jugador = 10.0
@@ -16,8 +17,13 @@ container = NodePath("Pivote/Container")
 hitbox = NodePath("Pivote/Container/Area2D/CollisionPolygon2D")
 timer_de_espera = NodePath("TimerDeEspera")
 hitbox_area = NodePath("Pivote/Container/Area2D")
+sfx_atk = NodePath("SfxAtk")
+sfx_hit = NodePath("SfxHit")
+buffs_container = NodePath("Pivote/BuffsContainer")
 
 [node name="Pivote" type="Node2D" parent="." unique_id=622450963]
+
+[node name="BuffsContainer" type="Node2D" parent="Pivote" unique_id=463598008]
 
 [node name="Container" type="Node2D" parent="Pivote" unique_id=1412399964]
 position = Vector2(0, -7)
@@ -38,6 +44,11 @@ texture = ExtResource("4_xjiux")
 
 [node name="TimerDeEspera" type="Timer" parent="." unique_id=728459303]
 one_shot = true
+
+[node name="SfxAtk" type="AudioStreamPlayer2D" parent="." unique_id=1601651084]
+stream = ExtResource("5_kgdht")
+
+[node name="SfxHit" type="AudioStreamPlayer2D" parent="." unique_id=1091300038]
 
 [connection signal="body_entered" from="Pivote/Container/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="TimerDeEspera" to="." method="_on_timer_de_espera_timeout"]

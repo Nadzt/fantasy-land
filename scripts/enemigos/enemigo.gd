@@ -2,7 +2,10 @@
 class_name Enemigo
 extends Personaje
 
+
 @export var _puntaje: int
+@onready var colisiones: CollisionShape2D = $CollisionShape2D
+
 var jugador: Jugador = null
 var item_drop: PackedScene = preload("uid://sw2f3xj4wdoh")
 
@@ -22,6 +25,7 @@ func soltar_item() -> void
 
 func _morir() -> void:
 	GameManager.sumar_puntos(_puntaje)
+	colisiones.set_deferred("disabled", true)
 	soltar_item()
 	GameManager.enemigo_derrotado()
 	await super._morir()

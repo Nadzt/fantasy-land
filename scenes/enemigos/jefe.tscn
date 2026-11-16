@@ -274,8 +274,7 @@ collision_layer = 5
 script = ExtResource("1_ervgk")
 area_1 = NodePath("RangoDeteccion")
 area_2 = NodePath("AlcanceGuadaña")
-drop_gema = ExtResource("2_sleqt")
-_puntaje = 100
+_puntaje = 5000
 vuela = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1497227128]
@@ -284,7 +283,7 @@ sprite_frames = SubResource("SpriteFrames_uvalc")
 animation = &"attack"
 frame = 5
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=59429785]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=59429785]
 position = Vector2(3, -3)
 shape = SubResource("CapsuleShape2D_ervgk")
 

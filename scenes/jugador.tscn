@@ -352,9 +352,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hns4q")
 }],
-"loop": true,
+"loop": false,
 "name": &"salto",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -400,8 +400,7 @@ res = ExtResource("4_k64kw")
 texture_filter = 1
 position = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_o4ec4")
-animation = &"correr"
-frame_progress = 0.17479216
+animation = &"salto"
 
 [node name="SlotAdelante" type="Node2D" parent="." unique_id=691736256]
 

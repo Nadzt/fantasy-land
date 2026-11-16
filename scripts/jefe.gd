@@ -14,9 +14,7 @@ extends Enemigo
 
 func _init():
 	super(100) #puntaje 
-	_vida = 150
-	_fuerza = 20
-	_defensa = 20
+	_vida = 1000
 
 func _ready() -> void:
 	super._ready()

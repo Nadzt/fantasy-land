@@ -9,6 +9,9 @@ enum estado {
 	en_cooldown
 }
 
+const SFXs_ATK = [preload("uid://bfjhw1qckj248"), preload("uid://dtpk7omy8wax0"), preload("uid://bcnba82lp0grq")]
+const SFXs_HIT = [preload("uid://vcip7ombq3g6"), preload("uid://ceicqagjxrrrx"), preload("uid://c2l8awjn1o06t")]
+
 ## si esta on, imprime en consola informacion extra
 @export var debug: bool = false
 
@@ -23,6 +26,17 @@ enum estado {
 ## el recurso del arma
 @export var res: ArmaResource
 
+@export_group("buffs")
+## multiplicador de attack speed
+@export var bonus_atk_speed: float = 0
+## bonus ad
+@export var bonus_ad: float = 0
+## rango bonus
+@export var bonus_range: float = 0
+## multiplicador bonus
+@export var bonus_multi: float = 0
+
+
 @export_group("Info general")
 ## nombre del arma
 @export var nombre: String
@@ -34,6 +48,7 @@ enum estado {
 @export var dir_izquierda: bool = false
 ## layer que lee el arma, 1 para jugador y 3 para enemigos
 @export var layer_de_dmg: int = 3
+
 
 @export_group("Componentes")
 ## Sprite del arma
@@ -48,6 +63,13 @@ enum estado {
 @export var timer_de_espera: Timer
 ## area de hitbox
 @export var hitbox_area: Area2D
+## audiostreamplayer para sfx de ataques
+@export var sfx_atk: AudioStreamPlayer2D
+## audiostreamplayer para sfx de hits
+@export var sfx_hit: AudioStreamPlayer2D
+## contenedor donde se ponen los buffs
+@export var buffs_container: Node2D
+
 
 @export_group("stats de animacion")
 ## arco de ataque para un ataque de tipo slash (en radianes)
@@ -221,13 +243,13 @@ func iniciar_estado_anticipacion() -> void:
 	
 	# variables de rotacion
 	aplicar_rotacion = animacion_actual.get_ant_tiene_rotacion()
-	rotacion_duracion = animacion_actual.get_ant_r_duracion()
+	rotacion_duracion = animacion_actual.get_ant_r_duracion() * (1 - bonus_atk_speed / 100)
 	rotacion_curva_ease = animacion_actual.get_ant_r_curva_ease()
 	rotacion_distancia = animacion_actual.get_ant_r_distancia()
 	
 	# variables de traslacion
 	aplicar_traslacion = animacion_actual.get_ant_tiene_traslacion()
-	traslacion_duracion = animacion_actual.get_ant_t_duracion()
+	traslacion_duracion = animacion_actual.get_ant_t_duracion() * (1 - bonus_atk_speed / 100)
 	traslacion_curva_ease = animacion_actual.get_ant_t_curva_ease()
 	traslacion_distancia = animacion_actual.get_ant_t_distancia()
 
@@ -236,6 +258,11 @@ func inicia_estado_atacando() -> void:
 	# estado actual
 	print_dev("inicia_estado_atacando")
 	estado_actual = estado.atacando
+	
+	# activa sfx
+	sfx_atk.stream = SFXs_ATK.pick_random()
+	sfx_atk.pitch_scale = randf_range(0.8, 1.2)
+	sfx_atk.play()
 	
 	# activar hitbox
 	hitbox.disabled = false
@@ -246,7 +273,7 @@ func inicia_estado_atacando() -> void:
 	
 	# variables de rotacion
 	aplicar_rotacion = animacion_actual.get_atk_tiene_rotacion()
-	rotacion_duracion = animacion_actual.get_atk_r_duracion()
+	rotacion_duracion = animacion_actual.get_atk_r_duracion() * (1 - bonus_atk_speed / 100)
 	rotacion_curva_ease = animacion_actual.get_atk_r_curva_ease()
 	var distancia_r_atk = animacion_actual.get_atk_r_distancia()
 	var distancia_r_ant = animacion_actual.get_ant_r_distancia()
@@ -255,11 +282,11 @@ func inicia_estado_atacando() -> void:
 	
 	# variables de traslacion
 	aplicar_traslacion = animacion_actual.get_atk_tiene_traslacion()
-	traslacion_duracion = animacion_actual.get_atk_t_duracion()
+	traslacion_duracion = animacion_actual.get_atk_t_duracion() * (1 - bonus_atk_speed / 100)
 	traslacion_curva_ease = animacion_actual.get_atk_t_curva_ease()
 	var distancia_t_atk = animacion_actual.get_atk_t_distancia()
 	var distancia_t_ant = animacion_actual.get_ant_t_distancia()
-	traslacion_distancia = distancia_t_atk + abs(distancia_t_ant)
+	traslacion_distancia = distancia_t_atk + abs(distancia_t_ant) + bonus_range
 	traslacion_offset = distancia_t_ant
 
 ## cambia al estado volviendo y establece las variables
@@ -274,13 +301,13 @@ func iniciar_estado_volviendo() -> void:
 	aplicar_rotacion = pivote.rotation != 0
 	
 	# variables de rotacion
-	rotacion_duracion = animacion_actual.get_vol_r_duracion()
+	rotacion_duracion = animacion_actual.get_vol_r_duracion() * (1 - bonus_atk_speed / 100)
 	rotacion_curva_ease = animacion_actual.get_vol_r_curva_ease()
 	rotacion_offset = pivote.rotation
 	rotacion_distancia = -pivote.rotation
 	
 	# variables de traslacion
-	traslacion_duracion = animacion_actual.get_vol_t_duracion()
+	traslacion_duracion = animacion_actual.get_vol_t_duracion() * (1 - bonus_atk_speed / 100)
 	traslacion_curva_ease = animacion_actual.get_vol_t_curva_ease()
 	traslacion_offset = pivote.position.x
 	var distancia_t = abs(pivote.position.x) + animacion_actual.get_vol_t_distancia()
@@ -401,10 +428,17 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	#print("%s le pego a un body: %s" % [nombre, body.name])
 	
 	if body is Enemigo:
-		body.recibir_dmg(dmg*multiplicador_jugador)
+		body.recibir_dmg((dmg + bonus_ad)*multiplicador_jugador*bonus_multi)
+		sfx_hit.stream = SFXs_HIT.pick_random()
+		sfx_hit.pitch_scale = randf_range(0.8, 1.2)
+		sfx_hit.play()
 	
 	if body is Jugador:
-		body.recibir_dmg(dmg*multiplicador_enemigos)
+		body.recibir_dmg((dmg + bonus_ad)*multiplicador_enemigos*bonus_multi)
+		sfx_hit.stream = SFXs_HIT.pick_random()
+		sfx_hit.pitch_scale = randf_range(0.8, 1.2)
+		sfx_hit.play()
+
 
 
 #endregion

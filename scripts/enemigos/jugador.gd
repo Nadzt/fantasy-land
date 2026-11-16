@@ -120,7 +120,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("saltar") and not is_on_floor():
 		doble_salto()
 	
-	if is_on_floor() and velocity.x == 0:
+	if is_on_floor() and velocity.x == 0 and velocity.y == 0:
 		sprite.play("idle")
 
 func trepar() -> void:
@@ -162,7 +162,7 @@ func doble_salto() -> void:
 	if not is_on_floor() and _saltos_hechos < 2:
 		_saltos_hechos += 1
 		velocity.y = jump_velocity
-		sprite.play("salto")
+		sprite.frame = 0
 
 ## cambia las posiciones de las manos en el characterbody2d
 func cambiar_pos_manos(mira_hacia_izquierda: bool) -> void:
