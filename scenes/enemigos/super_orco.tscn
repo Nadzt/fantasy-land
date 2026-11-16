@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://v6snli8lysgn" path="res://scripts/jefeOrco.gd" id="1_7sraf"]
 [ext_resource type="Script" uid="uid://nrslcf4cbclv" path="res://scripts/mano.gd" id="2_o4nq8"]
+[ext_resource type="PackedScene" uid="uid://d3agmnm74alfr" path="res://scenes/gema.tscn" id="2_xapfv"]
 [ext_resource type="PackedScene" uid="uid://dy1y8qqrxvc51" path="res://scenes/armas/arma_melee.tscn" id="3_o4nq8"]
 [ext_resource type="Texture2D" uid="uid://bfreycov4r1jh" path="res://assets/personajes/enemigos/orcos/shaman/shaman_sprites.png" id="5_15rjy"]
 
@@ -148,6 +149,7 @@ height = 44.0
 
 [node name="SuperOrco" type="CharacterBody2D" unique_id=1832326901 node_paths=PackedStringArray("mano_derecha", "mano_izquierda", "slot_adelante", "slot_atras")]
 script = ExtResource("1_7sraf")
+drop_gema = ExtResource("2_xapfv")
 mano_derecha = NodePath("SlotAdelante/ManoDerecha")
 mano_izquierda = NodePath("SlotAtras/ManoIzquierda")
 slot_adelante = NodePath("SlotAdelante")

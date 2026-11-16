@@ -5,11 +5,12 @@ extends EnemigoConArma
 @export var rango_deteccion: float = 170.0  
 @export var rango_detencion: float = 120.0   
 
+@export var drop_gema: PackedScene
 #@onready var arma: Node2D = $Arma
 
 func _init() -> void:
 	super(100)
-	_vida = 70
+	_vida = 700
 	_fuerza = 20
 	_defensa = 30
 
@@ -48,4 +49,8 @@ func atacar() -> void:
 	print("Jefe te hace daño")
 
 func soltar_item() -> void:
-	print("El jefe a soltado una piedra magica")
+	if not drop_gema:
+		return
+	var nuevo_drop: Gema = drop_gema.instantiate()
+	nuevo_drop.global_position = global_position
+	get_tree().current_scene.get_node("Gemas").call_deferred("add_child", nuevo_drop)

@@ -72,12 +72,7 @@ func soltar_item() -> void :
 		return
 	var nuevo_drop: Gema = drop_gema.instantiate()
 	nuevo_drop.global_position = global_position
-	# Buscamos el contenedor "Drops" o usamos la escena actual si no existe
-	var contenedor = get_tree().current_scene.get_node_or_null("Gemas")
-	if contenedor == null:
-		contenedor = get_tree().current_scene
-		
-	contenedor.call_deferred("add_child", nuevo_drop)
+	get_tree().current_scene.get_node("Gemas").call_deferred("add_child", nuevo_drop)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
