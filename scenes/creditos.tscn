@@ -61,6 +61,17 @@ theme_override_font_sizes/font_size = 18
 text = "Miembros:
 "
 
+[node name="Artistas" type="Label" parent="." unique_id=1452697221]
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 277.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.15911332, 0.6714595, 0.50278133, 0.94509804)
+theme_override_fonts/font = ExtResource("2_6yhot")
+theme_override_font_sizes/font_size = 15
+text = "Artistas: Anokolisa, Always Rice y Luiz Melo.
+"
+
 [node name="Volver" type="TextureButton" parent="." unique_id=1865850528]
 offset_right = 320.0
 offset_bottom = 181.0
