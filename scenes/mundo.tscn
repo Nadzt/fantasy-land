@@ -1173,7 +1173,7 @@ position = Vector2(2845, -128)
 position = Vector2(1472, 339)
 
 [node name="Jugador" parent="." unique_id=681307978 instance=ExtResource("4_yi5ae")]
-position = Vector2(104, 637)
+position = Vector2(-939, 1202)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=928563124 node_paths=PackedStringArray("player")]
 position = Vector2(160, 90)
@@ -1228,7 +1228,7 @@ autoplay = true
 script = ExtResource("24_y4lqn")
 
 [node name="CollisionLava" type="CollisionShape2D" parent="AreaMuerte" unique_id=1226479127]
-position = Vector2(1709, 2510)
+position = Vector2(1808, 3120)
 shape = SubResource("RectangleShape2D_wf7jv")
 
 [node name="TextureRect" type="TextureRect" parent="AreaMuerte/CollisionLava" unique_id=1781603545]
