@@ -8,4 +8,4 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if jugador:
-		camera_2d.position = jugador.global_position
+		camera_2d.global_position = jugador.position 

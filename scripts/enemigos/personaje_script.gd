@@ -37,6 +37,10 @@ func _physics_process(delta: float) -> void:
 	_aplicar_gravedad(delta)
 	move_and_slide()
  
+func get_vida() -> int:
+	return _vida
+
+
 func _aplicar_gravedad(delta: float) -> void:
 	if vuela:
 		return

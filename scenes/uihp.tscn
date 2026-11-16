@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b2sgttv1mi47d"]
+
+[ext_resource type="Texture2D" uid="uid://c7ye52bewogwp" path="res://assets/LifeBarMiniUnder.png" id="1_d538o"]
+[ext_resource type="Texture2D" uid="uid://hcg1uv74o2ss" path="res://assets/LifeBarMiniProgress.png" id="2_54nra"]
+[ext_resource type="Script" uid="uid://chcklwcrvknk3" path="res://scripts/hud_vida.gd" id="3_vct4f"]
+
+[node name="UIHP" type="TextureProgressBar" unique_id=995553812 node_paths=PackedStringArray("label")]
+offset_left = 227.0
+offset_top = 1.0
+offset_right = 320.0
+offset_bottom = 13.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_d538o")
+texture_progress = ExtResource("2_54nra")
+script = ExtResource("3_vct4f")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=1244388763]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 88.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,7 +1,7 @@
 class_name Jugador
 extends Personaje
 
-signal cambio_en_vida
+signal cambio_en_vida()
 
 const VIDA_MAX: int = 100 #cambiar segun convenga
 
@@ -46,6 +46,13 @@ func recibir_dmg(dmg: int) -> void:
 	if not _muerto:
 		sprite.play("recibir_ataque")
 		cambio_en_vida.emit()
+
+func get_hp_max() -> int:
+	return VIDA_MAX
+
+func set_vida(nueva_vida: int) -> void:
+	_vida = nueva_vida
+	cambio_en_vida.emit()
 
 func usar_mano_derecha() -> void:
 	if mano_derecha:
@@ -99,15 +106,14 @@ func _physics_process(delta):
 	if puede_trepar and Input.is_action_pressed("trepar"):
 		trepar()
 		return
-		
+	
 	super._physics_process(delta)
-
 	correr()
 	saltar()
-
+	
 	if Input.is_action_just_pressed("saltar") and not is_on_floor():
 		doble_salto()
-
+	
 	if is_on_floor() and velocity.x == 0:
 		sprite.play("idle")
 
@@ -137,10 +143,11 @@ func correr():
 		
 		if Input.is_action_pressed("correr"):
 			velocity.x = dire * speed * 2 # corre
-			sprite.play("correr")
+			if is_on_floor():
+				sprite.play("correr")
 		else:
 			velocity.x = dire * speed     # camina
-			if sprite.animation != "caminar":
+			if sprite.animation != "caminar" and is_on_floor():
 				sprite.play("caminar")
 	else:
 		velocity.x = 0

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://c4pb755vgfwti"]
+
+[ext_resource type="Script" uid="uid://bbsooukbduf75" path="res://scripts/estatua.gd" id="1_utp17"]
+[ext_resource type="Texture2D" uid="uid://bjoqredctd6r8" path="res://assets/props/TX Props.png" id="2_fwfwk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6om3j"]
+atlas = ExtResource("2_fwfwk")
+region = Rect2(445, 21, 37, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwfwk"]
+size = Vector2(80, 80)
+
+[node name="Estatua" type="Node2D" unique_id=1074838752 node_paths=PackedStringArray("indicaciones", "respuesta")]
+script = ExtResource("1_utp17")
+indicaciones = NodePath("indicaciones")
+respuesta = NodePath("respuesta")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=54822001]
+texture = SubResource("AtlasTexture_6om3j")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=318756440]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=195669432]
+shape = SubResource("RectangleShape2D_fwfwk")
+
+[node name="indicaciones" type="RichTextLabel" parent="." unique_id=446826823]
+visible = false
+offset_left = -63.0
+offset_top = -54.0
+offset_right = 62.0
+offset_bottom = -33.0
+theme_override_font_sizes/normal_font_size = 5
+bbcode_enabled = true
+text = "[wave]A -> Paga 100 puntos para curarte
+S -> paga 200 puntos para un GRAN buff[/wave]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="respuesta" type="RichTextLabel" parent="." unique_id=597071607]
+visible = false
+offset_left = -63.0
+offset_top = -19.0
+offset_right = 63.0
+offset_bottom = -4.0
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

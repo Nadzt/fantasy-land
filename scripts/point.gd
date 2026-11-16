@@ -9,7 +9,7 @@ func _on_body_entered(body: Node2D) -> void:
 		
 	visible = false
 	collision_shape_2d.set_deferred("disabled", true)
-	Global.sumar_puntos(20)
+	GameManager.sumar_puntos(15)
 	
 	sonido_score.play()
 	await sonido_score.finished

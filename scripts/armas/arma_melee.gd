@@ -147,7 +147,7 @@ func _ready() -> void:
 	
 	# setup de la animacion
 	animacion_actual = animaciones_de_ataque.get(0)
-	print("%s: duracion de animacion actual: %s" % [nombre, animacion_actual.get_duracion_total()])
+	print_dev("%s: duracion de animacion actual: %s" % [nombre, animacion_actual.get_duracion_total()])
 
 
 

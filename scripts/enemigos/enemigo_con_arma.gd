@@ -57,7 +57,7 @@ func soltar_item() -> void:
 	nuevo_drop.sprite.texture = arma.res.get_sprite()
 	nuevo_drop.res = arma.res
 	nuevo_drop.global_position = global_position
-	get_tree().current_scene.get_node("Drops").add_child(nuevo_drop)
+	get_tree().current_scene.get_node("Drops").call_deferred("add_child", nuevo_drop)
 
 func _morir() -> void:
 	mano_derecha.hide()

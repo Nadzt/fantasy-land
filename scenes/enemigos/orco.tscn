@@ -148,6 +148,7 @@ size = Vector2(15.972224, 11.805557)
 
 [node name="Orco" type="CharacterBody2D" unique_id=1102138749 node_paths=PackedStringArray("area_de_ataque", "mano_derecha", "mano_izquierda", "slot_adelante", "slot_atras")]
 scale = Vector2(0.9, 0.9)
+collision_layer = 5
 script = ExtResource("1_ofxc1")
 area_de_ataque = NodePath("Area2D")
 mano_derecha = NodePath("SlotAdelante/ManoDerecha")

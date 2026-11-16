@@ -13,7 +13,6 @@ func _init(e_puntaje:int):
 func _ready() -> void:
 	add_to_group("Enemigos")
 	jugador = get_tree().get_first_node_in_group("Jugador")
-	print(jugador)
 
 @abstract
 func atacar() -> void
@@ -22,7 +21,7 @@ func atacar() -> void
 func soltar_item() -> void
 
 func _morir() -> void:
-	Global.sumar_puntos(_puntaje)
+	GameManager.sumar_puntos(_puntaje)
 	soltar_item()
 	GameManager.enemigo_derrotado()
 	await super._morir()
