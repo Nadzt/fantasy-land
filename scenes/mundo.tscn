@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c4t1g4jfa6x3g" path="res://scenes/enemigos/esqueleto_fijo.tscn" id="13_35q48"]
 [ext_resource type="PackedScene" uid="uid://do6iwtntf63xw" path="res://scenes/UI/ui_score.tscn" id="16_f7ym0"]
 [ext_resource type="PackedScene" uid="uid://b2sgttv1mi47d" path="res://scenes/uihp.tscn" id="18_541k4"]
+[ext_resource type="Texture2D" uid="uid://citrq88wytue1" path="res://assets/menu/caja_botones.png" id="19_2jrhv"]
 
 [node name="Mundo" type="Node2D" unique_id=348896220]
 
@@ -1160,6 +1161,14 @@ script = ExtResource("5_vwj67")
 player = NodePath("../Jugador")
 
 [node name="LayerMinimapa" type="CanvasLayer" parent="." unique_id=2069823429]
+
+[node name="TextureRect" type="TextureRect" parent="LayerMinimapa" unique_id=1829768453]
+offset_left = -4.0
+offset_top = -7.0
+offset_right = 56.0
+offset_bottom = 59.0
+texture = ExtResource("19_2jrhv")
+expand_mode = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="LayerMinimapa" unique_id=578207941]
 offset_right = 320.0
