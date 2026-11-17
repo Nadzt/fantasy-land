@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://8ne3dc5p0k45"]
+
+[ext_resource type="Script" uid="uid://c86yykaba082s" path="res://scenes/hud_gema.gd" id="1_fqw7w"]
+[ext_resource type="PackedScene" uid="uid://d3agmnm74alfr" path="res://scenes/gema.tscn" id="2_n8a40"]
+[ext_resource type="Texture2D" uid="uid://dsfgbekv4f4lx" path="res://assets/gemas/GEM 1 - LILAC - Spritesheet.png" id="3_4odyt"]
+[ext_resource type="Texture2D" uid="uid://forcl6tvg6j8" path="res://assets/gemas/gema_desactivada.png" id="3_n8a40"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqw7w"]
+atlas = ExtResource("3_4odyt")
+region = Rect2(0, 0, 18.092514, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8rvp"]
+atlas = ExtResource("3_4odyt")
+region = Rect2(0, 0, 17.940529, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr0nw"]
+atlas = ExtResource("3_4odyt")
+region = Rect2(0, 0, 18.227325, 30)
+
+[node name="HudGema" type="CanvasLayer" unique_id=160043372]
+script = ExtResource("1_fqw7w")
+gema_jefe_1 = ExtResource("2_n8a40")
+gema_inactiva = ExtResource("3_n8a40")
+gema_activa = SubResource("AtlasTexture_fqw7w")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=39881060]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1911603040]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1355885689]
+layout_mode = 2
+texture = SubResource("AtlasTexture_a8rvp")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=553181955]
+layout_mode = 2
+texture = SubResource("AtlasTexture_lr0nw")
