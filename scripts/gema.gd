@@ -1,6 +1,6 @@
 class_name Gema extends Node2D
 
-@export var id_gema: String = "gema_jefe_1"
+@export var id_gema: String = "gema_jefe"
 
 var jugador_en_rango: Jugador = null
 @onready var coleccionable: RichTextLabel = $Coleccionable

@@ -8,11 +8,12 @@ signal jefe_muerto
 @export var rango_detencion: float = 120.0   
 
 @export var drop_gema: PackedScene
+@export var id_gema: String = "gema_jefe_orco"
 #@onready var arma: Node2D = $Arma
 
 func _init() -> void:
 	super(100)
-	_vida = 700
+	_vida = 1500
 	_fuerza = 20
 	_defensa = 30
 
@@ -59,6 +60,7 @@ func soltar_item() -> void:
 		return
 	var nuevo_drop: Gema = drop_gema.instantiate()
 	nuevo_drop.global_position = global_position
+	nuevo_drop.id_gema = id_gema
 	get_tree().current_scene.get_node("Gemas").call_deferred("add_child", nuevo_drop)
 
 func _morir() -> void:

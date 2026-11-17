@@ -13,10 +13,11 @@ signal jefe_muerto
 @export var area_1: Area2D
 @export var area_2: Area2D
 @export var drop_gema: PackedScene
+@export var id_gema: String = "gema_jefe_parca"
 
 func _init():
 	super(100) #puntaje 
-	_vida = 1000
+	_vida = 1800
 	_fuerza = 15
 	_defensa = 50 #Le puse 0 para saber si esto era el problema
 
@@ -75,6 +76,7 @@ func soltar_item() -> void :
 		return
 	var nuevo_drop: Gema = drop_gema.instantiate()
 	nuevo_drop.global_position = global_position
+	nuevo_drop.id_gema = id_gema
 	get_tree().current_scene.get_node("Gemas").call_deferred("add_child", nuevo_drop)
 
 
