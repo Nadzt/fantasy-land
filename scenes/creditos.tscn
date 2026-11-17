@@ -64,8 +64,8 @@ text = "Miembros:
 [node name="Artistas" type="Label" parent="." unique_id=1452697221]
 offset_left = 7.0
 offset_top = 29.0
-offset_right = 447.0
-offset_bottom = 90.0
+offset_right = 306.0
+offset_bottom = 103.0
 theme_override_colors/font_color = Color(0.16078432, 0.4117647, 0.5019608, 0.94509804)
 theme_override_fonts/font = ExtResource("2_6yhot")
 theme_override_font_sizes/font_size = 14
