@@ -11,7 +11,7 @@ func _init() -> void:
 	super(50)
 	_vida = 50
 	_fuerza = 15
-	_defensa = 20
+	_defensa = 15
 
 func _physics_process(delta: float) -> void:
 	if _muerto:
