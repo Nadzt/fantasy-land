@@ -11,6 +11,6 @@ _sprite = ExtResource("1_64n4j")
 _pos_mano = Vector2(0, -17.5)
 _area_polygon_array = PackedVector2Array(2, -24.5, 4, -10.5, -4, -10.5)
 _nombre = "Lanza de madera"
-_dmg = 11
+_dmg = 45
 _animaciones = Array[ExtResource("1_i6c58")]([ExtResource("2_fbl5w")])
 metadata/_custom_type_script = "uid://b8i8ll3s3la6h"

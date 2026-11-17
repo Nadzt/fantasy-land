@@ -11,6 +11,6 @@ _sprite = ExtResource("1_tek0m")
 _pos_mano = Vector2(0, -7.5)
 _area_polygon_array = PackedVector2Array(-8, -14, 8, -14, 8, -4, -8, -4)
 _nombre = "Martillo"
-_dmg = 18
+_dmg = 27
 _animaciones = Array[ExtResource("1_mlyxn")]([ExtResource("2_mlyxn")])
 metadata/_custom_type_script = "uid://b8i8ll3s3la6h"
