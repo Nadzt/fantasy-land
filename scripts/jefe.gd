@@ -1,6 +1,8 @@
 class_name Jefe
 extends Enemigo
 
+signal jefe_muerto
+
 @export var velocidad: float = 60.0
 @export var rango_deteccion: float = 110.0  
 @export var rango_detencion: float = 30.0 
@@ -21,6 +23,7 @@ func _init():
 func _ready() -> void:
 	super._ready()
 	sprite.play("idle")
+	jefe_muerto.connect(GameManager.jefe_fue_derrotado)
 
 func _physics_process(delta: float) -> void:
 	if _muerto:
@@ -92,3 +95,7 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 			alcance.set_deferred("disabled", false)
 		else:
 			alcance.set_deferred("disabled", true)
+
+func _morir() -> void:
+	super._morir()
+	jefe_muerto.emit()

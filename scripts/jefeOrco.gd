@@ -1,6 +1,8 @@
 class_name JefeOrco
 extends EnemigoConArma
 
+signal jefe_muerto
+
 @export var velocidad: float = 60.0
 @export var rango_deteccion: float = 170.0  
 @export var rango_detencion: float = 120.0   
@@ -13,6 +15,10 @@ func _init() -> void:
 	_vida = 700
 	_fuerza = 20
 	_defensa = 30
+
+func _ready() -> void:
+	super._ready()
+	jefe_muerto.connect(GameManager.jefe_fue_derrotado)
 
 func _physics_process(delta: float) -> void:
 	if _muerto:
@@ -54,3 +60,7 @@ func soltar_item() -> void:
 	var nuevo_drop: Gema = drop_gema.instantiate()
 	nuevo_drop.global_position = global_position
 	get_tree().current_scene.get_node("Gemas").call_deferred("add_child", nuevo_drop)
+
+func _morir() -> void:
+	super._morir()
+	jefe_muerto.emit()

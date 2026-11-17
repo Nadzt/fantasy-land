@@ -1,4 +1,4 @@
-extends Control
+class_name PantallaVictoria extends Control
 
 @onready var label_score: Label = $LabelScore
 

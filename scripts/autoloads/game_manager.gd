@@ -9,7 +9,7 @@ signal enemigos_derrotados
 signal gema_conseguida(id_gema: String)
 
 var gemas_obtenidas: Array[String] = []
-var puntos: int = 0
+var puntos: int = 10000
 var cantidad_jefes: int = 2
 var cant_jefes_derrotados: int = 0
 var cant_enemigos: int = 5 #valor de prueba, modificar despes con la contidad correspondiente
@@ -33,14 +33,14 @@ func jefe_fue_derrotado() -> void:
 		fin_del_juego()
 
 func fin_del_juego() -> void:
-	juego_terminado.emit()
-	#Aca no sé si debe mostrar algo o es parte de UI
+	get_tree().call_deferred("change_scene_to_file", "uid://cojne0qvpfj6d")
 
 func enemigo_derrotado() -> void:
 	cant_enemigos -= 1
 	enemigos_derrotados.emit()
 
 func registrar_gema(id: String) -> void:
+
 	if not gemas_obtenidas.has(id):
 		gemas_obtenidas.append(id)
 		gema_conseguida.emit(id)
