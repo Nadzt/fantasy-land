@@ -542,7 +542,7 @@ func buffear_dmg(nuevo_buff: int) -> void:
 ## se suma el attack speed al arma, si tiene limite u_u
 func buffear_rango(rango_extra: float) -> void:
 	bonus_range += rango_extra
-	bonus_range = min(bonus_range, 250)
+	bonus_range = min(bonus_range, 150)
 
 func buffear_multiplicador(multiplicador_extra : float) -> void:
 	bonus_multi += multiplicador_extra
