@@ -57,7 +57,7 @@ animations = [{
 radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g83iv"]
-radius = 5.5
+radius = 3.3793128
 
 [node name="OjoVolador" type="CharacterBody2D" unique_id=1102138749 node_paths=PackedStringArray("collision")]
 collision_layer = 5
