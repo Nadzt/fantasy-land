@@ -1,7 +1,8 @@
 class_name Jugador
 extends Personaje
 
-signal cambio_en_vida()
+signal cambio_en_vida
+signal game_over
 
 var _hp_maxima: int = 100 #cambiar segun convenga
 
@@ -34,7 +35,8 @@ var _offset_trepar : float
 func _init():
 	super(100, 20, 5)
 
-func _ready() -> void:	
+func _ready() -> void:
+	game_over.connect(GameManager.ejecutar_game_over)
 	cambiar_pos_manos(false)
 	if mano_izquierda.arma:
 		mano_izquierda.arma.actualizar_pos()
@@ -43,9 +45,9 @@ func _ready() -> void:
 
 func recibir_dmg(dmg: int) -> void:
 	super(dmg)
+	cambio_en_vida.emit()
 	if not _muerto:
 		sprite.play("recibir_ataque")
-		cambio_en_vida.emit()
 
 func get_vida() -> int:
 	return _vida
@@ -186,3 +188,7 @@ func cambiar_pos_manos(mira_hacia_izquierda: bool) -> void:
 	if mano_derecha.arma:
 		mano_derecha.arma.actualizar_pos()
 		mano_derecha.arma.invertir_por_direccion(mira_hacia_izquierda)
+
+func _morir() -> void:
+	super._morir()
+	game_over.emit()

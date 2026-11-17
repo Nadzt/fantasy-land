@@ -1,4 +1,4 @@
-extends Node2D
+class_name PantallaCreditos extends Node2D
 
 
 func _on_volver_button_down() -> void:

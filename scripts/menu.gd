@@ -1,4 +1,4 @@
-extends Node2D
+class_name PantallaMenu extends Node2D
 
 @onready var boton_cargar = $VBoxContainer/Cargar
 

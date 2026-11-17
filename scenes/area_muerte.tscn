@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c5re4wuf5obg6"]
+
+[ext_resource type="Script" uid="uid://b2em7eji4jb5" path="res://scripts/area_muerte.gd" id="1_oqakl"]
+[ext_resource type="Texture2D" uid="uid://jshrk1fuvwlx" path="res://assets/lava.jpg" id="2_wlwvg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wf7jv"]
+size = Vector2(11986, 601.5)
+
+[node name="AreaMuerte" type="Area2D" unique_id=118195667]
+script = ExtResource("1_oqakl")
+
+[node name="CollisionLava" type="CollisionShape2D" parent="." unique_id=1962414892]
+position = Vector2(1808, 3120)
+shape = SubResource("RectangleShape2D_wf7jv")
+
+[node name="Lava" type="TextureRect" parent="CollisionLava" unique_id=287090964]
+offset_left = -5996.0
+offset_top = -293.25
+offset_right = 6007.0
+offset_bottom = 906.75
+texture = ExtResource("2_wlwvg")
+stretch_mode = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

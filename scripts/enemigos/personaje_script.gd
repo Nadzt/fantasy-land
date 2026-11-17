@@ -22,7 +22,7 @@ func recibir_dmg(dmg: int) -> void:
 		return
 	_vida -= maxi(dmg - _defensa, 0)
 	_parpadear_rojo()
-
+	
 	if _vida <= 0:
 		_vida = 0
 		_morir()

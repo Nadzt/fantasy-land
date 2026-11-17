@@ -39,5 +39,8 @@ func enormizar() -> void:
 	GameManager.restar_puntos(200)
 	respuesta.text = "[shake rate=20 level=2][color='#E924FF']Enormizar[/color][/shake]"
 	var signo: int = sign(jugador_en_rango.mano_derecha.arma.scale.x)
-	jugador_en_rango.mano_derecha.arma.scale += Vector2(0.4 * signo, 0.4)
-	jugador_en_rango.mano_izquierda.arma.scale += Vector2(0.4 * signo, 0.4)
+	if abs(jugador_en_rango.mano_derecha.arma.scale.x) < 2:
+		jugador_en_rango.mano_derecha.arma.scale += Vector2(0.2 * signo, 0.2)
+	if abs(jugador_en_rango.mano_izquierda.arma.scale.x) < 2:
+		jugador_en_rango.mano_izquierda.arma.scale += Vector2(0.2 * signo, 0.2)
+	

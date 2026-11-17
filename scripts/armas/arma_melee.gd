@@ -535,11 +535,14 @@ func cambiar_hitbox_area(layer: int = layer_de_dmg) -> void:
 func buffear_atk_speed(nuevo_buff: float) -> void:
 	bonus_atk_speed = min(bonus_atk_speed + ((100 - bonus_atk_speed) * nuevo_buff/100), 80)
 
+## buffea el daño del arma, sin limite
 func buffear_dmg(nuevo_buff: int) -> void:
 	bonus_ad += nuevo_buff
 
+## se suma el attack speed al arma, si tiene limite u_u
 func buffear_rango(rango_extra: float) -> void:
 	bonus_range += rango_extra
+	bonus_range = min(bonus_range, 250)
 
 func buffear_multiplicador(multiplicador_extra : float) -> void:
 	bonus_multi += multiplicador_extra

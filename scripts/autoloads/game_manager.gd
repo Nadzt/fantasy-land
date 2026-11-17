@@ -46,4 +46,6 @@ func registrar_gema(id: String) -> void:
 		gema_conseguida.emit(id)
 		
 		
-	
+
+func ejecutar_game_over() -> void:
+	print("a")

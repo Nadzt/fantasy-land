@@ -7,7 +7,7 @@ class_name GestorEnemigos
 func _ready():
 	_crear_enemigo(0.5)
 
-func _crear_enemigo(tiempo: float = 3):
+func _crear_enemigo(tiempo: float = 12):
 	tiempo_espera.wait_time = tiempo
 	tiempo_espera.start()
 
