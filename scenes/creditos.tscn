@@ -69,7 +69,8 @@ offset_bottom = 72.0
 theme_override_colors/font_color = Color(0.15911332, 0.6714595, 0.50278133, 0.94509804)
 theme_override_fonts/font = ExtResource("2_6yhot")
 theme_override_font_sizes/font_size = 15
-text = "Artistas: Anokolisa, Always Rice y Luiz Melo.
+text = "Artistas: Anokolisa, Always Rice, Cainos y Luiz Melo.
+Música y SFX: xDeviruchi y TomMusic.
 "
 
 [node name="Volver" type="TextureButton" parent="." unique_id=1865850528]
