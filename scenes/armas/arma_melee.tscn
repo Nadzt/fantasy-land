@@ -9,7 +9,7 @@
 [node name="ArmaMelee" type="Node2D" unique_id=417194038 node_paths=PackedStringArray("sprite", "pivote", "container", "hitbox", "timer_de_espera", "hitbox_area", "sfx_atk", "sfx_hit", "buffs_container")]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_0fmgw")
-multiplicador_jugador = 4.0
+multiplicador_jugador = 3.5
 multiplicador_enemigos = 1.5
 res = ExtResource("2_krxa6")
 sprite = NodePath("Pivote/Container/Sprite2D")
