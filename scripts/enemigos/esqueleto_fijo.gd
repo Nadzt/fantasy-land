@@ -9,7 +9,7 @@ func _init() -> void:
 	super(20)
 	_vida = 10
 	_fuerza = 5
-	_defensa = 5
+	_defensa = 20
 	
 func _ready() -> void:
 	super._ready()
