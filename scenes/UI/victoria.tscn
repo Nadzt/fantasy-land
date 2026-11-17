@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cojne0qvpfj6d"]
+
+[ext_resource type="Script" uid="uid://b2h356rffb5j" path="res://scripts/UI/game_over.gd" id="1_7vfqa"]
+[ext_resource type="Texture2D" uid="uid://i5cgkwyhiwye" path="res://assets/backgrounds/castillo_bien.png" id="2_7vfqa"]
+[ext_resource type="FontFile" uid="uid://cbl1geaiylh1b" path="res://resources/fonts/Pixelta.ttf" id="3_u8wjj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vop4n"]
+texture = ExtResource("2_7vfqa")
+
+[node name="Victoria" type="Control" unique_id=1828999283]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7vfqa")
+
+[node name="Panel" type="Panel" parent="." unique_id=1678907117]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vop4n")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=755869586]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.25
+anchor_right = 0.5
+anchor_bottom = 0.25
+offset_left = -57.0
+offset_top = -20.0
+offset_right = 57.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_u8wjj")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "[wave] ¡Ganaste! [wave]"
+
+[node name="Volver" type="TextureButton" parent="." unique_id=1478293783]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 181.0
+
+[node name="LabelScore" type="Label" parent="." unique_id=1702029486]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = -11.5
+offset_right = 64.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_u8wjj")
+text = "Tu score: 000000"
