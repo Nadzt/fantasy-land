@@ -3,9 +3,31 @@
 [ext_resource type="Script" uid="uid://b2h356rffb5j" path="res://scripts/UI/game_over.gd" id="1_l48yu"]
 [ext_resource type="Texture2D" uid="uid://b03x3bbru0rhn" path="res://assets/backgrounds/castillo_ruinas.jpeg" id="1_njkqv"]
 [ext_resource type="FontFile" uid="uid://cbl1geaiylh1b" path="res://resources/fonts/Pixelta.ttf" id="2_vop4n"]
+[ext_resource type="AudioStream" uid="uid://c6pm2wjld02mh" path="res://assets/musica/game_over.wav" id="4_lrum0"]
+[ext_resource type="Texture2D" uid="uid://buccnxgo1662p" path="res://assets/menu/A Buttons Big2.png" id="4_r5ffl"]
+[ext_resource type="Texture2D" uid="uid://1bfivk8342nx" path="res://assets/menu/A Buttons Big1.png" id="5_lrum0"]
+[ext_resource type="Texture2D" uid="uid://8l6dop3222g0" path="res://assets/menu/A Buttons Big3.png" id="6_uw231"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vop4n"]
 texture = ExtResource("1_njkqv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4umqm"]
+texture = ExtResource("4_r5ffl")
+modulate_color = Color(1, 0.7764706, 0.69411767, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pp5m5"]
+texture = ExtResource("5_lrum0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_el213"]
+texture = ExtResource("6_uw231")
+modulate_color = Color(1, 0.7764706, 0.69411767, 1)
+
+[sub_resource type="Theme" id="Theme_4eny6"]
+Button/font_sizes/font_size = 21
+Button/fonts/font = ExtResource("2_vop4n")
+Button/styles/hover = SubResource("StyleBoxTexture_4umqm")
+Button/styles/normal = SubResource("StyleBoxTexture_pp5m5")
+Button/styles/pressed = SubResource("StyleBoxTexture_el213")
 
 [node name="GameOver" type="Control" unique_id=1828999283]
 layout_mode = 3
@@ -63,3 +85,31 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_vop4n")
 text = "Tu score: 000000"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1882641534]
+stream = ExtResource("4_lrum0")
+autoplay = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1409500620]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 103.0
+offset_right = 191.735
+offset_bottom = 163.10056
+scale = Vector2(1.09, 1.09)
+theme = SubResource("Theme_4eny6")
+theme_override_constants/separation = 3
+
+[node name="Volver" type="Button" parent="VBoxContainer" unique_id=1110976572]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Menu Principal"
+
+[node name="Salir" type="Button" parent="VBoxContainer" unique_id=198066911]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Salir"
+
+[connection signal="pressed" from="VBoxContainer/Volver" to="." method="_on_volver_button_down"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_button_down"]

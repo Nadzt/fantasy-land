@@ -48,4 +48,4 @@ func registrar_gema(id: String) -> void:
 		
 
 func ejecutar_game_over() -> void:
-	print("a")
+	get_tree().call_deferred("change_scene_to_file", "uid://btosx1igptbbb")
