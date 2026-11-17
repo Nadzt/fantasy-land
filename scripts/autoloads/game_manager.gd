@@ -9,7 +9,7 @@ signal enemigos_derrotados
 signal gema_conseguida(id_gema: String)
 
 var gemas_obtenidas: Array[String] = []
-var puntos: int = 10000
+var puntos: int = 0
 var cantidad_jefes: int = 2
 var cant_jefes_derrotados: int = 0
 var cant_enemigos: int = 5 #valor de prueba, modificar despes con la contidad correspondiente

@@ -11,23 +11,23 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vop4n"]
 texture = ExtResource("1_njkqv")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4umqm"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lrum0"]
 texture = ExtResource("4_r5ffl")
 modulate_color = Color(1, 0.7764706, 0.69411767, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pp5m5"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uw231"]
 texture = ExtResource("5_lrum0")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_el213"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4eny6"]
 texture = ExtResource("6_uw231")
 modulate_color = Color(1, 0.7764706, 0.69411767, 1)
 
 [sub_resource type="Theme" id="Theme_4eny6"]
 Button/font_sizes/font_size = 21
 Button/fonts/font = ExtResource("2_vop4n")
-Button/styles/hover = SubResource("StyleBoxTexture_4umqm")
-Button/styles/normal = SubResource("StyleBoxTexture_pp5m5")
-Button/styles/pressed = SubResource("StyleBoxTexture_el213")
+Button/styles/hover = SubResource("StyleBoxTexture_lrum0")
+Button/styles/normal = SubResource("StyleBoxTexture_uw231")
+Button/styles/pressed = SubResource("StyleBoxTexture_4eny6")
 
 [node name="GameOver" type="Control" unique_id=1828999283]
 layout_mode = 3
