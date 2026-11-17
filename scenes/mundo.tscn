@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://jshrk1fuvwlx" path="res://assets/lava.jpg" id="25_wf7jv"]
 [ext_resource type="PackedScene" uid="uid://cvt2ueq3gwvmg" path="res://scenes/gestor_enemigos.tscn" id="26_lbjxv"]
 [ext_resource type="PackedScene" uid="uid://bbxr8h05njnmm" path="res://scenes/Totem.tscn" id="27_np3xf"]
+[ext_resource type="PackedScene" uid="uid://8ne3dc5p0k45" path="res://scenes/hudGema.tscn" id="28_0iwyf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wf7jv"]
 size = Vector2(11986, 601.5)
@@ -1301,5 +1302,9 @@ stretch_mode = 1
 [node name="Gestores2" type="Node" parent="." unique_id=1626094254]
 
 [node name="Gemas" type="Node" parent="." unique_id=270522812]
+
+[node name="HudGema" parent="." unique_id=160043372 instance=ExtResource("28_0iwyf")]
+gema_jefe_1 = "gema_jefe_parca"
+gema_jefe_2 = "gema_jefe_orco"
 
 [connection signal="body_entered" from="AreaMuerte" to="AreaMuerte" method="_on_body_entered"]
